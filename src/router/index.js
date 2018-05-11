@@ -17,8 +17,22 @@ import WaterRecord from '@/components/WaterRecord'
 import Message from '@/components/Message'
 import DelegateList from '@/components/DelegateList'
 import FinalDelegateList from '@/components/FinalDelegateList'
+import Test from '@/components/Test'
+import {getToken, setToken} from '@/utils/util'
+
 Vue.use(Router)
-export default new Router({
+Router.prototype.back = function () {
+  this.isBack = true
+  window.history.go(-1)
+}
+
+const router = new Router({
+  scrollBehavior(to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  },
   routes: [
     {
       path: '/',
@@ -101,7 +115,39 @@ export default new Router({
       path: '/order',
       name: 'Order',
       component: Order
-    }
+    },
 
+    {
+      path: '/test',
+      name: 'Test',
+      query: {
+        sid: 'sid',
+        id: 'id'
+      },
+      component: Test
+    },
   ]
 })
+
+
+router.beforeEach((to, from, next) => {
+  console.log('beforeeach')
+  let token = getToken()
+
+  //测试用
+  next()
+
+  //测试去掉验证
+  // if (token) {
+  //   next()
+  // } else {
+  //   if(to.path=='/login'){//如果是登录页面路径，就直接next()
+  //     next();
+  //   }else{//不然就跳转到登录；
+  //     next('/login');
+  //   }
+  // }
+
+})
+
+export default router

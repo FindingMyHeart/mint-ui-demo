@@ -3,6 +3,7 @@
  */
 import fetch from './fetch'
 import axios from 'axios'
+import Vue from 'vue'
 
 const instance = axios.create({
   baseURL: Vue.prototype.baseUrl,
@@ -45,7 +46,26 @@ export function getAgentInfo() {
     }
   })
 }
+export function jsapiparam(url) {
+  return fetch({
+    url: '/wechat/jsapiparam',
+    method: 'get',
+    params: {
+      url
+    }
+  })
+}
 
+export function auth() {
+  return fetch({
+    // url: '/wechat/authorize_base?returnUrl=base',
+    url: '/wechat/authorize?returnUrl=base',
+    method: 'get',
+    params: {
+
+    }
+  })
+}
 const apiList = {
   LOGIN,
 }
