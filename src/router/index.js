@@ -18,6 +18,7 @@ import Message from '@/components/Message'
 import DelegateList from '@/components/DelegateList'
 import FinalDelegateList from '@/components/FinalDelegateList'
 import Test from '@/components/Test'
+import Charge from '@/components/Charge'
 import {getToken, setToken} from '@/utils/util'
 
 Vue.use(Router)
@@ -126,6 +127,13 @@ const router = new Router({
       },
       component: Test
     },
+
+    {
+      path: '/charge',
+      name: 'Charge',
+
+      component: Charge
+    }
   ]
 })
 
