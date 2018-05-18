@@ -17,8 +17,9 @@ import WaterRecord from '@/components/WaterRecord'
 import Message from '@/components/Message'
 import DelegateList from '@/components/DelegateList'
 import FinalDelegateList from '@/components/FinalDelegateList'
-import Test from '@/components/Test'
+import ShareLink from '@/components/ShareLink'
 import Charge from '@/components/Charge'
+import Download from '@/components/Download'
 import {getToken, setToken} from '@/utils/util'
 
 Vue.use(Router)
@@ -34,6 +35,7 @@ const router = new Router({
       y: 0
     }
   },
+  // base:'/agent/',
   routes: [
     {
       path: '/',
@@ -119,13 +121,13 @@ const router = new Router({
     },
 
     {
-      path: '/test',
-      name: 'Test',
+      path: '/sharelink',
+      name: 'ShareLink',
       query: {
         sid: 'sid',
         id: 'id'
       },
-      component: Test
+      component: ShareLink
     },
 
     {
@@ -133,6 +135,12 @@ const router = new Router({
       name: 'Charge',
 
       component: Charge
+    },
+    {
+      path: '/download',
+      name: 'Download',
+
+      component: Download
     }
   ]
 })

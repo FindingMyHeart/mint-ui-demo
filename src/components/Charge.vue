@@ -47,45 +47,82 @@
     </div>
     <br/>
 
-    <div class="page-content">
 
-      <img :src="url" width="150" height="100" @click="clickButton(1)">
-      &nbsp; &nbsp;
-      <img :src="url" width="150" height="100" @click="clickButton(1)">
+    <div>
 
-      <br/>
-      <img :src="url" width="150" height="100" @click="clickButton(1)">
-      &nbsp; &nbsp;
-      <img :src="url" width="150" height="100" @click="clickButton(1)">
+
+      <span style="position:relative;">
+        　　 <img :src="urlList[0]" width="170" height="68" @click="clickButton(0)">
+        <!--　　 <img :src="url2" width="170" height="68"  >-->
+        　　<div v-show="showUrl[0]" style="position:relative; z-index:10; left:-0px; top:-68px ">
+        　　　　 <img :src="url2" width="170" height="68" @click="clickButton(0)" >
+        　　</div>
+        <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
+        <!--　　　　{{this.moneyList[0]}}元-->
+        <!--　　</div>-->
+      </span>
+
+      <span style="position:relative;">
+        　　 <img :src="urlList[0]" width="170" height="68"  @click="clickButton(1)">
+        <!--　　 <img :src="url2" width="170" height="68"  >-->
+        　　<div v-show="showUrl[0]" style="position:absolute; z-index:10; left:0px; top:-250% ">
+        　　　　 <img :src="url2" width="170" height="68" @click="clickButton(1)" >
+        　　</div>
+        <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
+        <!--　　　　{{this.moneyList[0]}}元-->
+        <!--　　</div>-->
+      </span>
+
+      <!--<span style="position:relative;">-->
+      <!--　　 <img :src="urlList[1]" width="170" height="68" @click="clickButton(1)">-->
+      <!--　　<div style="position:absolute; z-index:-1; left:-20px; top:-65px">-->
+      <!--　　　　　{{this.goldList[1]}}-->
+      <!--　　</div>-->
+      <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
+      <!--　　　　{{this.moneyList[1]}}元-->
+      <!--　　</div>-->
+      <!--</span>-->
+
+      <!--<span style="position:relative;">-->
+      <!--　　 <img :src="urlList[2]" width="150" height="100" @click="clickButton(2)">-->
+      <!--　　<div style="position:absolute; z-index:-1; left:-20px; top:-65px">-->
+      <!--　　　　　{{this.goldList[2]}}-->
+      <!--　　</div>-->
+      <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
+      <!--　　　{{this.moneyList[2]}}元-->
+      <!--　　</div>-->
+      <!--</span>-->
+
+      <!--<span style="position:relative;">-->
+      <!--　　 <img :src="urlList[3]" width="150" height="100" @click="clickButton(3)">-->
+      <!--　　<div style="position:absolute; z-index:-1; left:-20px; top:-65px">-->
+      <!--　　　　　{{this.goldList[3]}}-->
+      <!--　　</div>-->
+      <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
+      <!--　　　　{{this.moneyList[3]}}元-->
+      <!--　　</div>-->
+      <!--</span>-->
+
+      <!--<span style="position:relative;">-->
+      <!--　　 <img :src="urlList[4]" width="150" height="100" @click="clickButton(4)">-->
+      <!--　　<div style="position:absolute; z-index:-1; left:-20px; top:-65px">-->
+      <!--　　　　　　{{this.goldList[4]}}-->
+      <!--　　</div>-->
+      <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
+      <!--　　　　{{this.moneyList[4]}}元-->
+      <!--　　</div>-->
+      <!--</span>-->
+
 
     </div>
 
-
-
     <div>
-    <!--<span style="font-family:'Microsoft YaHei';font-size:18px;">-->
-      <!--<div style="position:relative;">-->
-    <!--　  <img :src="url" width="150" height="100" @click="clickButton(1)">-->
-    <!--　　<div style="position:absolute; z-index:2; left:10px; top:10px">-->
-         <!--&lt;!&ndash;<img :src="url" width="50" height="50">&ndash;&gt;-->
-        <!--添加文字-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</span>-->
 
-      <div style="position:relative;">
-        　　 <img :src="url" width="150" height="100" @click="clickButton(1)">
-        　　<div style="position:absolute; z-index:2; left:10px; top:10px">
-        　　　　haha
-        　　</div>
-      </div>
-      <div style="position:relative;">
-        　　 <img :src="url" width="150" height="100" @click="clickButton(1)">
-        　　<div style="position:absolute; z-index:2; left:10px; top:10px">
-        　　　　haha
-        　　</div>
-      </div>
-
+      <p>
+        花费{{this.moneyList[this.clickIndex]}}元,将获得{{this.goldList[this.clickIndex]}}金币,并赠送{{this.giveList[this.clickIndex]}}金币</p>
+    </div>
+    <div>
+      <mt-button size="large" type="primary" @click.native="charge()">充值</mt-button>
     </div>
     <!--</div>-->
   </div>
@@ -95,6 +132,7 @@
 
 
 <script>
+  import {Vue} from 'vue'
   import {getAgentInfo} from '@/api/api'
   import {Toast} from 'mint-ui';
   export default {
@@ -104,30 +142,92 @@
         agentId: 100012,
         agentName: "哈哈啦啦",
         money: 100,
-        url: "../../static/img/charge.png"
+        url1: "../../static/img/ticket_1.png",
+        url2: "../../static/img/piaobg_pre.png",
+        showUrl: [false, false, false, false, false, false, false, false, false, false],
+        urlList: [],
+        clickIndex: 0,
+        moneyList: [6, 12, 30, 50, 128],
+        goldList: [60, 120, 300, 500, 1280],
+        giveList: [0, 0, 30, 55, 160],
+        ok:false,
 
       }
     },
     created() {
 
-//      Toast('邀请码是:'+ this.agentId);
-      //获得信息
+      this.initUrl()
 
-//      getAgentInfo().then(response => {
-//        this.money = response.money
-//        this.agentId = response.agentId
-//        this.charge = response.charge
-//
-//      })
+    },
+
+    computed:{
+
     },
     methods: {
       toDetail() {
         this.$router.push('/detail')
       },
       clickButton(index){
-        console.log("=============" + index)
-        this.url = "../../static/img/callme.png"
+        this.clickIndex = index
+//        this.showUrl[index] = true
+//        this.initUrl()
+//        this.urlList[index] = this.url2
+        //vue 检测不到数组变化 所以这样写
+        this.initShowUrl();
+        this.$set(this.showUrl,index,true)
+        console.log(this.showUrl)
+        this.ok = true
+
+      },
+
+      isShow(index){
+        console.log(this.showUrl[index])
+        return this.showUrl[index]
+      },
+      initUrl(){
+        this.urlList = [this.url1, this.url1, this.url1, this.url1, this.url1]
+      },
+      initShowUrl(){
+          this.showUrl = [false, false, false, false, false, false, false, false, false, false]
+      },
+
+      charge(){
+        console.log("充值============")
+
+        function onBridgeReady() {
+          WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', {
+              "appId": "wx2421b1c4370ec43b",     //公众号名称，由商户传入
+              "timeStamp": "1395712654",         //时间戳，自1970年以来的秒数
+              "nonceStr": "e61463f8efa94090b1f366cccfbbb444", //随机串
+              "package": "prepay_id=u802345jgfjsdfgsdg888",
+              "signType": "MD5",         //微信签名方式：
+              "paySign": "70EA570631E4BB79628FBCA90534C63FF7FADD89" //微信签名
+            },
+            function (res) {
+              if (res.err_msg == "get_brand_wcpay_request:ok") {
+              }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+            }
+          );
+        }
+
+        if (typeof WeixinJSBridge == "undefined") {
+          if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+          } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+          }
+        } else {
+          onBridgeReady();
+        }
       }
     }
   }
 </script>
+
+
+<style>
+
+
+</style>
