@@ -52,66 +52,27 @@
 
 
       <span style="position:relative;">
-        　　 <img :src="urlList[0]" width="170" height="68" @click="clickButton(0)">
+        　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
         <!--　　 <img :src="url2" width="170" height="68"  >-->
-        　　<div v-show="showUrl[0]" style="position:relative; z-index:10; left:-0px; top:-68px ">
-        　　　　 <img :src="url2" width="170" height="68" @click="clickButton(0)" >
-        　　</div>
-        <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
-        <!--　　　　{{this.moneyList[0]}}元-->
+        <!--　　<div v-show="showUrl[0]" style="position:relative; z-index:10; left:-0px; top:-68px ">-->
+        <!--　　　　 <img :src="url2" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)" >-->
         <!--　　</div>-->
-      </span>
-
-      <span style="position:relative;">
-        　　 <img :src="urlList[0]" width="170" height="68"  @click="clickButton(1)">
-        <!--　　 <img :src="url2" width="170" height="68"  >-->
-        　　<div v-show="showUrl[0]" style="position:absolute; z-index:10; left:0px; top:-250% ">
-        　　　　 <img :src="url2" width="170" height="68" @click="clickButton(1)" >
-        　　</div>
         <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
         <!--　　　　{{this.moneyList[0]}}元-->
         <!--　　</div>-->
       </span>
 
       <!--<span style="position:relative;">-->
-      <!--　　 <img :src="urlList[1]" width="170" height="68" @click="clickButton(1)">-->
-      <!--　　<div style="position:absolute; z-index:-1; left:-20px; top:-65px">-->
-      <!--　　　　　{{this.goldList[1]}}-->
-      <!--　　</div>-->
-      <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
-      <!--　　　　{{this.moneyList[1]}}元-->
-      <!--　　</div>-->
+        <!--　　 <img :src="urlList[0]" :width="this.itemWidth" height="68" @click="clickButton(0)">-->
+        <!--&lt;!&ndash;　　 <img :src="url2" width="170" height="68"  >&ndash;&gt;-->
+        <!--　　<div v-show="showUrl[0]" style="position:relative; z-index:10; left:-0px; top:-68px ">-->
+        <!--　　　　 <img :src="url2" :width="this.itemWidth" height="68" @click="clickButton(0)" >-->
+        <!--　　</div>-->
+        <!--&lt;!&ndash;　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">&ndash;&gt;-->
+        <!--&lt;!&ndash;　　　　{{this.moneyList[0]}}元&ndash;&gt;-->
+        <!--&lt;!&ndash;　　</div>&ndash;&gt;-->
       <!--</span>-->
 
-      <!--<span style="position:relative;">-->
-      <!--　　 <img :src="urlList[2]" width="150" height="100" @click="clickButton(2)">-->
-      <!--　　<div style="position:absolute; z-index:-1; left:-20px; top:-65px">-->
-      <!--　　　　　{{this.goldList[2]}}-->
-      <!--　　</div>-->
-      <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
-      <!--　　　{{this.moneyList[2]}}元-->
-      <!--　　</div>-->
-      <!--</span>-->
-
-      <!--<span style="position:relative;">-->
-      <!--　　 <img :src="urlList[3]" width="150" height="100" @click="clickButton(3)">-->
-      <!--　　<div style="position:absolute; z-index:-1; left:-20px; top:-65px">-->
-      <!--　　　　　{{this.goldList[3]}}-->
-      <!--　　</div>-->
-      <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
-      <!--　　　　{{this.moneyList[3]}}元-->
-      <!--　　</div>-->
-      <!--</span>-->
-
-      <!--<span style="position:relative;">-->
-      <!--　　 <img :src="urlList[4]" width="150" height="100" @click="clickButton(4)">-->
-      <!--　　<div style="position:absolute; z-index:-1; left:-20px; top:-65px">-->
-      <!--　　　　　　{{this.goldList[4]}}-->
-      <!--　　</div>-->
-      <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
-      <!--　　　　{{this.moneyList[4]}}元-->
-      <!--　　</div>-->
-      <!--</span>-->
 
 
     </div>
@@ -135,6 +96,7 @@
   import {Vue} from 'vue'
   import {getAgentInfo,chargeReq} from '@/api/api'
   import {Toast} from 'mint-ui';
+//  import url1 from '../../static/img/ticket_1.png'
   export default {
     name: 'index',
     data() {
@@ -142,8 +104,9 @@
         agentId: 100012,
         agentName: "哈哈啦啦",
         money: 100,
-        url1: "../../static/img/ticket_1.png",
-        url2: "../../static/img/piaobg_pre.png",
+        url1: "/static/img/ticket_1.png",
+        url2: "/static/img/ticket_1_pre.png",
+
         showUrl: [false, false, false, false, false, false, false, false, false, false],
         urlList: [],
         clickIndex: 0,
@@ -151,12 +114,20 @@
         goldList: [60, 120, 300, 500, 1280],
         giveList: [0, 0, 30, 55, 160],
         ok:false,
+        itemWidth:0,
+        itemHeight:0
 
       }
     },
     created() {
+        console.log(document.body.clientWidth )
+        console.log(this.getWidth()  )
 
       this.initUrl()
+
+      var w = this.getWidth()
+      this.itemWidth = (w-50) /2
+      this.itemHeight = this.itemWidth/2.46
 
     },
 
@@ -171,7 +142,8 @@
         this.clickIndex = index
 //        this.showUrl[index] = true
 //        this.initUrl()
-//        this.urlList[index] = this.url2
+        this.urlList[index] = this.url2
+        this.$set(this.urlList,index,this.url2)
         //vue 检测不到数组变化 所以这样写
         this.initShowUrl();
         this.$set(this.showUrl,index,true)
@@ -180,6 +152,10 @@
 
       },
 
+      getWidth(){
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;      //width
+        return w
+      },
       isShow(index){
         console.log(this.showUrl[index])
         return this.showUrl[index]
@@ -192,6 +168,7 @@
       },
 
       charge(){
+          console.log(url1)
         if (typeof WeixinJSBridge == "undefined") {
           if (document.addEventListener) {
             document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
