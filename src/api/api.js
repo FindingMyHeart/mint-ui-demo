@@ -27,15 +27,7 @@ const LOGIN = params => {
 }
 
 
-export function charge(chargeForm) {
-  return fetch({
-    url: '/player/charge',
-    method: 'get',
-    params: {
-      chargeForm
-    }
-  })
-}
+
 
 
 export function getAgentInfo() {
@@ -63,6 +55,18 @@ export function auth() {
     method: 'get',
     params: {
 
+    }
+  })
+}
+
+export function chargeReq(chargeType,money) {
+  return fetch({
+    // url: '/wechat/authorize_base?returnUrl=base',
+    url: '/wechat/pay/preOrder',
+    method: 'get',
+    params: {
+      chargeType,
+      money
     }
   })
 }
