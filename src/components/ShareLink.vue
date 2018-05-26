@@ -39,7 +39,7 @@
           //分享到朋友圈"
           wx.onMenuShareTimeline({
             title: "快和我玩划水麻将",
-            link: obj.link, // 分享链接
+            link:window.location.href, // 分享链接
             imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
             success: function () {
               // console.log('分享到朋友圈成功')
@@ -52,7 +52,7 @@
           wx.onMenuShareAppMessage({
             title: "快和我玩划水麻将", // 分享标题
             desc: "我玩了很久了,值得推荐给你,一起来玩吧", // 分享描述
-            link: obj.link, // 分享链接
+            link: window.location.href, // 分享链接
             imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
             success: function () {
               // console.log('分享到朋友成功')
@@ -74,17 +74,17 @@
       let info = getCookie(infoKey)
 
       //去授权
-      if (!info) {
-        console.log("授权----------------")
-        let state = id
-        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
-        //跳转
-        window.top.location.href = url
-      } else {
-        //加载
-        info = decodeURIComponent(info)
-        console.log(info)
-      }
+//      if (!info) {
+//        console.log("授权----------------")
+//        let state = id
+//        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
+//        //跳转
+//        window.top.location.href = url
+//      } else {
+//        //加载
+//        info = decodeURIComponent(info)
+//        console.log(info)
+//      }
     },
     methods: {}
   }
