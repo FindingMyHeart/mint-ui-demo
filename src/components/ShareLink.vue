@@ -1,5 +1,16 @@
 <template>
-  <div>Test</div>
+  <div>
+
+    <div>
+      <img :src="icon" :width="300" :height="200" >
+    </div>
+
+    <div>
+      <img :src="qr" :width="300" :height="200" >
+    </div>
+
+
+  </div>
 </template>
 
 <script>
@@ -12,7 +23,10 @@
   export default {
     name: 'test',
     data() {
-      return {}
+      return {
+        icon: "",
+        qr: ""
+      }
     },
 
     mounted(){
@@ -82,7 +96,12 @@
         window.top.location.href = url
       } else {
         //加载
-        info = decodeURIComponent(info)
+        info = decodeURIComponent(info);
+        var d = JSON.parse(info);
+
+
+        this.icon = d.icon;
+        this.qr = d.qr;
         console.log(info)
       }
     },
