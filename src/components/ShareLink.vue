@@ -101,7 +101,8 @@
 
 
         this.icon = d.icon;
-        this.qr = d.qr;
+
+        this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket="+d.qr;
         console.log(info)
       }
     },
