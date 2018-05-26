@@ -31,10 +31,12 @@
         <span style="color: gray;font-size:20px;text-align:left;margin-left:-230px">{{this.agentId}}</span>
       </mt-cell>
 
-      <mt-cell title="余额">
+      <mt-cell title="房卡">
         <span style="color: gray;font-size:20px;text-align:left;margin-left:-230px">{{this.money}}</span>
       </mt-cell>
-
+      <mt-cell title="金币">
+        <span style="color: gray;font-size:20px;text-align:left;margin-left:-230px">{{this.gold}}</span>
+      </mt-cell>
 
     </div>
 
@@ -51,13 +53,18 @@
     <div>
 
 
-      <span >
+      <div>
+            <span >
         　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
       </span>
 
-      <span >
+        <span >
         　　 <img :src="urlList[1]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(1)">
       </span>
+
+      </div>
+
+
       <span >
         　　 <img :src="urlList[2]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(2)">
       </span>
@@ -114,16 +121,17 @@
 
 <script>
   import {Vue} from 'vue'
-  import {getAgentInfo,chargeReq} from '@/api/api'
+  import {getAgentInfo,chargeReq,getUserInfo} from '@/api/api'
   import {Toast} from 'mint-ui';
 //  import url1 from '../../static/img/ticket_1.png'
   export default {
     name: 'index',
     data() {
       return {
-        agentId: 100012,
-        agentName: "哈哈啦啦",
-        money: 100,
+        agentId: 0,
+        agentName: "",
+        money: 0,
+        gold:0,
         url1: "/static/img/ticket_1.png",
         url2: "/static/img/ticket_1_pre.png",
 
@@ -149,6 +157,7 @@
       this.itemWidth = (w-50) /2
       this.itemHeight = this.itemWidth/2.46
 
+      this.setUserInfo()
     },
 
     computed:{
@@ -198,6 +207,17 @@
           this.showUrl = [false, false, false, false, false, false, false, false, false, false]
       },
 
+
+      setUserInfo(){
+          getUserInfo().then(response=>{
+              console.log(response)
+            this.agentId = response.id
+            this.agentName = response.name
+            this.money = response.money
+            this.gold = response.gold
+          })
+      },
+
       charge(){
           console.log(url1)
         if (typeof WeixinJSBridge == "undefined") {
@@ -231,6 +251,8 @@
             function (res) {
               if (res.err_msg == "get_brand_wcpay_request:ok") {
 
+                  //刷新
+                  this.setUserInfo()
               }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
             }
           );

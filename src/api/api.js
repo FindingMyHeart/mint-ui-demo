@@ -70,6 +70,17 @@ export function chargeReq(chargeType,money) {
     }
   })
 }
+
+export function getUserInfo() {
+  return fetch({
+    // url: '/wechat/authorize_base?returnUrl=base',
+    url: '/wechat/getUserInfo',
+    method: 'get',
+    params: {
+
+    }
+  })
+}
 const apiList = {
   LOGIN,
 }
