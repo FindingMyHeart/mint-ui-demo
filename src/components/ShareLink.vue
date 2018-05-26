@@ -38,9 +38,9 @@
         wx.ready(function () {
           //分享到朋友圈"
           wx.onMenuShareTimeline({
-            title: obj.title,
+            title: "快和我玩划水麻将",
             link: obj.link, // 分享链接
-            imgUrl: obj.imgUrl, // 分享图标
+            imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
             success: function () {
               // console.log('分享到朋友圈成功')
             },
@@ -50,10 +50,10 @@
           });
           //分享给朋友
           wx.onMenuShareAppMessage({
-            title: obj.title, // 分享标题
-            desc: obj.desc, // 分享描述
+            title: "快和我玩划水麻将", // 分享标题
+            desc: "我玩了很久了,值得推荐给你,一起来玩吧", // 分享描述
             link: obj.link, // 分享链接
-            imgUrl: obj.imgUrl, // 分享图标
+            imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
             success: function () {
               // console.log('分享到朋友成功')
             },
