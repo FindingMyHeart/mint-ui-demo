@@ -1,5 +1,16 @@
 <template>
-  <div>Test</div>
+  <div>
+
+    <div>
+      <img :src="icon" :width="300" :height="200" >
+    </div>
+
+    <div>
+      <img :src="qr" :width="300" :height="200" >
+    </div>
+
+
+  </div>
 </template>
 
 <script>
@@ -12,7 +23,10 @@
   export default {
     name: 'test',
     data() {
-      return {}
+      return {
+        icon: "",
+        qr: ""
+      }
     },
 
     mounted(){
@@ -74,17 +88,22 @@
       let info = getCookie(infoKey)
 
       //去授权
-//      if (!info) {
-//        console.log("授权----------------")
-//        let state = id
-//        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
-//        //跳转
-//        window.top.location.href = url
-//      } else {
-//        //加载
-//        info = decodeURIComponent(info)
-//        console.log(info)
-//      }
+      if (!info) {
+        console.log("授权----------------")
+        let state = id
+        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
+        //跳转
+        window.top.location.href = url
+      } else {
+        //加载
+        info = decodeURIComponent(info);
+        var d = JSON.parse(info);
+
+
+        this.icon = d.icon;
+        this.qr = d.qr;
+        console.log(info)
+      }
     },
     methods: {}
   }
