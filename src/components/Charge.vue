@@ -3,20 +3,20 @@
     <!--<mt-header fixed title="充值大厅"></mt-header>-->
 
 
-    <div class="page-content">
+    <!--<div class="page-content">-->
 
 
-      <mt-cell
-        title="选择游戏"
-        to="/Order"
-        is-link
-        value="fff">
-        <span style="font-size:20px;text-align:center;margin-right:150px"></span>
-      </mt-cell>
+      <!--<mt-cell-->
+        <!--title="选择游戏"-->
+        <!--to="/Order"-->
+        <!--is-link-->
+        <!--value="fff">-->
+        <!--<span style="font-size:20px;text-align:center;margin-right:150px"></span>-->
+      <!--</mt-cell>-->
 
-    </div>
+    <!--</div>-->
 
-    <br/>
+    <!--<br/>-->
     <div class="page-content">
 
 
@@ -51,17 +51,37 @@
     <div>
 
 
-      <span style="position:relative;">
+      <span >
         　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
-        <!--　　 <img :src="url2" width="170" height="68"  >-->
-        <!--　　<div v-show="showUrl[0]" style="position:relative; z-index:10; left:-0px; top:-68px ">-->
-        <!--　　　　 <img :src="url2" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)" >-->
-        <!--　　</div>-->
-        <!--　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">-->
-        <!--　　　　{{this.moneyList[0]}}元-->
-        <!--　　</div>-->
       </span>
 
+      <span >
+        　　 <img :src="urlList[1]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(1)">
+      </span>
+      <span >
+        　　 <img :src="urlList[2]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(2)">
+      </span>
+      <span >
+        　　 <img :src="urlList[3]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(3)">
+      </span>
+      <span >
+        　　 <img :src="urlList[4]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(4)">
+      </span>
+      <span >
+        　　 <img :src="urlList[5]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(5)">
+      </span>
+      <span >
+        　　 <img :src="urlList[6]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(6)">
+      </span>
+      <span >
+        　　 <img :src="urlList[7]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(7)">
+      </span>
+      <span >
+        　　 <img :src="urlList[8]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(8)">
+      </span>
+      <span >
+        　　 <img :src="urlList[9]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(9)">
+      </span>
       <!--<span style="position:relative;">-->
         <!--　　 <img :src="urlList[0]" :width="this.itemWidth" height="68" @click="clickButton(0)">-->
         <!--&lt;!&ndash;　　 <img :src="url2" width="170" height="68"  >&ndash;&gt;-->
@@ -141,9 +161,10 @@
       clickButton(index){
         this.clickIndex = index
 //        this.showUrl[index] = true
-//        this.initUrl()
-        this.urlList[index] = this.url2
-        this.$set(this.urlList,index,this.url2)
+        this.initUrl()
+        var url = `/static/img/ticket_${index+1}_pre.png`
+//        this.urlList[index] = this.url2
+        this.$set(this.urlList,index,url)
         //vue 检测不到数组变化 所以这样写
         this.initShowUrl();
         this.$set(this.showUrl,index,true)
@@ -161,7 +182,17 @@
         return this.showUrl[index]
       },
       initUrl(){
-        this.urlList = [this.url1, this.url1, this.url1, this.url1, this.url1]
+        this.urlList = ["/static/img/ticket_1.png",
+          "/static/img/ticket_2.png",
+          "/static/img/ticket_3.png",
+          "/static/img/ticket_4.png",
+          "/static/img/ticket_5.png",
+          "/static/img/ticket_6.png",
+          "/static/img/ticket_7.png",
+          "/static/img/ticket_8.png",
+          "/static/img/ticket_9.png",
+          "/static/img/ticket_10.png",
+          ]
       },
       initShowUrl(){
           this.showUrl = [false, false, false, false, false, false, false, false, false, false]
