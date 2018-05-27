@@ -2,13 +2,23 @@
   <div>
 
     <div>
-      <img :src="icon" :width="300" :height="200" >
+      <img :src="icon" :width="215" :height="215" >
+    </div>
+
+
+
+
+    <div>
+      <img src="/static/img/download_a.png" :width="110" :height="35" @click="clickDownload()">
     </div>
 
     <div>
-      <img :src="qr" :width="300" :height="200" >
+      专属二维码
     </div>
 
+    <div>
+      <img :src="qr" :width="215" :height="215" >
+    </div>
 
   </div>
 </template>
@@ -24,8 +34,8 @@
     name: 'test',
     data() {
       return {
-        icon: "",
-        qr: ""
+        icon: "/static/img/qr.jpg",
+        qr: "/static/img/qr.jpg"
       }
     },
 
@@ -88,23 +98,27 @@
       let info = getCookie(infoKey)
 
       //去授权
-      if (!info) {
-        console.log("授权----------------")
-        let state = id
-        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
-        //跳转
-        window.top.location.href = url
-      } else {
-        //加载
-        info = decodeURIComponent(info);
-        var d = JSON.parse(info);
-
-
-        this.icon = d.icon;
-        this.qr = d.qr;
-        console.log(info)
-      }
+//      if (!info) {
+//        console.log("授权----------------")
+//        let state = id
+//        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
+//        //跳转
+//        window.top.location.href = url
+//      } else {
+//        //加载
+//        info = decodeURIComponent(info);
+//        var d = JSON.parse(info);
+//
+//
+//        this.icon = d.icon;
+//        this.qr = d.qr;
+//        console.log(info)
+//      }
     },
-    methods: {}
+    methods: {
+      clickDownload(){
+        this.$router.push('/download')
+      }
+    }
   }
 </script>
