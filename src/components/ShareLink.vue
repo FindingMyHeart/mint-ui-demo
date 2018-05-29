@@ -57,8 +57,8 @@
     name: 'test',
     data() {
       return {
-        icon: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=253777390,947512827&fm=23&gp=0.jpg",
-        qr: "/static/img/qr.jpg",
+        icon: "",
+        qr: "",
         imagex:this.computeIndex(),
         imagestyle:{
           position:'absolute',
