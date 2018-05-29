@@ -134,23 +134,23 @@
       let info = getCookie(infoKey)
 
       //去授权
-//      if (!info) {
-//        console.log("授权----------------")
-//        let state = id
-//        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
-//        //跳转
-//        window.top.location.href = url
-//      } else {
-//        //加载
-//        info = decodeURIComponent(info);
-//        var d = JSON.parse(info);
-//
-//
-//        this.icon = d.icon;
-//
-//        this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + d.qr;
-//        console.log(info)
-//      }
+      if (!info) {
+        console.log("授权----------------")
+        let state = id
+        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
+        //跳转
+        window.top.location.href = url
+      } else {
+        //加载
+        info = decodeURIComponent(info);
+        var d = JSON.parse(info);
+
+
+        this.icon = d.icon;
+
+        this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + d.qr;
+        console.log(info)
+      }
     },
     methods: {
       clickDownload(){
