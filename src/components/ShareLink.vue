@@ -1,20 +1,46 @@
 <template>
   <div>
 
-    <div>
-      <img :src="icon" :width="300" :height="200" >
-    </div>
 
     <div>
-      <img src="/static/img/download_a.png" :width="110" :height="35" @click="clickDownload()">
+      　 <img src="/static/img/share_bg1.png" width="100%" height="100%">
     </div>
 
-    <div>
-      专属二维码
+    <br/>
+    <div align="center">
+
+      <span>
+
+        <img :src="icon" :width="96" :height="96">
+      </span>
+
+      &nbsp &nbsp
+
+      <span>
+        <img src="/static/img/share_pao.png" width="50%" height="50%">
+        </span>
+
+
     </div>
 
-    <div>
-      <img :src="qr" :width="215" :height="215" >
+    <div align="center">
+      <img src="/static/img/download_button.png" width="50%" height="50%" @click="clickDownload()">
+    </div>
+
+
+    <br/>
+
+    <div style="position:relative;" align="center">
+
+      <img src="/static/img/bg2.png" width="100%">
+      　
+      <div v-bind:style="fontStyle">
+        <font size="3" color="white">专属二维码</font>
+      </div>
+      　　
+      <div  v-bind:style="imagestyle">
+        <img :src="qr" :width="172" :height="172">
+      </div>
     </div>
 
   </div>
@@ -31,8 +57,21 @@
     name: 'test',
     data() {
       return {
-        icon: "/static/img/qr.jpg",
-        qr: "/static/img/qr.jpg"
+        icon: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=253777390,947512827&fm=23&gp=0.jpg",
+        qr: "/static/img/qr.jpg",
+        imagex:this.computeIndex(),
+        imagestyle:{
+          position:'absolute',
+          'z-index':11,
+          left:this.imagex,
+          top:'35px'
+        },
+        fontStyle:{
+          position:'absolute',
+          'z-index':11,
+          left:(this.getWidth()/2 -40) +'px' ,
+          top:'7px'
+        }
       }
     },
 
@@ -60,7 +99,7 @@
           //分享到朋友圈"
           wx.onMenuShareTimeline({
             title: "快和我玩划水麻将",
-            link:window.location.href, // 分享链接
+            link: window.location.href, // 分享链接
             imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
             success: function () {
               // console.log('分享到朋友圈成功')
@@ -95,28 +134,51 @@
       let info = getCookie(infoKey)
 
       //去授权
-      if (!info) {
-        console.log("授权----------------")
-        let state = id
-        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
-        //跳转
-        window.top.location.href = url
-      } else {
-        //加载
-        info = decodeURIComponent(info);
-        var d = JSON.parse(info);
-
-
-        this.icon = d.icon;
-
-        this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket="+d.qr;
-        console.log(info)
-      }
+//      if (!info) {
+//        console.log("授权----------------")
+//        let state = id
+//        let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
+//        //跳转
+//        window.top.location.href = url
+//      } else {
+//        //加载
+//        info = decodeURIComponent(info);
+//        var d = JSON.parse(info);
+//
+//
+//        this.icon = d.icon;
+//
+//        this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + d.qr;
+//        console.log(info)
+//      }
     },
     methods: {
       clickDownload(){
         this.$router.push('/download')
-      }
+      },
+      computeIndex(){
+          this.imagex = (this.getWidth() - 172)/2 +'px'
+      },
+      getWidth(){
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;      //width
+        return w
+      },
     }
   }
 </script>
+
+
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+    outline-width: 0px;
+    vertical-align: top;
+  }
+</style>
