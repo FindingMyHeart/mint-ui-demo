@@ -59,7 +59,7 @@
       return {
         icon: "",
         qr: "",
-        isShow:false;
+        isShow:false,
         imagex:this.computeIndex(),
         imagestyle:{
           position:'absolute',
@@ -84,7 +84,7 @@
       let qrKey = sid + '|qr'
       let info = getCookie(infoKey)
 
-      this.setQr()
+//      this.setQr()
 
       //去授权
       if (!info) {
