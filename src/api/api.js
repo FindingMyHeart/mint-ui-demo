@@ -81,6 +81,17 @@ export function getUserInfo() {
     }
   })
 }
+
+export function getAgentQr(agnetId) {
+  return fetch({
+    // url: '/wechat/authorize_base?returnUrl=base',
+    url: '/wechat/getAgentQr',
+    method: 'get',
+    params: {
+      agnetId
+    }
+  })
+}
 const apiList = {
   LOGIN,
 }
