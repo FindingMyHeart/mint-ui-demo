@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="isShow">
 
 
     <div>
@@ -59,6 +59,7 @@
       return {
         icon: "",
         qr: "",
+        isShow:false;
         imagex:this.computeIndex(),
         imagestyle:{
           position:'absolute',
@@ -96,6 +97,7 @@
         //加载
         info = decodeURIComponent(info);
         var d = JSON.parse(info);
+        this.isShow = true
 
 
         this.icon = d.icon;
