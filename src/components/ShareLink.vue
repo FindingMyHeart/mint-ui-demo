@@ -47,7 +47,7 @@
 </template>
 
 <script>
-  import {wxAuth, auth, jsapiparam} from '@/api/api'
+  import {wxAuth, auth, jsapiparam,getAgentQr} from '@/api/api'
   import {getCookie} from '@/utils/util'
 
 
@@ -82,6 +82,8 @@
       let infoKey = 'info' + sid
       let qrKey = sid + '|qr'
       let info = getCookie(infoKey)
+
+      this.setQr()
 
       //去授权
       if (!info) {
@@ -168,6 +170,12 @@
         var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;      //width
         return w
       },
+      setQr(){
+        getAgentQr( this.$route.query.id).then(response=>{
+            this.icon = response.icon;
+            this.qr = response.qr;
+        })
+      }
     }
   }
 </script>
