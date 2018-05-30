@@ -30,6 +30,14 @@
 
     </div>
 
+
+    <div id="cover" class="popContainer" v-show="coverShow" @click="closeCover()">
+    </div>
+
+    <div id="guide" class="guideStyle" v-show="coverShow" @click="closeCover()">
+      <img src="/static/img/fx_z2.png" width="100%" height="100%">
+    </div>
+
   </div>
 </template>
 
@@ -44,6 +52,7 @@
       return {
 
         imagex: this.computeIndex(),
+        coverShow : true,
         imagestyle: {
           position: 'absolute',
           'z-index': 11,
@@ -82,7 +91,7 @@
 //        wx.ready(function () {
 //          //分享到朋友圈"
 //          wx.onMenuShareTimeline({
-//            title: "快和我玩划水麻将",
+//            title: "快和我玩董小姐棋牌",
 //            link: window.location.href, // 分享链接
 //            imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
 //            success: function () {
@@ -94,7 +103,7 @@
 //          });
 //          //分享给朋友
 //          wx.onMenuShareAppMessage({
-//            title: "快和我玩划水麻将", // 分享标题
+//            title: "快和我玩董小姐棋牌", // 分享标题
 //            desc: "我玩了很久了,值得推荐给你,一起来玩吧", // 分享描述
 //            link: window.location.href, // 分享链接
 //            imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
@@ -152,6 +161,9 @@
       },
       clickDownload_i(){
 
+      },
+      closeCover(){
+        this.coverShow = false;
       }
     }
   }
@@ -171,5 +183,23 @@
     padding: 0;
     outline-width: 0px;
     vertical-align: top;
+  }
+
+
+  div.popContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  div.guideStyle {
+    position: absolute;
+    right: 18px;
+    top: 5px;
+    z-index: 19999;
   }
 </style>

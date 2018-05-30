@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isShow">
+  <div v-show="isShow" style="position:relative;">
 
 
     <div>
@@ -38,20 +38,30 @@
         <font size="3" color="white">专属二维码</font>
       </div>
       　　
-      <div  v-bind:style="imagestyle">
+      <div v-bind:style="imagestyle">
         <img :src="qr" :width="172" :height="172">
       </div>
     </div>
+
+    <div id="cover" class="popContainer" v-show="coverShow" @click="closeCover()">
+    </div>
+
+    <div id="guide" class="guideStyle" v-show="coverShow" @click="closeCover()">
+      <img src="/static/img/fx_z1.png" width="100%" height="100%">
+    </div>
+
+
 
   </div>
 </template>
 
 <script>
-  import {wxAuth, auth, jsapiparam,getAgentQr} from '@/api/api'
+  import {wxAuth, auth, jsapiparam, getAgentQr} from '@/api/api'
   import {getCookie} from '@/utils/util'
 
 
   import wx from 'weixin-js-sdk'
+
 
   export default {
     name: 'test',
@@ -59,20 +69,21 @@
       return {
         icon: "",
         qr: "",
-        isShow:false,
-        imagex:this.computeIndex(),
-        imagestyle:{
-          position:'absolute',
-          'z-index':11,
-          left:this.imagex,
-          top:'35px'
+        isShow: true,
+        coverShow: true,
+        imagex: this.computeIndex(),
+        imagestyle: {
+          position: 'absolute',
+          'z-index': 11,
+          left: this.imagex,
+          top: '35px'
         },
-        fontStyle:{
-          position:'absolute',
-          'z-index':11,
-          left:(this.getWidth()/2 -40) +'px' ,
-          top:'7px'
-        }
+        fontStyle: {
+          position: 'absolute',
+          'z-index': 11,
+          left: (this.getWidth() / 2 - 40) + 'px',
+          top: '7px'
+        },
       }
     },
 
@@ -105,7 +116,7 @@
         this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + d.qr;
         console.log(info)
       }
-      if(info){
+      if (info) {
         let url = window.location.href.split('#')[0]
         jsapiparam(url).then(response => {
           console.log(response)
@@ -128,7 +139,7 @@
           wx.ready(function () {
             //分享到朋友圈"
             wx.onMenuShareTimeline({
-              title: "快和我玩划水麻将",
+              title: "快和我玩董小姐棋牌",
               link: window.location.href, // 分享链接
               imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
               success: function () {
@@ -140,7 +151,7 @@
             });
             //分享给朋友
             wx.onMenuShareAppMessage({
-              title: "快和我玩划水麻将", // 分享标题
+              title: "快和我玩董小姐棋牌", // 分享标题
               desc: "我玩了很久了,值得推荐给你,一起来玩吧", // 分享描述
               link: window.location.href, // 分享链接
               imgUrl: "https://mmbiz.qpic.cn/mmbiz_png/wj1STzkg04h46BuribmuoJnsMQgc2m70558p3mE91j6zq4sph6RavCicfUiahTSRj4CVRSRN9ecdJKic6ysZeBCZiag/0?wx_fmt=png", // 分享图标
@@ -159,25 +170,30 @@
 
     },
     created(){
-
     },
     methods: {
       clickDownload(){
         this.$router.push('/download')
       },
       computeIndex(){
-          this.imagex = (this.getWidth() - 172)/2 +'px'
+        this.imagex = (this.getWidth() - 172) / 2 + 'px'
       },
       getWidth(){
         var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;      //width
         return w
       },
-      setQr(){
-        getAgentQr( this.$route.query.id).then(response=>{
-            this.icon = response.icon;
-            this.qr = response.qr;
-        })
+      _client: function () {
+        return {
+          w: document.documentElement.scrollWidth,
+          h: document.documentElement.scrollHeight,
+          bw: document.documentElement.clientWidth,
+          bh: document.documentElement.clientHeight
+        };
+      },
+      closeCover(){
+          this.coverShow = false;
       }
+
     }
   }
 </script>
@@ -196,4 +212,22 @@
     outline-width: 0px;
     vertical-align: top;
   }
+
+  div.popContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  div.guideStyle {
+    position: absolute;
+    right: 18px;
+    top: 5px;
+    z-index: 19999;
+  }
+
 </style>
