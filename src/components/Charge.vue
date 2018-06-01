@@ -6,13 +6,13 @@
     <!--<div class="page-content">-->
 
 
-      <!--<mt-cell-->
-        <!--title="选择游戏"-->
-        <!--to="/Order"-->
-        <!--is-link-->
-        <!--value="fff">-->
-        <!--<span style="font-size:20px;text-align:center;margin-right:150px"></span>-->
-      <!--</mt-cell>-->
+    <!--<mt-cell-->
+    <!--title="选择游戏"-->
+    <!--to="/Order"-->
+    <!--is-link-->
+    <!--value="fff">-->
+    <!--<span style="font-size:20px;text-align:center;margin-right:150px"></span>-->
+    <!--</mt-cell>-->
 
     <!--</div>-->
 
@@ -54,52 +54,63 @@
 
 
       <div>
-            <span >
+            <span>
         　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
       </span>
 
-        <span >
+        <span>
         　　 <img :src="urlList[1]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(1)">
       </span>
 
       </div>
 
 
-      <span >
-        　　 <img :src="urlList[2]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(2)">
-      </span>
-      <span >
-        　　 <img :src="urlList[3]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(3)">
-      </span>
-      <span >
+      <div>
+              <span>
+          　　 <img :src="urlList[2]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(2)">
+        </span>
+        <span>
+          　　 <img :src="urlList[3]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(3)">
+        </span>
+      </div>
+
+      <div>
+            <span>
         　　 <img :src="urlList[4]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(4)">
       </span>
-      <span >
+        <span>
         　　 <img :src="urlList[5]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(5)">
       </span>
-      <span >
+      </div>
+
+      <div>
+            <span>
         　　 <img :src="urlList[6]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(6)">
       </span>
-      <span >
+        <span>
         　　 <img :src="urlList[7]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(7)">
       </span>
-      <span >
+      </div>
+
+      <div>
+            <span>
         　　 <img :src="urlList[8]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(8)">
       </span>
-      <span >
+        <span>
         　　 <img :src="urlList[9]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(9)">
       </span>
-      <!--<span style="position:relative;">-->
-        <!--　　 <img :src="urlList[0]" :width="this.itemWidth" height="68" @click="clickButton(0)">-->
-        <!--&lt;!&ndash;　　 <img :src="url2" width="170" height="68"  >&ndash;&gt;-->
-        <!--　　<div v-show="showUrl[0]" style="position:relative; z-index:10; left:-0px; top:-68px ">-->
-        <!--　　　　 <img :src="url2" :width="this.itemWidth" height="68" @click="clickButton(0)" >-->
-        <!--　　</div>-->
-        <!--&lt;!&ndash;　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">&ndash;&gt;-->
-        <!--&lt;!&ndash;　　　　{{this.moneyList[0]}}元&ndash;&gt;-->
-        <!--&lt;!&ndash;　　</div>&ndash;&gt;-->
-      <!--</span>-->
+      </div>
 
+      <!--<span style="position:relative;">-->
+      <!--　　 <img :src="urlList[0]" :width="this.itemWidth" height="68" @click="clickButton(0)">-->
+      <!--&lt;!&ndash;　　 <img :src="url2" width="170" height="68"  >&ndash;&gt;-->
+      <!--　　<div v-show="showUrl[0]" style="position:relative; z-index:10; left:-0px; top:-68px ">-->
+      <!--　　　　 <img :src="url2" :width="this.itemWidth" height="68" @click="clickButton(0)" >-->
+      <!--　　</div>-->
+      <!--&lt;!&ndash;　 <div style="position:absolute; z-index:-1; left:10px; top:-65px">&ndash;&gt;-->
+      <!--&lt;!&ndash;　　　　{{this.moneyList[0]}}元&ndash;&gt;-->
+      <!--&lt;!&ndash;　　</div>&ndash;&gt;-->
+      <!--</span>-->
 
 
     </div>
@@ -121,9 +132,9 @@
 
 <script>
   import {Vue} from 'vue'
-  import {getAgentInfo,chargeReq,getUserInfo} from '@/api/api'
+  import {getAgentInfo, chargeReq, getUserInfo} from '@/api/api'
   import {Toast} from 'mint-ui';
-//  import url1 from '../../static/img/ticket_1.png'
+  //  import url1 from '../../static/img/ticket_1.png'
   export default {
     name: 'index',
     data() {
@@ -131,7 +142,7 @@
         agentId: 0,
         agentName: "",
         money: 0,
-        gold:0,
+        gold: 0,
         url1: "/static/img/ticket_1.png",
         url2: "/static/img/ticket_1_pre.png",
 
@@ -141,28 +152,26 @@
         moneyList: [6, 12, 30, 50, 128],
         goldList: [60, 120, 300, 500, 1280],
         giveList: [0, 0, 30, 55, 160],
-        ok:false,
-        itemWidth:0,
-        itemHeight:0
+        ok: false,
+        itemWidth: 0,
+        itemHeight: 0
 
       }
     },
     created() {
-        console.log(document.body.clientWidth )
-        console.log(this.getWidth()  )
+      console.log(document.body.clientWidth)
+      console.log(this.getWidth())
 
       this.initUrl()
 
       var w = this.getWidth()
-      this.itemWidth = (w-20) /2
-      this.itemHeight = this.itemWidth/2.46
+      this.itemWidth = (w - 30) / 2
+      this.itemHeight = this.itemWidth / 2.46
 
-//      this.setUserInfo()
+      this.setUserInfo()
     },
 
-    computed:{
-
-    },
+    computed: {},
     methods: {
       toDetail() {
         this.$router.push('/detail')
@@ -171,12 +180,12 @@
         this.clickIndex = index
 //        this.showUrl[index] = true
         this.initUrl()
-        var url = `/static/img/ticket_${index+1}_pre.png`
+        var url = `/static/img/ticket_${index + 1}_pre.png`
 //        this.urlList[index] = this.url2
-        this.$set(this.urlList,index,url)
+        this.$set(this.urlList, index, url)
         //vue 检测不到数组变化 所以这样写
         this.initShowUrl();
-        this.$set(this.showUrl,index,true)
+        this.$set(this.showUrl, index, true)
         console.log(this.showUrl)
         this.ok = true
 
@@ -201,21 +210,21 @@
           "/static/img/ticket_8.png",
           "/static/img/ticket_9.png",
           "/static/img/ticket_10.png",
-          ]
+        ]
       },
       initShowUrl(){
-          this.showUrl = [false, false, false, false, false, false, false, false, false, false]
+        this.showUrl = [false, false, false, false, false, false, false, false, false, false]
       },
 
 
       setUserInfo(){
-          getUserInfo().then(response=>{
-              console.log(response)
-            this.agentId = response.id
-            this.agentName = response.name
-            this.money = response.money
-            this.gold = response.gold
-          })
+        getUserInfo().then(response => {
+          console.log(response)
+          this.agentId = response.id
+          this.agentName = response.name
+          this.money = response.money
+          this.gold = response.gold
+        })
       },
 
       charge(){
@@ -232,9 +241,8 @@
       },
 
 
-
       onBridgeReady() {
-        chargeReq(1,1).then(response=>{
+        chargeReq(1, 1).then(response => {
           console.log(response)
           console.log("充值============")
 
@@ -250,8 +258,8 @@
             function (res) {
               if (res.err_msg == "get_brand_wcpay_request:ok") {
 
-                  //刷新
-                  this.setUserInfo()
+                //刷新
+                this.setUserInfo()
               }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
             }
           );
@@ -268,5 +276,14 @@
 
 <style>
 
-
+  /*body {*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*}*/
+  /*img {*/
+    /*margin: 10;*/
+    /*padding: 10;*/
+    /*outline-width: 10px;*/
+    /*vertical-align: top;*/
+  /*}*/
 </style>
