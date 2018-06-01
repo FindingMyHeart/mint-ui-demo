@@ -69,7 +69,7 @@
       return {
         icon: "",
         qr: "",
-        isShow: true,
+        isShow: false,
         coverShow: true,
         imagex: this.computeIndex(),
         imagestyle: {
