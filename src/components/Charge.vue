@@ -50,11 +50,11 @@
     <br/>
 
 
-    <div>
+    <div style=" left:2%;">
 
 
       <div>
-            <span style="left: 10px">
+            <span >
         　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
       </span>
 
@@ -114,9 +114,9 @@
       <!--</span>-->
 
 
-    </div>
 
-    <div>
+    </div>
+    <div >
 
       <p>
         花费{{this.moneyList[this.clickIndex]}}元,将获得{{this.goldList[this.clickIndex]}}金币,并赠送{{this.giveList[this.clickIndex]}}金币</p>
@@ -124,6 +124,7 @@
     <div>
       <mt-button size="large" type="primary" @click.native="charge()">充值</mt-button>
     </div>
+
     <!--</div>-->
   </div>
 
@@ -282,6 +283,7 @@
   /*padding: 0;*/
   /*}*/
   img {
+    margin:5px 2px;
     /*margin: 10;*/
     /*padding: 10;*/
     /*outline-width: 10px;*/
