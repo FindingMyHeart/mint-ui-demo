@@ -64,6 +64,7 @@
 
       <!--</div>-->
 
+      <br>
 
 
       <!--<div>-->
@@ -75,6 +76,7 @@
         <!--</span>-->
       <!--</div>-->
 
+      <br>
       <!--<div>-->
             <!--<span>-->
         　　 <img :src="urlList[4]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(4)">
