@@ -54,7 +54,7 @@
 
 
       <div>
-            <span>
+            <span style="left: 10px">
         　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
       </span>
 
@@ -63,6 +63,7 @@
       </span>
 
       </div>
+
 
 
       <div>
@@ -168,7 +169,7 @@
       this.itemWidth = (w - 30) / 2
       this.itemHeight = this.itemWidth / 2.46
 
-      this.setUserInfo()
+//      this.setUserInfo()
     },
 
     computed: {},
@@ -280,10 +281,12 @@
   /*margin: 0;*/
   /*padding: 0;*/
   /*}*/
-  /*img {*/
+  img {
     /*margin: 10;*/
     /*padding: 10;*/
     /*outline-width: 10px;*/
     /*vertical-align: top;*/
-  /*}*/
+    border-left: 15px;
+    border-bottom: 10px;
+  }
 </style>
