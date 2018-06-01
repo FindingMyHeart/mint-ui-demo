@@ -53,54 +53,54 @@
     <div style=" left:2%;">
 
 
-      <div>
-            <span >
+      <!--<div>-->
+            <!--<span >-->
         　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
-      </span>
+      <!--</span>-->
 
-        <span>
+        <!--<span>-->
         　　 <img :src="urlList[1]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(1)">
-      </span>
+      <!--</span>-->
 
-      </div>
+      <!--</div>-->
 
 
 
-      <div>
-              <span>
+      <!--<div>-->
+              <!--<span>-->
           　　 <img :src="urlList[2]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(2)">
-        </span>
-        <span>
+        <!--</span>-->
+        <!--<span>-->
           　　 <img :src="urlList[3]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(3)">
-        </span>
-      </div>
+        <!--</span>-->
+      <!--</div>-->
 
-      <div>
-            <span>
+      <!--<div>-->
+            <!--<span>-->
         　　 <img :src="urlList[4]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(4)">
-      </span>
-        <span>
+      <!--</span>-->
+        <!--<span>-->
         　　 <img :src="urlList[5]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(5)">
-      </span>
-      </div>
+      <!--</span>-->
+      <!--</div>-->
 
-      <div>
-            <span>
+      <!--<div>-->
+            <!--<span>-->
         　　 <img :src="urlList[6]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(6)">
-      </span>
-        <span>
+      <!--</span>-->
+        <!--<span>-->
         　　 <img :src="urlList[7]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(7)">
-      </span>
-      </div>
+      <!--</span>-->
+      <!--</div>-->
 
-      <div>
-            <span>
+      <!--<div>-->
+            <!--<span>-->
         　　 <img :src="urlList[8]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(8)">
-      </span>
-        <span>
+      <!--</span>-->
+        <!--<span>-->
         　　 <img :src="urlList[9]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(9)">
-      </span>
-      </div>
+      <!--</span>-->
+      <!--</div>-->
 
       <!--<span style="position:relative;">-->
       <!--　　 <img :src="urlList[0]" :width="this.itemWidth" height="68" @click="clickButton(0)">-->
@@ -167,7 +167,7 @@
       this.initUrl()
 
       var w = this.getWidth()
-      this.itemWidth = (w - 30) / 2
+      this.itemWidth = (w - 40) / 2
       this.itemHeight = this.itemWidth / 2.46
 
 //      this.setUserInfo()
