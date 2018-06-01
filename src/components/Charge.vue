@@ -154,10 +154,10 @@
       this.initUrl()
 
       var w = this.getWidth()
-      this.itemWidth = (w-50) /2
+      this.itemWidth = (w-20) /2
       this.itemHeight = this.itemWidth/2.46
 
-      this.setUserInfo()
+//      this.setUserInfo()
     },
 
     computed:{
