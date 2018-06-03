@@ -9,7 +9,7 @@
     <div style="text-align: center">
       <br>
        <span style="display: block; font-size: x-large">
-      $0.0
+         ￥{{this.text}}
     </span>
       <h4>实时到账，在公众号内回复"结算"</h4>
       <mt-button size="large" type="primary" @click="gotoWaterList">流水记录</mt-button>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-
+  import axios from 'axios';
   import { Toast } from 'mint-ui';
     export default {
       name: 'canBlance',
@@ -28,13 +28,30 @@
           value:false
         }
       },
-      methods:{
+
+      created() {
+        this.getMoney()
+      },
+      methods: {
+        getMoney() {
+          axios.get("http://localhost:8085/todayCharge/canBlance").then((response) => {
+              console.log(response);
+              this.text = response['data']['data']['canBlance']
+
+            }
+          ).catch((err) => {
+              console.log(err);
+            }
+          );
+        },
+
         gotoWaterList(){
           this.$router.push({
             name: "waterRecord"
           })
-        }
+        },
       }
+
     }
 </script>
 
