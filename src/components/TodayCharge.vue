@@ -27,7 +27,7 @@
       <span>￥1</span>
     </mt-cell>
     <mt-cell
-      title="我推荐的代理"
+      title="二级代理"
       to="/recommendDelegate"
       is-link>
       <img slot="icon" src="../static/img/goodShow.png" width="24" height="24">
@@ -35,7 +35,7 @@
     </mt-cell>
 
     <mt-cell
-      title="推荐的代理"
+      title="三级代理"
       to="/recommendDelegate"
       is-link>
       <img slot="icon" src="../static/img/goodShow.png" width="24" height="24">
