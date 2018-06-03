@@ -10,7 +10,7 @@
           <mt-button>主页</mt-button>
         </router-link>
       </mt-header>
-      <mt-cell v-for="n in 4" :title="'拉老鼠 ' + n" to="/delegateList" is-link/>
+      <mt-cell v-for="n in 1" :title="'董小姐'" to="/delegateList" is-link/>
     </div>
 </template>
 
@@ -23,16 +23,26 @@
         }
       },
       methods: {
-        loadMore() {
-          // this.loading = true;
-          // setTimeout(() => {
-          //   let last = this.list[this.list.length - 1];
-          //   for (let i = 1; i <= 10; i++) {
-          //     this.list.push(last + i);
-          //   }
-          //   this.loading = false;
-          // }, 2500);
-        }
+        getLevel2List() {
+          fetchLevel2Delegate().then(response => {
+            // this.list = response.data.items
+            // this.total = response.data.total
+            // this.listLoading = false
+            // this.tableData = response.data.tableData
+            // this.totalPage = response.data.totalPage
+            // this.listLoading = false
+          })
+        },
+        getPlayerList() {
+          fetchPlayers().then(response => {
+            // this.list = response.data.items
+            // this.total = response.data.total
+            // this.listLoading = false
+            // this.tableData = response.data.tableData
+            // this.totalPage = response.data.totalPage
+            // this.listLoading = false
+          })
+        },
       }
     }
 </script>

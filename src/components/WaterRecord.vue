@@ -8,39 +8,83 @@
         <mt-button >首页</mt-button>
       </router-link>
     </mt-header>
-    <div style="background-color: #acacb4; width: 100%; height: 35px; text-align: center">
+    <div style=" width: 100%; height: 35px; text-align: center; background-color: #acacb4">
       <div style="height: 35px; width: 33%;float: left; margin-top: 5px">UID</div>
       <div style="height: 35px; width: 33%;float: left; margin-top: 5px">时间</div>
       <div style="height: 35px; width: 33%;float: left; margin-top: 5px">金额</div>
     </div>
-    <!--<ul>-->
-      <!--<li v-for="item in list">-->
-        <!--<img v-lazy="item">-->
-      <!--</li>-->
-    <!--</ul>-->
-    <ul class="mui-table-view">
-      <li v-for="news in list" :key="news.id" class="mui-table-view-cell mui-media">
-        <img class="mui-media-object mui-pull-left" :src="news.img_url">
-        <div class="mui-media-body">
-          <span v-text="news.title"></span>
-          <div class="news-desc">
-          </div>
-        </div>
-      </li>
-    </ul>
+    <div style=" width: 100%; height: 35px; text-align: center" v-for="(comment,index) in comments" :key="index">
+      <div style="height: 35px; width: 33%;float: left; margin-top: 5px">{{comment.uid}}</div>
+      <div style="height: 35px; width: 33%;float: left; margin-top: 5px">{{comment.timeStamp}}</div>
+      <div style="height: 35px; width: 33%;float: left; margin-top: 5px">{{comment.money}}</div>
+    </div>
   </div>
 </template>
 
 <script>
-    export default {
-      data(){
-        return {
-          list:[],//新闻列表数据
-        }
+  import axios from 'axios';
+  import {fetchLevel2Delegate} from "../api/delegateRel";
+  import { Toast } from 'mint-ui';
+  export default {
+    name: 'page-navbar',
+
+    data(){
+      return {
+        pageIndex:1,//页码
+        comments: [],//商品列表数据
+        allLoaded:false, //是否禁止触发上拉函数
+        isAutoFill:false,//是否自动触发上拉函数
+        selected: '1'
+      }
+    },
+    watch:{
+      selected:{
+        handler:function(val,oldval){
+          // console.log(val)
+
+          if (val == '1'){
+            this.getPlayerList()
+          } else {
+            this.getLevel2List()
+          }
+        },
+        deep:true//对象内部的属性监听，也叫深度监听
+      },
+    },
+
+    created() {
+      this.waterRecord()
+    },
+    methods: {
+      waterRecord() {
+
+        Toast("1")
+
+        axios.get("http://localhost:8085/todayCharge/waterRecord").then((response) => {
+
+            Toast("w")
+            // this.data().prods = response.data["data"]["result"];
+            // Toast("ww")
+            console.log(response);
+            this.comments = response['data']['data']['result']
+            // Toast(this.tableData[0].toJSON)
+          }
+        ).catch((err) => {
+            console.log(err);
+          }
+        );
       },
     }
+  };
 </script>
 
 <style scoped>
-
+  .sspan{
+    text-align: right;
+    background-color: lightgrey;
+    width: 30%;
+    height:60px;
+    float: left;
+  }
+  li {list-style-type:none;}
 </style>

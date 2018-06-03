@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mt-header title="三级代理">
+    <mt-header title="董小姐棋牌">
       <router-link to="/delegateList" slot="left">
         <mt-button icon="back">返回</mt-button>
         <!--<mt-button @click="handleClose">close</mt-button>-->
@@ -11,40 +11,101 @@
       </router-link>
     </mt-header>
 
-    <div style="background-color: red; width: 100%; height: 64px; text-align: center">
-      <br>
-      <span>
-        A->B->C
-      </span>
+    <div class="top">
+      <mt-navbar v-model="selected">
+        <mt-tab-item id="1">三级代理</mt-tab-item>
+      </mt-navbar>
     </div>
 
-    <ul class="mui-table-view">
-      <li class="mui-table-view-cell" v-for="i in 20" :key="i">
-        <mt-cell
-          value="带链接">
-          <img slot="icon" src="../static/img/goodShow.png" width="43" height="43">
-          <span>delegate贫僧 + {{i}}</span>
-          &nbsp; &nbsp;
-          <span>ID:123444</span>
-        </mt-cell>
-      </li>
-    </ul>
+    <mt-tab-container v-model="selected">
+      <mt-tab-container-item id="2">
+        <ul class="mui-table-view">
+          <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
+            <mt-cell
+              to="/finalDelegateList"
+              is-link
+              value="带链接">
+              <img slot="icon" :src="comment.image" width="43" height="43">
+              <span>{{comment.username}}</span>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>ID: {{comment.uid}}</span>
+            </mt-cell>
+          </li>
+        </ul>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="1">
+        <ul class="mui-table-view">
+          <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
+            <mt-cell
+              value="带链接">
+              <img slot="icon" :src="comment.image" width="43" height="43">
+              <span>{{comment.username}}</span>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>ID: {{comment.uid}}</span>
+            </mt-cell>
+          </li>
+        </ul>
+      </mt-tab-container-item>
+    </mt-tab-container>
 
   </div>
+
 </template>
+
 <script>
+  import axios from 'axios';
+  import {fetchLevel2Delegate} from "../api/delegateRel";
+  import { Toast } from 'mint-ui';
   export default {
     name: 'page-navbar',
 
     data(){
       return {
         pageIndex:1,//页码
-        prods:[],//商品列表数据
+        comments: [],//商品列表数据
         allLoaded:false, //是否禁止触发上拉函数
         isAutoFill:false,//是否自动触发上拉函数
         selected: '1'
       }
     },
+    watch:{
+      selected:{
+        handler:function(val,oldval){
+          // console.log(val)
+
+          if (val == '1'){
+            this.getPlayerList()
+          } else {
+            this.getLevel2List()
+          }
+        },
+        deep:true//对象内部的属性监听，也叫深度监听
+      },
+    },
+
+    created() {
+      this.getLevel3List()
+    },
+    methods: {
+      getLevel3List() {
+
+        Toast("1")
+
+        axios.get("http://localhost:8085/delegateRel/fetch3Delegate").then((response) => {
+
+            Toast("w")
+            // this.data().prods = response.data["data"]["result"];
+            // Toast("ww")
+            console.log(response);
+            this.comments = response['data']['data']['result']
+            // Toast(this.tableData[0].toJSON)
+          }
+        ).catch((err) => {
+            console.log(err);
+          }
+        );
+      },
+    }
   };
 </script>
 
@@ -74,7 +135,7 @@
     list-style-type:none;
     margin: 0px;
     padding: 0px;
-    height: 80px;
+    height: 60px;
     /*text-align: center;*/
   }
 </style>

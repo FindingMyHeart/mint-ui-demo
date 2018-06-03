@@ -32,18 +32,21 @@
         title="今日充值"
         to="/todayCharge"
         is-link>
-        <!--<span style="font-size:20px;text-align:center;margin-right:150px">¥ {{this.charge}}</span>-->
         <span>¥ {{this.charge}}</span>
         <img slot="icon" src="../assets/logo.png" width="24" height="24">
       </mt-cell>
-      <mt-cell
-        title="可结算额"
-        to="/canBalance"
-        is-link>
-        <span>¥ {{this.money}}</span>
-        <!--<span style="color: gray;font-size:20px;text-align:center;margin-right:150px">¥ {{this.money}}</span>-->
-        <img slot="icon" src="../static/img/goodShow.png" width="24" height="24">
-      </mt-cell>
+
+      <div >
+        <mt-cell
+          title="可结算额"
+          to="/canBalance"
+          is-link>
+          <span>¥ {{this.money}}</span>
+          <!--<span style="color: gray;font-size:20px;text-align:center;margin-right:150px">¥ {{this.money}}</span>-->
+          <img slot="icon" src="../static/img/goodShow.png" width="24" height="24">
+        </mt-cell>
+      </div>
+
 
       <mt-cell
         title="推荐代理"
@@ -52,12 +55,12 @@
         <img slot="icon" src="../assets/logo.png" width="24" height="24">
       </mt-cell>
 
-      <mt-cell
-        title="成为代理"
-        to="/becomeDelegate"
-        is-link>
-        <img slot="icon" src="../assets/logo.png" width="24" height="24">
-      </mt-cell>
+      <!--<mt-cell-->
+        <!--title="成为代理"-->
+        <!--to="/becomeDelegate"-->
+        <!--is-link>-->
+        <!--<img slot="icon" src="../assets/logo.png" width="24" height="24">-->
+      <!--</mt-cell>-->
 
       <mt-cell
         title="关系查询"
@@ -87,11 +90,20 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       agentId:1000,
       charge:1000,
-      money:0.00
+      money:2222.00
     }
 
   },
   methods:{
+
+    blanceClick(id) {
+      this.$router.push({
+        name: 'canBlance',
+        params: {
+          id: this.money
+        }
+      })
+    },
     handleClose(){
       Toast('邀请码是:'+ this.agentId);
     },
