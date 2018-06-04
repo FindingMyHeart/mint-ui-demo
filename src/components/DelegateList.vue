@@ -55,7 +55,7 @@
 
 <script>
   import axios from 'axios';
-  import {fetchLevel2Delegate} from "../api/delegateRel";
+  import {fetchLevel2Delegate, fetchPlayers} from "../api/delegateRel";
   import { Toast } from 'mint-ui';
   export default {
     name: 'page-navbar',
@@ -90,20 +90,24 @@
     methods: {
       getLevel2List() {
 
-        axios.get("http://localhost:8085/delegateRel/fetch2Delegate").then((response) => {
+        // axios.get("http://localhost:8085/delegateRel/fetch2Delegate").then((response) => {
+        //
+        //   // Toast("w")
+        //   // this.data().prods = response.data["data"]["result"];
+        //   // Toast("ww")
+        //   console.log(response);
+        //   this.comments = response['data']['data']['result']
+        //   // Toast(this.tableData[0].toJSON)
+        //   }
+        // ).catch((err) => {
+        //     console.log(err);
+        //   }
+        // );
 
-          // Toast("w")
-          // this.data().prods = response.data["data"]["result"];
-          // Toast("ww")
+        fetchLevel2Delegate().then(response => {
           console.log(response);
-          this.comments = response['data']['data']['result']
-          // Toast(this.tableData[0].toJSON)
-          }
-        ).catch((err) => {
-            console.log(err);
-          }
-        );
-
+          this.comments = response.result
+        });
         // var api = "https://www.baidu.com/"
         // Toast(api)
         // Vue.axios.get(api).then((response) => {
@@ -114,18 +118,24 @@
 
       getPlayerList() {
 
-        axios.get("http://localhost:8085/delegateRel/fetchPlayers").then((response) => {
+        // axios.get("http://localhost:8085/delegateRel/fetchPlayers").then((response) => {
+        //
+        //     // this.data().prods = response.data["data"]["result"];
+        //     // Toast("ww")
+        //     console.log(response);
+        //     this.comments = response['data']['data']['result']
+        //     // Toast(this.tableData[0].toJSON)
+        //   }
+        // ).catch((err) => {
+        //     console.log(err);
+        //   }
+        // );
 
-            // this.data().prods = response.data["data"]["result"];
-            // Toast("ww")
-            console.log(response);
-            this.comments = response['data']['data']['result']
-            // Toast(this.tableData[0].toJSON)
-          }
-        ).catch((err) => {
-            console.log(err);
-          }
-        );
+        Toast("fetchl")
+        fetchPlayers().then(response => {
+          console.log(response);
+          this.comments = response.result
+        });
       },
     }
   };

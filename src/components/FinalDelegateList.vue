@@ -54,7 +54,7 @@
 
 <script>
   import axios from 'axios';
-  import {fetchLevel2Delegate} from "../api/delegateRel";
+  import {fetchLevel2Delegate, fetchLevel3Delegate} from "../api/delegateRel";
   import { Toast } from 'mint-ui';
   export default {
     name: 'page-navbar',
@@ -89,16 +89,10 @@
     methods: {
       getLevel3List() {
 
-        axios.get("http://localhost:8085/delegateRel/fetch3Delegate").then((response) => {
-
-            console.log(response);
-            this.comments = response['data']['data']['result']
-            // Toast(this.tableData[0].toJSON)
-          }
-        ).catch((err) => {
-            console.log(err);
-          }
-        );
+        fetchLevel3Delegate().then(response => {
+          console.log(response);
+          this.comments = response.result
+        });
       },
     }
   };
