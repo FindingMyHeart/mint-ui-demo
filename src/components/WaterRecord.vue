@@ -58,8 +58,6 @@
     methods: {
       waterRecord() {
 
-        Toast("1")
-
         axios.get("http://localhost:8085/todayCharge/waterRecord").then((response) => {
 
             Toast("w")
@@ -67,7 +65,7 @@
             // Toast("ww")
             console.log(response);
             this.comments = response['data']['data']['result']
-            // Toast(this.tableData[0].toJSON)
+
           }
         ).catch((err) => {
             console.log(err);

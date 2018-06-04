@@ -89,13 +89,8 @@
     methods: {
       getLevel3List() {
 
-        Toast("1")
-
         axios.get("http://localhost:8085/delegateRel/fetch3Delegate").then((response) => {
 
-            Toast("w")
-            // this.data().prods = response.data["data"]["result"];
-            // Toast("ww")
             console.log(response);
             this.comments = response['data']['data']['result']
             // Toast(this.tableData[0].toJSON)
