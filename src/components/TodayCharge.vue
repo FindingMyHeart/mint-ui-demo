@@ -13,8 +13,9 @@
 
     <div style="text-align: center">
       <br>
-      <span style="font-size:x-large; display: block">￥{{this.total}}</span>
+      <span style="font-size:20px; display: block">￥{{this.total}}</span>
       <span style="font-size:15px">{{this.startDate}} 至 {{this.endDate}}</span>
+      <br>
       <br>
     </div>
 
