@@ -20,6 +20,7 @@ import FinalDelegateList from '@/components/FinalDelegateList'
 import ShareLink from '@/components/ShareLink'
 import Charge from '@/components/Charge'
 import Download from '@/components/Download'
+import ChargeDetail from '@/components/ChargeDetail'
 import {getToken, setToken} from '@/utils/util'
 
 Vue.use(Router)
@@ -141,6 +142,11 @@ const router = new Router({
       name: 'Download',
 
       component: Download
+    },
+    {
+      path: '/chargeDetail',
+      name: 'ChargeDetail',
+      component: ChargeDetail
     }
   ]
 })
