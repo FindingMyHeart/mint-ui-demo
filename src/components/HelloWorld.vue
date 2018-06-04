@@ -72,9 +72,9 @@
         allLoaded:false, //是否禁止触发上拉函数
         isAutoFill:false,//是否自动触发上拉函数
         selected: '1',
-        agentId: '',
-        money: '',
-        charge: ''
+        agentId: '0',
+        money: '0',
+        charge: '0'
 
       }
     },
