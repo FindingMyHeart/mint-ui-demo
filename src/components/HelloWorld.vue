@@ -9,7 +9,7 @@
       <mt-cell
         title="看邀请码"
         is-link>
-        <img slot="icon" src="../static/img/callme.png" width="24" height="24">
+        <img slot="icon" src="../assets/kyqm.png" width="24" height="24">
         <br>
         <span>{{this.agentId}}</span>
 
@@ -20,7 +20,7 @@
         to="/todayCharge"
         is-link>
         <span>¥ {{this.charge}}</span>
-        <img slot="icon" src="../assets/logo.png" width="24" height="24">
+        <img slot="icon" src="../assets/cz.png" width="24" height="24">
       </mt-cell>
 
       <mt-cell
@@ -29,7 +29,7 @@
         is-link>
         <span>¥ {{this.money}}</span>
         <!--<span style="color: gray;font-size:20px;text-align:center;margin-right:150px">¥ {{this.money}}</span>-->
-        <img slot="icon" src="../static/img/goodShow.png" width="24" height="24">
+        <img slot="icon" src="../assets/js.png" width="24" height="24">
       </mt-cell>
 
 
@@ -37,21 +37,21 @@
         title="推荐代理"
         to="/recommendDelegate"
         is-link>
-        <img slot="icon" src="../assets/logo.png" width="24" height="24">
+        <img slot="icon" src="../assets/tjr.png" width="24" height="24">
       </mt-cell>
 
       <mt-cell
         title="关系查询"
         to="/relationshipSearch"
         is-link>
-        <img slot="icon" src="../assets/logo.png" width="24" height="24">
+        <img slot="icon" src="../assets/gx.png" width="24" height="24">
       </mt-cell>
 
       <mt-cell
         title="用户协议"
         to="/Agreement"
         is-link>
-        <img slot="icon" src="../assets/logo.png" width="24" height="24">
+        <img slot="icon" src="../assets/yh.png" width="24" height="24">
       </mt-cell>
     </div>
 
