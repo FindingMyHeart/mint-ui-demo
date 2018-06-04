@@ -61,6 +61,7 @@
 <script>
   import axios from 'axios';
   import {fetchLevel2Delegate} from "../api/delegateRel";
+  import {homePage} from "../api/home";
   import { Toast } from 'mint-ui';
   export default {
     name: 'page-navbar',
@@ -98,16 +99,32 @@
     },
     methods: {
       getHome() {
-        axios.get("http://localhost:8085//home/show").then((response) => {
-            console.log(response);
-            this.agentId = response['data']['data']['result']['invitationCode']
-            this.charge = response['data']['data']['result']['rebate']
-            this.money = response['data']['data']['result']['totalMoney']
-          }
-        ).catch((err) => {
-            console.log(err);
-          }
-        );
+        // axios.get("http://localhost:8085/home/show").then((response) => {
+        //     console.log(response);
+        //     this.agentId = response['data']['data']['result']['invitationCode']
+        //     this.charge = response['data']['data']['result']['rebate']
+        //     this.money = response['data']['data']['result']['totalMoney']
+        //   }
+        // ).catch((err) => {
+        //     console.log(err);
+        //   }
+        // );
+
+        homePage().then(response => {
+
+          console.log(response);
+
+          this.agentId = response.result.invitationCode
+          this.charge = response.result.rebate
+          this.money = response.result.resulttotalMoney
+        });
+
+        // homePage().then(response => {
+        //   console.log(response);
+        //   Toast("aa")
+        //   // this.comments = response.result
+        // });
+
       },
     }
   };

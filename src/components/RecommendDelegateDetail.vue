@@ -11,7 +11,10 @@
     <br>
     <br>
     <div class="container">
-      <mt-field label="用户ID" placeholder="请输入用户ID" v-model="agentId"></mt-field>
+      <mt-field label="用户ID" placeholder="请输入用户ID" v-model="agentId">
+
+        <span>{{this.username}}</span>
+      </mt-field>
       <br>
       <br>
       <mt-button size="large" type="primary" @click="searchUser">查  询</mt-button>
@@ -20,8 +23,14 @@
       <div style="text-align: left">
         <mt-cell
           title="">
-          <span>{{this.agentId}}</span>
-          <img slot="icon" src="../assets/logo.png" width="24" height="24">
+          <span>ID:{{this.agentId}}</span>&nbsp; &nbsp;
+          <span>{{this.username}}</span>
+
+          <!--<img v-bind:src="imageUrl" width="24" height="24"/>-->
+
+
+          <!--<img v-bind:src="userData.photo" :onerror="logo" class="img-box4">-->
+          <!--<img slot="icon" v-bind:src="imageUrl" width="24" height="24">-->
           <div style=" width: 150px; text-align: right">
             <mt-button size="small" type="primary" @click="recommandClick">推 荐</mt-button>
           </div>
@@ -38,6 +47,7 @@
 <script>
   import axios from 'axios';
   import {fetchLevel2Delegate} from "../api/delegateRel";
+  import {finderUser, bindDelegate} from "../api/home";
   import { Toast } from 'mint-ui';
   export default {
     name: 'page-navbar',
@@ -67,41 +77,70 @@
           Toast('用户不存在或已经成为代理')
           return
         }
-        axios.get("http://localhost:8085/recommandDelegate/bindDelegate?userId=" + this.agentId).then((response) => {
-            console.log(response);
+        // axios.get("http://localhost:8085/recommandDelegate/bindDelegate?userId=" + this.agentId).then((response) => {
+        //     console.log(response);
+        //
+        //     var code = response['data']['code']
+        //
+        //     if (code == 200){
+        //       Toast('绑定失败')
+        //     } else {
+        //       Toast('绑定成功')
+        //     }
+        //
+        //   }
+        // ).catch((err) => {
+        //     console.log(err);
+        //   }
+        // );
 
-            var code = response['data']['code']
 
-            if (code == 200){
-              Toast('绑定失败')
-            } else {
-              Toast('绑定成功')
-            }
+        bindDelegate(this.agentId).then(response => {
 
+          console.log(response);
+
+          var code = response.code
+
+          if (code == 200){
+            Toast('绑定失败')
+          } else {
+            Toast('绑定成功')
           }
-        ).catch((err) => {
-            console.log(err);
-          }
-        );
+
+        });
+
+
       },
 
+
+
       findUser() {
-        Toast(this.agentId)
-        axios.get("http://localhost:8085/recommandDelegate/findUser?userId=" + this.agentId).then((response) => {
-            console.log(response);
-            this.agentId = response['data']['data']['result']['userId']
-            this.username = response['data']['data']['result']['username']
-            this.imageUrl = response['data']['data']['result']['imageUrl']
-            if (this.agentId == '0'){
-              this.enable =false;
-            } else {
-              this.enable = true;
-            }
-          }
-        ).catch((err) => {
-            console.log(err);
-          }
-        );
+
+        // axios.get("http://localhost:8085/recommandDelegate/findUser?userId=" + this.agentId).then((response) => {
+        //     console.log(response);
+        //     this.agentId = response['data']['data']['result']['userId']
+        //     this.username = response['data']['data']['result']['username']
+        //     this.imageUrl = response['data']['data']['result']['imageUrl']
+        //     if (this.agentId == '0'){
+        //       this.enable =false;
+        //       Toast("用户不存在或者已经成为代理")
+        //     } else {
+        //       this.enable = true;
+        //     }
+        //   }
+        // ).catch((err) => {
+        //     console.log(err);
+        //   }
+        // );
+
+        finderUser(this.agentId).then(response => {
+
+          console.log(response);
+
+          this.agentId = response.result.userId;
+          this.username = response.result.username;
+          this.money = response.result.imageUrl;
+        });
       },
     }
   };

@@ -61,6 +61,7 @@
 <script>
   import axios from 'axios';
   import { DatetimePicker } from 'mint-ui';
+  import {todayCharge, todayCharge1} from "../api/home";
   import { Toast } from 'mint-ui';
     export default {
         name: "",
@@ -190,50 +191,102 @@
               return
             }
 
-            axios.get("http://localhost:8085/todayCharge/dhomeCharge?start=" + this.startDate + "&end=" + this.endDate).then((response) => {
+            // axios.get("http://localhost:8085/todayCharge/dhomeCharge?start=" + this.startDate + "&end=" + this.endDate).then((response) => {
+            //
+            //   if (response.data["code"] == 200){
+            //     this.level1 = response.data["data"]["result"]["onelevel"];
+            //     this.level2 = response.data["data"]["result"]["twoLevel"];
+            //     this.level3 = response.data["data"]["result"]["threeLevel"];
+            //     this.total = response.data["data"]["result"]["total"];
+            //     this.lastStartDate =  response.data["data"]["result"]["start"];
+            //     this.lastStartEnd =  response.data["data"]["result"]["end"];
+            //     this.startDate = response.data["data"]["result"]["start"];
+            //     this.endDate = esponse.data["data"]["result"]["end"];
+            //
+            //     this.list1 = response.data["data"]["result"]["list1"];
+            //     this.list2 = response.data["data"]["result"]["list2"];
+            //     this.list3 = response.data["data"]["result"]["list3"];
+            //   }
+            //
+            //     console.log(response);
+            //   }
+            // ).catch((err) => {
+            //     console.log(err);
+            //   }
+            // );
 
-              if (response.data["code"] == 200){
-                this.level1 = response.data["data"]["result"]["onelevel"];
-                this.level2 = response.data["data"]["result"]["twoLevel"];
-                this.level3 = response.data["data"]["result"]["threeLevel"];
-                this.total = response.data["data"]["result"]["total"];
-                this.lastStartDate =  response.data["data"]["result"]["start"];
-                this.lastStartEnd =  response.data["data"]["result"]["end"];
-                this.startDate = response.data["data"]["result"]["start"];
-                this.endDate = esponse.data["data"]["result"]["end"];
+            todayCharge(this.startDate, this.endDate).then(response => {
 
-                this.list1 = response.data["data"]["result"]["list1"];
-                this.list2 = response.data["data"]["result"]["list2"];
-                this.list3 = response.data["data"]["result"]["list3"];
-              }
+              console.log(response);
 
-                console.log(response);
-              }
-            ).catch((err) => {
-                console.log(err);
-              }
-            );
+              this.level1 = response.result.onelevel;
+              // this.level2 = response.data["data"]["result"]["twoLevel"];
+              // this.level3 = response.data["data"]["result"]["threeLevel"];
+              // this.total = response.data["data"]["result"]["total"];
+              // this.lastStartDate =  response.data["data"]["result"]["start"];
+              // this.lastStartEnd =  response.data["data"]["result"]["end"];
+              // this.startDate = response.data["data"]["result"]["start"];
+              // this.endDate = esponse.data["data"]["result"]["end"];
+              //
+              // this.list1 = response.data["data"]["result"]["list1"];
+              // this.list2 = response.data["data"]["result"]["list2"];
+              // this.list3 = response.data["data"]["result"]["list3"];
+
+              this.level1 = response.result.onelevel;
+              this.level2 = response.result.twoLevel;
+              this.level3 = response.result.threeLevel;
+              this.total = response.result.total;
+              this.lastStartDate =  response.result.start;
+              this.lastStartEnd =  response.result.end;
+              this.startDate = response.result.start;
+              this.endDate = response.result.end;
+
+              this.list1 = response.result.list1;
+              this.list2 = response.result.list2;
+              this.list3 = response.result.list3;
+
+            });
+            // todayCharge(this.startDate, this.endDate)
 
 
           },
           waterRecord() {
 
-          axios.get("http://localhost:8085/todayCharge/dhomeCharge?start=" + this.startDate + "&end=" + this.endDate).then((response) => {
+            todayCharge1().then(response => {
 
-              this.level1 = response.data["data"]["result"]["onelevel"];
-              this.level2 = response.data["data"]["result"]["twoLevel"];
-              this.level3 = response.data["data"]["result"]["threeLevel"];
-              this.total = response.data["data"]["result"]["total"];
-
-              this.list1 = response.data["data"]["result"]["list1"];
-              this.list2 = response.data["data"]["result"]["list2"];
-              this.list3 = response.data["data"]["result"]["list3"];
               console.log(response);
-            }
-          ).catch((err) => {
-              console.log(err);
-            }
-          );
+
+              this.level1 = response.result.onelevel;
+              this.level2 = response.result.twoLevel;
+              this.level3 = response.result.threeLevel;
+              this.total = response.result.total;
+              this.lastStartDate =  response.result.start;
+              this.lastStartEnd =  response.result.end;
+              this.startDate = response.result.start;
+              this.endDate = response.result.end;
+
+              this.list1 = response.result.list1;
+              this.list2 = response.result.list2;
+              this.list3 = response.result.list3;
+
+            });
+
+          // axios.get("http://localhost:8085/todayCharge/dhomeCharge?start=" + this.startDate + "&end=" + this.endDate).then((response) => {
+          //
+          //     this.level1 = response.data["data"]["result"]["onelevel"];
+          //     this.level2 = response.data["data"]["result"]["twoLevel"];
+          //     this.level3 = response.data["data"]["result"]["threeLevel"];
+          //     this.total = response.data["data"]["result"]["total"];
+          //
+          //     this.list1 = response.data["data"]["result"]["list1"];
+          //     this.list2 = response.data["data"]["result"]["list2"];
+          //     this.list3 = response.data["data"]["result"]["list3"];
+          //     console.log(response);
+          //   }
+          // ).catch((err) => {
+          //     console.log(err);
+          //   }
+          // );
         },
       }
     }

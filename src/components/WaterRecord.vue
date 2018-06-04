@@ -24,6 +24,7 @@
 <script>
   import axios from 'axios';
   import {fetchLevel2Delegate} from "../api/delegateRel";
+  import {water} from "../api/home";
   import { Toast } from 'mint-ui';
   export default {
     name: 'page-navbar',
@@ -58,18 +59,24 @@
     methods: {
       waterRecord() {
 
-        axios.get("http://localhost:8085/todayCharge/waterRecord").then((response) => {
+        // axios.get("http://localhost:8085/todayCharge/waterRecord").then((response) => {
+        //
+        //     // this.data().prods = response.data["data"]["result"];
+        //     // Toast("ww")
+        //     console.log(response);
+        //     this.comments = response['data']['data']['result']
+        //
+        //   }
+        // ).catch((err) => {
+        //     console.log(err);
+        //   }
+        // );
 
-            // this.data().prods = response.data["data"]["result"];
-            // Toast("ww")
-            console.log(response);
-            this.comments = response['data']['data']['result']
-
-          }
-        ).catch((err) => {
-            console.log(err);
-          }
-        );
+        // Toast("fetchl")
+        water().then(response => {
+          console.log(response);
+          this.comments = response.result
+        });
       },
     }
   };

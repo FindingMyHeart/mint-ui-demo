@@ -131,7 +131,7 @@
         //   }
         // );
 
-        Toast("fetchl")
+        // Toast("fetchl")
         fetchPlayers().then(response => {
           console.log(response);
           this.comments = response.result
