@@ -15,8 +15,12 @@
     </div>
     <div style=" width: 100%; height: 35px; text-align: center" v-for="(comment,index) in comments" :key="index">
       <div style="height: 35px; width: 33%;float: left; margin-top: 5px">{{comment.uid}}</div>
+      <!--<div style="background-color: #acacb4; width: 100%; height: 1px"></div>-->
       <div style="height: 35px; width: 33%;float: left; margin-top: 5px">{{comment.timeStamp}}</div>
-      <div style="height: 35px; width: 33%;float: left; margin-top: 5px">{{comment.money}}</div>
+      <!--<div style="background-color: #acacb4; width: 100%; height: 1px"></div>-->
+      <div style="height: 35px; width: 33%;float: left; margin-top: 5px; text-decoration-color: hotpink">
+        <span style="color: red">￥{{comment.money}}</span>
+      </div>
     </div>
   </div>
 </template>
