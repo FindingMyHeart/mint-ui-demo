@@ -6,8 +6,8 @@ import {getToken, setToken, removeToken} from '@/utils/util'
 export default function fetch(options) {
   return new Promise((resolve, reject) => {
     const instance = axios.create({
-      // baseURL: 'http://192.168.1.173:8085/',
-      baseURL: 'http://dongxiaojieqipai.com/game/',
+      baseURL: 'http://192.168.1.104:8085/',
+      // baseURL: 'http://dongxiaojieqipai.com/game/',
       withCredentials: true,//跨域
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"

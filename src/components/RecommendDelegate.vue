@@ -8,7 +8,7 @@
         <mt-button >首页</mt-button>
       </router-link>
     </mt-header>
-    <mt-cell title="董小姐棋牌" is-link to="/recommendDelegateDetail"></mt-cell>
+    <mt-cell title="董小姐棋牌室" is-link to="/recommendDelegateDetail"></mt-cell>
   </div>
 </template>
 
