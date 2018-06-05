@@ -52,6 +52,13 @@ export function todayCharge1 () {
   })
 }
 
+export function canBlance () {
+  return fetch({
+    url: 'todayCharge/canBlance',
+    method: 'get'
+  })
+}
+
 
 
 

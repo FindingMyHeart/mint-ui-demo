@@ -19,12 +19,13 @@
 
 <script>
   import axios from 'axios';
+  import {canBlance} from "../api/home";
   import { Toast } from 'mint-ui';
     export default {
       name: 'canBlance',
       data(){
         return {
-          text:'123',
+          text:'0',
           value:false
         }
       },
@@ -34,15 +35,15 @@
       },
       methods: {
         getMoney() {
-          axios.get("http://localhost:8085/todayCharge/canBlance").then((response) => {
-              console.log(response);
-              this.text = response['data']['data']['canBlance']
 
-            }
-          ).catch((err) => {
-              console.log(err);
-            }
-          );
+          canBlance().then(response => {
+
+            console.log(response);
+
+            this.text = response.result;
+            Toast(this.text + "")
+
+          });
         },
 
         gotoWaterList(){
