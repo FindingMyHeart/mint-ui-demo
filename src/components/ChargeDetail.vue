@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mt-header title="董小姐棋牌">
+    <mt-header title="董小姐棋牌室">
       <router-link to="/todayCharge" slot="left">
         <mt-button icon="back">返回</mt-button>
         <!--<mt-button @click="handleClose">close</mt-button>-->
