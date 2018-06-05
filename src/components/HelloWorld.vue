@@ -19,7 +19,7 @@
         title="今日充值"
         to="/todayCharge"
         is-link>
-        <span>¥ {{this.charge}}</span>
+        <span>¥ {{this.money}}</span>
         <img slot="icon" src="../assets/cz.png" width="24" height="24">
       </mt-cell>
 
@@ -27,7 +27,7 @@
         title="可结算额"
         to="/canBalance"
         is-link>
-        <span>¥ {{this.money}}</span>
+        <span>¥ {{this.charge}}</span>
         <!--<span style="color: gray;font-size:20px;text-align:center;margin-right:150px">¥ {{this.money}}</span>-->
         <img slot="icon" src="../assets/js.png" width="24" height="24">
       </mt-cell>
@@ -116,7 +116,7 @@
 
           this.agentId = response.result.invitationCode
           this.charge = response.result.rebate
-          this.money = response.result.resulttotalMoney
+          this.money = response.result.totalMoney
         });
 
         // homePage().then(response => {
