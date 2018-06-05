@@ -34,7 +34,7 @@
       <!--<span>￥{{this.level2}}</span>-->
     <!--</mt-cell>-->
 
-    <mt-button size="large" type="primary" @click="goToNextPlayer">今日充值￥{{this.level1}}</mt-button>
+    <mt-button size="large" type="primary" @click="goToNextPlayer">直接玩家￥{{this.level1}}</mt-button>
     <br>
     <mt-button size="large" type="primary" @click="goToNext2Level">二级代理￥{{this.level2}}</mt-button>
     <br>
