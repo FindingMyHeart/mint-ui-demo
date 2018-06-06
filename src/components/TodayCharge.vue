@@ -15,65 +15,37 @@
       <span style="font-size: 22px"> ￥{{this.total}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>
     </div>
     <br>
-
     <div @click="goToNextPlayer">
       <mt-cell title="直接玩家(提成55%)">
         <div>
           ￥{{this.level1}}
-          &nbsp;&nbsp;
-          <img slot="icon" src="../assets/cz.png" width="24" height="24">
+          &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
         </div>
-        <!--￥{{this.level1}}-->
-        <!--<span>icon 是图片</span>-->
-        <img slot="icon" src="../assets/cz.png" width="24" height="24">
+        <img slot="icon" src="../assets/zjwj.png" width="24" height="24">
       </mt-cell>
     </div>
 
     <div style="width: 100%; height: 8px"></div>
-    <!--<mt-button size="large" type="primary" @click="goToNextPlayer">直接玩家(提成55%)    ￥{{this.level1}}</mt-button>-->
-    <!--<br>-->
     <div @click="goToNext2Level">
       <mt-cell title="二级代理(提成10%)">
         <div>
           ￥{{this.level2}}
-          &nbsp;&nbsp;
-          <img slot="icon" src="../assets/cz.png" width="24" height="24">
+          &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
         </div>
-
-        <!--<span>icon 是图片</span>-->
-        <img slot="icon" src="../assets/cz.png" width="24" height="24">
+        <img slot="icon" src="../assets/ej.png" width="24" height="24">
       </mt-cell>
     </div>
 
     <div style="width: 100%; height: 8px"></div>
-    <!--<mt-button size="large" type="primary" @click="goToNext2Level">二级代理(提成10%)    ￥{{this.level2}}</mt-button>-->
-    <!--<br>-->
     <div @click="goToNext3Level">
       <mt-cell title="三级代理(提成5%)">
         <div>
           ￥{{this.level3}}
-          &nbsp;&nbsp;
-          <img slot="icon" src="../assets/cz.png" width="24" height="24">
+          &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
         </div>
-        <!--￥{{this.level3}}-->
-        <!--<span>icon 是图片</span>-->
-        <img slot="icon" src="../assets/cz.png" width="24" height="24">
+        <img slot="icon" src="../assets/sj.png" width="24" height="24">
       </mt-cell>
     </div>
-
-    <!--<mt-button size="large" type="primary" @click="goToNext3Level">三级代理(提成5%)    ￥{{this.level3}}</mt-button>-->
-    <!--<mt-cell-->
-      <!--title="三级代理"-->
-      <!--to="/recommendDelegate"-->
-      <!--is-link>-->
-      <!--<img slot="icon" src="../static/img/goodShow.png" width="24" height="24">-->
-      <!--<span>￥{{this.level3}}</span>-->
-    <!--</mt-cell>-->
-
-    <!--<br>-->
-    <!--<mt-field label="开始时间" placeholder="请输入开始时间" v-model="startDate"></mt-field>-->
-    <!--<mt-field label="结束时间" placeholder="请输入结束时间" v-model="startDate"></mt-field>-->
-
     <br>
     <mt-field label="开始时间" placeholder="请选择开始时间" type="date" v-model="startDate"></mt-field>
     <mt-field label="结束时间" placeholder="请选择结束时间" type="date" v-model="endDate"></mt-field>

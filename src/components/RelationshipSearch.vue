@@ -10,7 +10,15 @@
           <mt-button>主页</mt-button>
         </router-link>
       </mt-header>
-      <mt-cell v-for="n in 1" :title="'董小姐棋牌室'" to="/delegateList" is-link/>
+
+      <!--<mt-cell v-for="n in 1" :title="'董小姐棋牌室'" to="/delegateList" is-link/>-->
+      <mt-cell
+        title="董小姐棋牌室"
+        to="/delegateList"
+        is-link>
+        <!--<span>¥{{this.money}}</span>-->
+        <img slot="icon" src="../assets/ic_launcher.png" width="24" height="24">
+      </mt-cell>
     </div>
 </template>
 
