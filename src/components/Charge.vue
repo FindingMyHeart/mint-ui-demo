@@ -175,7 +175,7 @@
       this.itemWidth = (w - 40) / 2
       this.itemHeight = this.itemWidth / 2.46
 
-      this.setUserInfo()
+    //  this.setUserInfo()
     },
 
     computed: {},
@@ -254,9 +254,11 @@
           chargeType = 1;
         }
         var money = this.moneyList[this.clickIndex];
+        console.log(money)
         //公众号
         var platform = 0;
-        chargeReq(money, chargeType, platform).then(response => {
+
+        chargeReq(money, chargeType).then(response => {
 
 
           WeixinJSBridge.invoke(

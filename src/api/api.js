@@ -27,15 +27,11 @@ const LOGIN = params => {
 }
 
 
-
-
-
 export function getAgentInfo() {
   return fetch({
     url: '/agent/getAgentInfo',
     method: 'get',
-    params: {
-    }
+    params: {}
   })
 }
 export function jsapiparam(url) {
@@ -53,21 +49,18 @@ export function auth() {
     // url: '/wechat/authorize_base?returnUrl=base',
     url: '/wechat/authorize?returnUrl=base',
     method: 'get',
-    params: {
-
-    }
+    params: {}
   })
 }
 
-export function chargeReq(chargeType,money,platform) {
+export function chargeReq(money, chargeType) {
   return fetch({
     // url: '/wechat/authorize_base?returnUrl=base',
     url: '/wechat/pay/preOrder',
     method: 'get',
     params: {
-      chargeType,
-      money,
-      platform
+      money: money,
+      chargeType: chargeType
     }
   })
 }
@@ -77,9 +70,7 @@ export function getUserInfo() {
     // url: '/wechat/authorize_base?returnUrl=base',
     url: '/wechat/getUserInfo',
     method: 'get',
-    params: {
-
-    }
+    params: {}
   })
 }
 
