@@ -175,7 +175,7 @@
       this.itemWidth = (w - 40) / 2
       this.itemHeight = this.itemWidth / 2.46
 
-    //  this.setUserInfo()
+      this.setUserInfo()
     },
 
     computed: {},
