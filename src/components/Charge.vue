@@ -34,7 +34,7 @@
       <mt-cell title="房卡">
         <span style="color: gray;font-size:20px;text-align:left;margin-left:-230px">{{this.money}}</span>
       </mt-cell>
-      <mt-cell title="金币">
+      <mt-cell title="元宝">
         <span style="color: gray;font-size:20px;text-align:left;margin-left:-230px">{{this.gold}}</span>
       </mt-cell>
 
@@ -44,7 +44,7 @@
 
     <div class="page-content">
 
-      <mt-cell title="充值金币"></mt-cell>
+      <mt-cell title="充值"></mt-cell>
 
     </div>
     <br/>
@@ -123,7 +123,7 @@
         花费{{this.moneyList[this.clickIndex]}}元,将获得{{this.goldList[this.clickIndex]}}房卡
       </p>
       <p v-if="clickIndex>='5'">
-        花费{{this.moneyList[this.clickIndex]}}元,将获得{{this.goldList[this.clickIndex]}}表情,并赠送{{this.giveList[this.clickIndex - 5]}}金币
+        花费{{this.moneyList[this.clickIndex]}}元,将获得{{this.goldList[this.clickIndex]}}表情,并赠送{{this.giveList[this.clickIndex - 5]}}元宝
       </p>
     </div>
     <div>
