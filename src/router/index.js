@@ -21,6 +21,7 @@ import ShareLink from '@/components/ShareLink'
 import Charge from '@/components/Charge'
 import Download from '@/components/Download'
 import ChargeDetail from '@/components/ChargeDetail'
+import TestMessage from '@/components/TestMessage'
 import {getToken, setToken} from '@/utils/util'
 
 Vue.use(Router)
@@ -147,6 +148,12 @@ const router = new Router({
       path: '/chargeDetail',
       name: 'ChargeDetail',
       component: ChargeDetail
+    },
+    {
+      path: '/testMessage',
+      name: 'TestMessage',
+
+      component: TestMessage
     }
   ]
 })

@@ -59,14 +59,15 @@ export function auth() {
   })
 }
 
-export function chargeReq(chargeType,money) {
+export function chargeReq(chargeType,money,platform) {
   return fetch({
     // url: '/wechat/authorize_base?returnUrl=base',
     url: '/wechat/pay/preOrder',
     method: 'get',
     params: {
       chargeType,
-      money
+      money,
+      platform
     }
   })
 }
