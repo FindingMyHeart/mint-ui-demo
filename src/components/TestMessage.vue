@@ -4,12 +4,13 @@
 
     <mt-field label="用户" placeholder="请输入用户名" v-model="account"></mt-field>
     <mt-field label="密码" placeholder="请输入密码" v-model="password"></mt-field>
-    <mt-field label="message" placeholder="message" type="textarea" rows="4" v-model="message"></mt-field>
-    <mt-field label="returnMessage" placeholder="returnMessage" type="textarea" rows="4"
+    <mt-field label="message" placeholder="message" type="textarea" rows="7" v-model="message"></mt-field>
+    <mt-field label="returnMessage" placeholder="returnMessage" type="textarea" rows="7"
               v-model="returnMessage"></mt-field>
     <mt-button type="primary" @click.native="handleClick">发送消息</mt-button>
     <mt-button type="primary" @click.native="joinRoom">joinRoom</mt-button>
     <mt-button type="primary" @click.native="getReady">getReady</mt-button>
+    <mt-button type="primary" @click.native="dissolveRoom">dissolveRoom</mt-button>
 
     <!--</div>-->
   </div>
@@ -49,6 +50,10 @@
       },
       joinRoom(){
         this.message = `{"service":"mahjongRoomService","method":"joinGoldRoom","params":{"userId":"1","roomType":"1","gameType":"HS","goldRoomType":"100"}}`
+        this.sendMessage()
+      },
+      dissolveRoom(){
+        this.message = `{"service":"roomService","method":"dissolveRoom","params":{"userId":"1"}}`
         this.sendMessage()
       },
       sendMessage(){
