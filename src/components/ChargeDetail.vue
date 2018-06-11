@@ -93,17 +93,6 @@
     },
     methods: {
       getLevel3List() {
-
-        // axios.get("http://localhost:8085/delegateRel/fetch3Delegate").then((response) => {
-        //
-        //     console.log(response);
-        //     this.comments = response['data']['data']['result']
-        //     // Toast(this.tableData[0].toJSON)
-        //   }
-        // ).catch((err) => {
-        //     console.log(err);
-        //   }
-        // );
       },
     }
   };

@@ -1,6 +1,6 @@
 <template>
   <div class="top">
-    <mt-header title="推荐代理">
+    <mt-header title="用户管理 ">
       <router-link to="/recommendDelegate" slot="left">
         <mt-button icon="back">返回</mt-button>
       </router-link>
@@ -9,7 +9,6 @@
       </router-link>
     </mt-header>
     <div class="container">
-      <vue-numeric currency="$"></vue-numeric>
       <div style="width: 100%; height: 1px; background-color: #acacb4"></div>
       <mt-field label="用户ID:" placeholder="请输入用户ID" v-model="agentId">
 
@@ -20,24 +19,18 @@
       <mt-button size="large" type="primary" @click="searchUser">查  询</mt-button>
       <br>
       <div style="text-align: left">
-
-        <!--<mt-cell-->
-          <!--to="/finalDelegateList"-->
-          <!--is-link-->
-          <!--value="带链接">-->
-          <!--<img slot="icon" :src="" width="43" height="43">-->
-          <!--<span>aa</span>-->
-          <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-          <!--<span>ID:ddd</span>-->
-        <!--</mt-cell>-->
         <div style="width: 100%; height: 1px; background-color: #acacb4"></div>
         <div @click="btnClicked">
-          <mt-cell style="text-align: left">
-            <span>{{this.searchText}}</span>
-            &nbsp; &nbsp;
-            <span>点击推荐</span>
-            <img slot="icon" :src="imageUrl" width="40" height="40">
-          </mt-cell>
+          <div v-show="this.enable" @click="gotoNextPage">
+            <mt-cell style="text-align: left">
+              <span>{{this.searchText}}</span>
+              <img slot="icon" :src="imageUrl" width="40" height="40">
+            </mt-cell>
+            <mt-cell title="身份:" >{{this.delegateStr}}</mt-cell>
+            <mt-cell title="绑定日期">{{this.createTime}}</mt-cell>
+            <mt-cell title="充值金额">￥{{this.totalMoney}}</mt-cell>
+          </div>
+
         </div>
         <div style="width: 100%; height: 1px; background-color: #acacb4"></div>
       </div>
@@ -51,18 +44,27 @@
 <script>
   import axios from 'axios';
   import {fetchLevel2Delegate} from "../api/delegateRel";
-  import {finderUser, bindDelegate} from "../api/home";
+  import {finderUser, bindDelegate,findUserInfo} from "../api/home";
   import { Toast } from 'mint-ui';
   export default {
     name: 'page-navbar',
 
     data(){
       return {
-        agentId: '',
+        agentId: '0',
         username:'',
         imageUrl:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=253777390,947512827&fm=23&gp=0.jpg/96',
         enable:false,
-        searchText: ''
+        searchText: '',
+        totalMoney:0,
+        referee:0,
+        delegateCount:0,
+        userCount:0,
+        canUseMoney:0,
+        rebate:0,
+        type:0,
+        delegateStr:"",
+        createTime: "",
 
       }
     },
@@ -71,7 +73,7 @@
     },
 
     watch:{
-          enable:{
+      enable:{
         handler:function(val,oldval){
           // console.log(val)
 
@@ -97,9 +99,23 @@
 
     methods: {
 
+      gotoNextPage(){
+
+        if (this.type == 0){
+          Toast("")
+          return;
+        }
+
+        this.$router.push({
+          path: '/userManagerDetail',
+          name: 'UserManagerDetail',
+          params: {
+            list: this.agentId
+          }
+        })
+
+      },
       btnClicked(){
-        // Toast("点击")
-        this.recommandClick()
       },
       searchUser(){
         this.findUser()
@@ -130,20 +146,42 @@
       },
 
       findUser() {
-
-        finderUser(this.agentId).then(response => {
+        findUserInfo(this.agentId).then(response => {
           console.log(response);
-          this.agentId = response.result.userId;
+
+          this.agentId = "" + response.result.userId;
           this.username = response.result.username;
           this.imageUrl = response.result.image;
+          this.totalMoney = response.result.totalMoney;
+          this.referee = response.result.referee;
+          this.delegateCount = response.result.delegateCount;
+          this.userCount = response.result.userCount;
+          this.canUseMoney = response.result.canUseMoney;
+          this.userCount = response.result.userCount;
+          this.type = response.result.type;
+          this.rebate = response.result.rebate;
+          this.createTime = response.result.createTime;
 
-          // Toast("ll" + this.imageUrl)
+          this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
+          Toast(this.agentId)
+
+          if (this.type == 0){
+            this.delegateStr = "用户不存在"
+          } else if(this.type == 1){
+            this.delegateStr = "直接玩家"
+          }else if (this.type == 2){
+            this.delegateStr = "二级代理"
+          }else if ((this.type == 3)){
+            this.delegateStr = "三级代理"
+          }
           if (this.agentId == '0'){
             this.enable =false;
-            Toast("用户不存在或者已经成为代理")
+            Toast("用户不存在")
           } else {
             this.enable = true;
           }
+
+          Toast(this.agentId)
 
         });
       },
