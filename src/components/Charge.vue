@@ -34,7 +34,7 @@
       <mt-cell title="房卡">
         <span style="color: gray;font-size:20px;text-align:left;margin-left:-230px">{{this.money}}</span>
       </mt-cell>
-      <mt-cell title="金币">
+      <mt-cell title="元宝">
         <span style="color: gray;font-size:20px;text-align:left;margin-left:-230px">{{this.gold}}</span>
       </mt-cell>
 
@@ -44,7 +44,7 @@
 
     <div class="page-content">
 
-      <mt-cell title="充值金币"></mt-cell>
+      <mt-cell title="充值"></mt-cell>
 
     </div>
     <br/>
@@ -54,12 +54,12 @@
 
 
       <!--<div>-->
-            <!--<span >-->
-        　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
+      <!--<span >-->
+      　　 <img :src="urlList[0]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(0)">
       <!--</span>-->
 
-        <!--<span>-->
-        　　 <img :src="urlList[1]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(1)">
+      <!--<span>-->
+      　　 <img :src="urlList[1]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(1)">
       <!--</span>-->
 
       <!--</div>-->
@@ -68,39 +68,39 @@
 
 
       <!--<div>-->
-              <!--<span>-->
-          　　 <img :src="urlList[2]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(2)">
-        <!--</span>-->
-        <!--<span>-->
-          　　 <img :src="urlList[3]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(3)">
-        <!--</span>-->
+      <!--<span>-->
+      　　 <img :src="urlList[2]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(2)">
+      <!--</span>-->
+      <!--<span>-->
+      　　 <img :src="urlList[3]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(3)">
+      <!--</span>-->
       <!--</div>-->
 
       <br>
       <!--<div>-->
-            <!--<span>-->
-        　　 <img :src="urlList[4]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(4)">
+      <!--<span>-->
+      　　 <img :src="urlList[4]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(4)">
       <!--</span>-->
-        <!--<span>-->
-        　　 <img :src="urlList[5]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(5)">
-      <!--</span>-->
-      <!--</div>-->
-
-      <!--<div>-->
-            <!--<span>-->
-        　　 <img :src="urlList[6]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(6)">
-      <!--</span>-->
-        <!--<span>-->
-        　　 <img :src="urlList[7]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(7)">
+      <!--<span>-->
+      　　 <img :src="urlList[5]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(5)">
       <!--</span>-->
       <!--</div>-->
 
       <!--<div>-->
-            <!--<span>-->
-        　　 <img :src="urlList[8]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(8)">
+      <!--<span>-->
+      　　 <img :src="urlList[6]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(6)">
       <!--</span>-->
-        <!--<span>-->
-        　　 <img :src="urlList[9]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(9)">
+      <!--<span>-->
+      　　 <img :src="urlList[7]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(7)">
+      <!--</span>-->
+      <!--</div>-->
+
+      <!--<div>-->
+      <!--<span>-->
+      　　 <img :src="urlList[8]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(8)">
+      <!--</span>-->
+      <!--<span>-->
+      　　 <img :src="urlList[9]" :width="this.itemWidth" :height="this.itemHeight" @click="clickButton(9)">
       <!--</span>-->
       <!--</div>-->
 
@@ -116,12 +116,15 @@
       <!--</span>-->
 
 
-
     </div>
-    <div >
+    <div>
 
-      <p>
-        花费{{this.moneyList[this.clickIndex]}}元,将获得{{this.goldList[this.clickIndex]}}金币,并赠送{{this.giveList[this.clickIndex]}}金币</p>
+      <p v-if="clickIndex<'5'">
+        花费{{this.moneyList[this.clickIndex]}}元,将获得{{this.goldList[this.clickIndex]}}房卡
+      </p>
+      <p v-if="clickIndex>='5'">
+        花费{{this.moneyList[this.clickIndex]}}元,将获得{{this.goldList[this.clickIndex]}}表情,并赠送{{this.giveList[this.clickIndex - 5]}}元宝
+      </p>
     </div>
     <div>
       <mt-button size="large" type="primary" @click.native="charge()">充值</mt-button>
@@ -153,9 +156,9 @@
         showUrl: [false, false, false, false, false, false, false, false, false, false],
         urlList: [],
         clickIndex: 0,
-        moneyList: [6, 12, 30, 50, 128],
-        goldList: [60, 120, 300, 500, 1280],
-        giveList: [0, 0, 30, 55, 160],
+        moneyList: [6, 18, 30, 68, 128, 10, 50, 100, 500, 1000],
+        goldList: [6, 18, 30, 68, 128, 1, 5, 10, 50, 100],
+        giveList: [1000, 5000, 10000, 50000, 100000],
         ok: false,
         itemWidth: 0,
         itemHeight: 0
@@ -163,8 +166,8 @@
       }
     },
     created() {
-      console.log(document.body.clientWidth)
-      console.log(this.getWidth())
+//      console.log(document.body.clientWidth)
+//      console.log(this.getWidth())
 
       this.initUrl()
 
@@ -172,7 +175,7 @@
       this.itemWidth = (w - 40) / 2
       this.itemHeight = this.itemWidth / 2.46
 
-//      this.setUserInfo()
+      this.setUserInfo()
     },
 
     computed: {},
@@ -200,7 +203,7 @@
         return w
       },
       isShow(index){
-        console.log(this.showUrl[index])
+//        console.log(this.showUrl[index])
         return this.showUrl[index]
       },
       initUrl(){
@@ -246,9 +249,17 @@
 
 
       onBridgeReady() {
-        chargeReq(1, 1).then(response => {
-          console.log(response)
-          console.log("充值============")
+        var chargeType = 0;
+        if (this.clickIndex >= 5) {
+          chargeType = 1;
+        }
+        var money = this.moneyList[this.clickIndex];
+        console.log(money)
+        //公众号
+        var platform = 0;
+
+        chargeReq(money, chargeType).then(response => {
+
 
           WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
@@ -285,7 +296,7 @@
   /*padding: 0;*/
   /*}*/
   img {
-    margin:5px 2px;
+    margin: 5px 2px;
     /*margin: 10;*/
     /*padding: 10;*/
     /*outline-width: 10px;*/

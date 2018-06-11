@@ -23,6 +23,8 @@ import Download from '@/components/Download'
 import ChargeDetail from '@/components/ChargeDetail'
 import UserManager from '@/components/UserManager'
 import UserManagerDetail from '@/components/UserManagerDetail'
+import TestMessage from '@/components/TestMessage'
+
 // UserManager
 import {getToken, setToken} from '@/utils/util'
 
@@ -163,6 +165,12 @@ const router = new Router({
         id: 'id'
       },
       component: UserManagerDetail
+    },
+    {
+      path: '/testMessage',
+      name: 'TestMessage',
+
+      component: TestMessage
     }
 
   ]
