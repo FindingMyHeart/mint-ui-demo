@@ -76,7 +76,7 @@
 
       let list  = this.$route.params.list
       this.agentId = list
-      Toast(list)
+      // Toast(list)
       this.findUser();
     },
 

@@ -102,7 +102,7 @@
       gotoNextPage(){
 
         if (this.type == 0){
-          Toast("")
+          // Toast("")
           return;
         }
 
@@ -180,8 +180,6 @@
           } else {
             this.enable = true;
           }
-
-          Toast(this.agentId)
 
         });
       },
