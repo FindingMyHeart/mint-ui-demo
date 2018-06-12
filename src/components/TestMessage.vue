@@ -8,9 +8,10 @@
     <mt-field label="returnMessage" placeholder="returnMessage" type="textarea" rows="7"
               v-model="returnMessage"></mt-field>
     <mt-button type="primary" @click.native="handleClick">发送消息</mt-button>
-    <mt-button type="primary" @click.native="joinRoom">joinRoom</mt-button>
+    <mt-button type="primary" @click.native="joinRoom">joinHSRoom</mt-button>
     <mt-button type="primary" @click.native="getReady">getReady</mt-button>
     <mt-button type="primary" @click.native="dissolveRoom">dissolveRoom</mt-button>
+    <mt-button type="primary" @click.native="joinYSZRoom">joinYSZRoom</mt-button>
 
     <!--</div>-->
   </div>
@@ -50,6 +51,11 @@
       },
       joinRoom(){
         this.message = `{"service":"mahjongRoomService","method":"joinGoldRoom","params":{"userId":"1","roomType":"1","gameType":"HS","goldRoomType":"100"}}`
+        this.sendMessage()
+      },
+
+      joinYSZRoom(){
+        this.message = `{"service":"pokerRoomService","method":"joinGoldRoom","params":{"userId":"1","roomType":"1","gameType":"285","goldRoomType":"100"}}`
         this.sendMessage()
       },
       dissolveRoom(){
