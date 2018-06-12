@@ -39,7 +39,7 @@ export function bindDelegate (agentId) {
 
 export function todayCharge (start, end) {
   return fetch({
-    url: 'todayCharge/dhomeCharge',
+    url: '/todayCharge/dhomeCharge',
     method: 'get',
     params: {'start': start, 'end': end}
   })
@@ -47,14 +47,24 @@ export function todayCharge (start, end) {
 
 export function todayCharge1 () {
   return fetch({
-    url: 'todayCharge/homeCharge',
+    url: '/todayCharge/homeCharge',
     method: 'get'
+  })
+}
+
+export function findUserInfo (userId) {
+  return fetch({
+    url: '/delegateRel/findUserInfo',
+    method: 'get',
+    params: {
+      'userId': userId
+    }
   })
 }
 
 export function canBlance () {
   return fetch({
-    url: 'todayCharge/canBlance',
+    url: '/todayCharge/canBlance',
     method: 'get'
   })
 }

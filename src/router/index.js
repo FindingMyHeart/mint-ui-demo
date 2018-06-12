@@ -21,7 +21,11 @@ import ShareLink from '@/components/ShareLink'
 import Charge from '@/components/Charge'
 import Download from '@/components/Download'
 import ChargeDetail from '@/components/ChargeDetail'
+import UserManager from '@/components/UserManager'
+import UserManagerDetail from '@/components/UserManagerDetail'
 import TestMessage from '@/components/TestMessage'
+
+// UserManager
 import {getToken, setToken} from '@/utils/util'
 
 Vue.use(Router)
@@ -150,11 +154,25 @@ const router = new Router({
       component: ChargeDetail
     },
     {
+      path: '/userManager',
+      name: 'UserManager',
+      component: UserManager
+    },
+    {
+      path: '/userManagerDetail',
+      name: 'UserManagerDetail',
+      query: {
+        id: 'id'
+      },
+      component: UserManagerDetail
+    },
+    {
       path: '/testMessage',
       name: 'TestMessage',
 
       component: TestMessage
     }
+
   ]
 })
 
