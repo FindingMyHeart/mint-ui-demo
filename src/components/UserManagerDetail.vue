@@ -87,16 +87,7 @@
       findUser() {
         findUserInfo(this.agentId).then(response => {
 
-          if (this.type == 0){
-            this.delegateStr = "用户不存在"
-            return;
-          } else if(this.type == 1){
-            this.delegateStr = "直接玩家"
-          }else if (this.type == 2){
-            this.delegateStr = "二级代理"
-          }else if ((this.type == 3)){
-            this.delegateStr = "三级代理"
-          }
+
           console.log(response);
           this.agentId = response.result.userId;
           this.username = response.result.username;
@@ -112,6 +103,18 @@
           this.rebate = response.result.rebate;
           this.createTime = response.result.createTime;
           this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
+
+          Toast("++", this.username)
+          if (this.type == 0){
+            this.delegateStr = "用户不存在"
+            return;
+          } else if(this.type == 1){
+            this.delegateStr = "直接玩家"
+          }else if (this.type == 2){
+            this.delegateStr = "二级代理"
+          }else if ((this.type == 3)){
+            this.delegateStr = "三级代理"
+          }
 
           if (this.agentId == '0'){
             this.enable =false;
