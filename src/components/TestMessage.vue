@@ -4,6 +4,7 @@
 
     <mt-field label="用户" placeholder="请输入用户名" v-model="account"></mt-field>
     <mt-field label="密码" placeholder="请输入密码" v-model="password"></mt-field>
+    <mt-field label="roomId" placeholder="请输入密码" v-model="roomId"></mt-field>
     <mt-field label="message" placeholder="message" type="textarea" rows="7" v-model="message"></mt-field>
     <mt-field label="returnMessage" placeholder="returnMessage" type="textarea" rows="7"
               v-model="returnMessage"></mt-field>
@@ -12,6 +13,7 @@
     <mt-button type="primary" @click.native="getReady">getReady</mt-button>
     <mt-button type="primary" @click.native="dissolveRoom">dissolveRoom</mt-button>
     <mt-button type="primary" @click.native="joinYSZRoom">joinYSZRoom</mt-button>
+    <mt-button type="primary" @click.native="quitRoom">quitRoom</mt-button>
 
     <!--</div>-->
   </div>
@@ -32,7 +34,8 @@
         account: '',
         password: '',
         message: '',
-        returnMessage: ''
+        returnMessage: '',
+        roomId:""
 
       }
     },
@@ -60,6 +63,10 @@
       },
       dissolveRoom(){
         this.message = `{"service":"roomService","method":"dissolveRoom","params":{"userId":"1"}}`
+        this.sendMessage()
+      },
+      quitRoom(){
+        this.message = `{"service":"roomService","method":"quitRoom","params":{"userId":"1"}}`
         this.sendMessage()
       },
       sendMessage(){
