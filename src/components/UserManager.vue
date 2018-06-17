@@ -181,7 +181,8 @@
           if (this.type == 0){
             this.searchText = "";
             this.totalMoney = "";
-            Toast(this.searchText)
+            Toast("用户不存在")
+            // Toast(this.searchText)
           }else {
             this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
           }
