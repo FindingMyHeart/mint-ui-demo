@@ -21,6 +21,7 @@ import ShareLink from '@/components/ShareLink'
 import Charge from '@/components/Charge'
 import Download from '@/components/Download'
 import ChargeDetail from '@/components/ChargeDetail'
+import ChargeGoldDetail from '@/components/ChargeGoldDetail'
 import UserManager from '@/components/UserManager'
 import UserManagerDetail from '@/components/UserManagerDetail'
 import TestMessage from '@/components/TestMessage'
@@ -151,6 +152,11 @@ const router = new Router({
     {
       path: '/chargeDetail',
       name: 'ChargeDetail',
+      component: ChargeDetail
+    },
+    {
+      path: '/chargeGoldDetail',
+      name: 'ChargeGoldDetail',
       component: ChargeDetail
     },
     {

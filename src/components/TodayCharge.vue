@@ -53,7 +53,7 @@
       <span style="font-size: 22px"> ￥{{this.totalGold}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>
     </div>
     <br>
-    <div @click="goToNextPlayer">
+    <div @click="goToNextPlayerGold">
       <mt-cell title="直接玩家充币">
         <div>
           ￥{{this.level1Gold}}
@@ -64,7 +64,7 @@
     </div>
 
     <div style="width: 100%; height: 8px"></div>
-    <div @click="goToNext2Level">
+    <div @click="goToNext2LevelGold">
       <mt-cell title="二级代理充币">
         <div>
           ￥{{this.level2Gold}}
@@ -75,7 +75,7 @@
     </div>
 
     <div style="width: 100%; height: 8px"></div>
-    <div @click="goToNext3Level">
+    <div @click="goToNext3LevelGold">
       <mt-cell title="三级代理充币">
         <div>
           ￥{{this.level3Gold}}
@@ -193,11 +193,47 @@
           })
         },
 
-        // goToNextPlayer(){this.$router.push({
-        //
-        //
-        //
-        // },
+
+        goToNext3LevelGold(){
+          this.$router.push({
+            path:'/chargeGoldDetail',
+            name:'ChargeGoldDetail',
+            params: {
+              list: this.list2,
+              total: this.level2Gold,
+              title: "三级代理充币记录",
+              timeStr: this.lastStartDate + "至" + this.lastEndDate
+            }
+          })
+        },
+
+        goToNext2LevelGold(){
+          this.$router.push({
+            path:'/chargeGoldDetail',
+            name:'ChargeGoldDetail',
+            params: {
+              list: this.list2,
+              total: this.level2Gold,
+              title: "二级代理充币记录",
+              timeStr: this.lastStartDate + "至" + this.lastEndDate
+            }
+          })
+        },
+
+        goToNextPlayerGold(){
+          this.$router.push({
+            path:'/chargeGoldDetail',
+            name:'ChargeGoldDetail',
+            params: {
+              list: this.list3,
+              total: this.level3Gold,
+              title: "二级代理充币记录",
+              timeStr: this.lastStartDate + "至" + this.lastEndDate
+            }
+          })
+        },
+
+
 
 
           //时间检查
@@ -271,9 +307,10 @@
               this.level1Gold = response.result.oneLevelGold;
               this.level2Gold = response.result.twoLevelGold;
               this.level3Gold = response.result.threeLevelGold;
+              this.totalGold = response.result.totalGold;
 
               this.total = response.result.total;
-              this.totalGold = response.result.totalGold;
+
 
               this.lastStartDate =  response.result.start;
               this.lastStartEnd =  response.result.end;
@@ -296,6 +333,12 @@
               this.level1 = response.result.onelevel;
               this.level2 = response.result.twoLevel;
               this.level3 = response.result.threeLevel;
+
+              this.level1Gold = response.result.oneLevelGold;
+              this.level2Gold = response.result.twoLevelGold;
+              this.level3Gold = response.result.threeLevelGold;
+              this.totalGold = response.result.totalGold;
+
               this.total = response.result.total;
               this.lastStartDate =  response.result.start;
               this.lastStartEnd =  response.result.end;
