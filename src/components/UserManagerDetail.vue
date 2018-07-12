@@ -35,11 +35,11 @@
       <span style="font-size: 22px">收益信息</span>
     </div>
     <div style="width: 100%; height: 1px; background-color: #acacb4"></div>
-    <mt-cell title="可用金额" value="">{{this.rebate}}</mt-cell>
+    <mt-cell title="可用金额" value="">¥{{this.rebate}}</mt-cell>
     <div style="width: 100%; height: 1px; background-color: #acacb4"></div>
-    <mt-cell title="累计收益" value="">{{this.canUseMoney}}</mt-cell>
+    <mt-cell title="累计收益" value="">¥{{this.canUseMoney}}</mt-cell>
     <div style="width: 100%; height: 1px; background-color: #acacb4"></div>
-    <mt-cell title="今日收益" value="">{{this.totalMoney}}</mt-cell>
+    <mt-cell title="今日收益" value="">¥{{this.totalMoney}}</mt-cell>
     <div style="width: 100%; height: 1px; background-color: #acacb4"></div>
   </div>
 </div>
@@ -86,10 +86,12 @@
     methods: {
       findUser() {
         findUserInfo(this.agentId).then(response => {
-          console.log(response);
 
+
+          console.log(response);
           this.agentId = response.result.userId;
           this.username = response.result.username;
+          Toast(this.username)
           this.imageUrl = response.result.image;
           this.totalMoney = response.result.totalMoney;
           this.referee = response.result.referee;
@@ -101,8 +103,11 @@
           this.rebate = response.result.rebate;
           this.createTime = response.result.createTime;
           this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
+
+          Toast("++", this.username)
           if (this.type == 0){
             this.delegateStr = "用户不存在"
+            return;
           } else if(this.type == 1){
             this.delegateStr = "直接玩家"
           }else if (this.type == 2){
@@ -110,6 +115,7 @@
           }else if ((this.type == 3)){
             this.delegateStr = "三级代理"
           }
+
           if (this.agentId == '0'){
             this.enable =false;
             Toast("用户不存在")

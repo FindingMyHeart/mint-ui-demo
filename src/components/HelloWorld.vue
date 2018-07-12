@@ -51,7 +51,7 @@
         title="用户管理"
         to="/userManager"
         is-link>
-        <img slot="icon" src="../assets/gx.png" width="24" height="24">
+        <img slot="icon" src="../assets/ts24.png" width="24" height="24">
       </mt-cell>
 
       <mt-cell

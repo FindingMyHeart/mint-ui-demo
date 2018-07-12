@@ -28,7 +28,7 @@
             </mt-cell>
             <mt-cell title="身份:" >{{this.delegateStr}}</mt-cell>
             <mt-cell title="绑定日期">{{this.createTime}}</mt-cell>
-            <mt-cell title="充值金额">￥{{this.totalMoney}}</mt-cell>
+            <mt-cell title="充值金额">{{this.totalMoney}}</mt-cell>
           </div>
 
         </div>
@@ -79,7 +79,13 @@
 
           if (val == true){
             // this.getPlayerList()
-            this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
+
+            if (this.type == 0){
+              this.searchText = "";
+            } else {
+              this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
+            }
+
           } else {
             // this.getLevel2List()
           }
@@ -149,10 +155,11 @@
         findUserInfo(this.agentId).then(response => {
           console.log(response);
 
+
           this.agentId = "" + response.result.userId;
           this.username = response.result.username;
           this.imageUrl = response.result.image;
-          this.totalMoney = response.result.totalMoney;
+          this.totalMoney = "¥" +  response.result.totalMoney;
           this.referee = response.result.referee;
           this.delegateCount = response.result.delegateCount;
           this.userCount = response.result.userCount;
@@ -161,9 +168,6 @@
           this.type = response.result.type;
           this.rebate = response.result.rebate;
           this.createTime = response.result.createTime;
-
-          this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
-          Toast(this.agentId)
 
           if (this.type == 0){
             this.delegateStr = "用户不存在"
@@ -174,6 +178,16 @@
           }else if ((this.type == 3)){
             this.delegateStr = "三级代理"
           }
+
+          if (this.type == 0){
+            this.searchText = "";
+            this.totalMoney = "";
+            Toast("用户不存在")
+            // Toast(this.searchText)
+          }else {
+            this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
+          }
+
           if (this.agentId == '0'){
             this.enable =false;
             Toast("用户不存在")
