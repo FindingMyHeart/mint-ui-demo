@@ -32,7 +32,7 @@
                 <!--<span>ID: {{comment.uid}}</span>-->
               <!--</mt-cell>-->
 
-              <div @click="gotoNextPage()">
+              <div @click="gotoNextPage">
                 <!--<div v-show="this.enable" @click="gotoNextPage">-->
                   <!--<mt-cell style="text-align: left">-->
                     <!--<span>{{this.searchText}}</span>-->
@@ -111,13 +111,14 @@
 
       gotoNextPage(){
 
+        Toast("xxx")
         // Toast(comment)
         this.$router.push({
           path: '/finalDelegateList',
           name: 'FinalDelegateList',
-          // params: {
-          //   id: comment
-          // }
+          query: {
+            id: 1
+          }
         })
 
       },
