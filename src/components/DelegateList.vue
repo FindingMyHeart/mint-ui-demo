@@ -117,7 +117,7 @@
           path: '/finalDelegateList',
           name: 'FinalDelegateList',
           params: {
-            list: this.agentId
+            list: comment.uid
           }
         })
 
