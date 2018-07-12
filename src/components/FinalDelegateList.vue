@@ -85,13 +85,16 @@
     },
 
     created() {
-      let llid  = this.$route.params.id
-      Toast(llid)
-      this.agentId = llid
-      this.getLevel3List(this.agentId)
+      Toast("aaaaaaa")
+
+      this.getLevel3List()
     },
     methods: {
-      getLevel3List(agentId) {
+      getLevel3List() {
+
+        let llid  = this.$route.params.id
+        Toast(llid)
+        this.agentId = llid
 
         fetchLevel3Delegate(agentId).then(response => {
           console.log(response);
