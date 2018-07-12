@@ -111,13 +111,13 @@
 
       gotoNextPage(comment){
 
-        Toast(comment + "")
+        Toast(comment.uid + "")
         // Toast(comment)
         this.$router.push({
           path: '/finalDelegateList',
           name: 'FinalDelegateList',
           query: {
-            id: 1
+            id: comment.uid
           }
         })
 
