@@ -87,14 +87,14 @@
     created() {
       Toast("aaaaaaa")
 
-      this.getLevel3List()
+      // this.getLevel3List()
     },
     methods: {
       getLevel3List() {
 
-        let llid  = this.$route.query.id
-        Toast(llid)
-        this.agentId = llid
+        // let llid  = this.$route.query.id
+        // Toast(llid)
+        // this.agentId = llid
 
         // fetchLevel3Delegate(0).then(response => {
         //   console.log(response);
