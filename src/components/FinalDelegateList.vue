@@ -86,14 +86,13 @@
     created() {
       // this.getLevel3List(1)
       let list  = this.$route.params.list
-      Toast(list + "ddd")
+      // Toast(list + "ddd")
+      this.getLevel3List(list)
 
     },
     methods: {
       getLevel3List(aid) {
-
-
-        fetchLevel3Delegate(100025).then(response => {
+        fetchLevel3Delegate(aid).then(response => {
           console.log(response);
           this.comments = response.result
         });
