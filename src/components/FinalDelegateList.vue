@@ -86,8 +86,9 @@
 
     created() {
       let llid  = this.$route.params.id
+      Toast(llid)
       this.agentId = llid
-      this.getLevel3List()
+      this.getLevel3List(this.agentId)
     },
     methods: {
       getLevel3List(agentId) {
