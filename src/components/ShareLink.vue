@@ -71,6 +71,7 @@
         qr: "",
         isShow: false,
         coverShow: true,
+        isInGongzhonghao:false,//是否在公众号内
         imagex: this.computeIndex(),
         imagestyle: {
           position: 'absolute',
@@ -91,6 +92,7 @@
 
       let sid = this.$route.query.sid;
       let id = this.$route.query.id;
+//      let inGongzhonghao = this.$route.query.in && this.$route.query.in===1;
       let infoKey = 'info' + sid
       let qrKey = sid + '|qr'
       let info = getCookie(infoKey)
@@ -99,7 +101,7 @@
 
       //去授权
       if (!info) {
-          alert('去授权')
+//          alert('去授权')
         console.log("授权----------------")
         let state = id
         let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
@@ -118,7 +120,7 @@
         console.log(info)
       }
       if (info) {
-          alert('展示链接')
+//          alert('展示链接')
         let url = window.location.href.split('#')[0]
         jsapiparam(url).then(response => {
           console.log(response)
@@ -139,6 +141,7 @@
 
 
           wx.ready(function () {
+//              let u = window.location.href
             //分享到朋友圈"
             wx.onMenuShareTimeline({
               title: "快和我玩董小姐棋牌",
