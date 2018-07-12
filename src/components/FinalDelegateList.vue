@@ -17,36 +17,36 @@
       </mt-navbar>
     </div>
 
-    <!--<mt-tab-container v-model="selected">-->
-      <!--<mt-tab-container-item id="2">-->
-        <!--<ul class="mui-table-view">-->
-          <!--<li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">-->
-            <!--<mt-cell-->
-              <!--to="/finalDelegateList"-->
-              <!--is-link-->
-              <!--value="带链接">-->
-              <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
-              <!--<span>{{comment.username}}</span>-->
-              <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-              <!--<span>ID: {{comment.uid}}</span>-->
-            <!--</mt-cell>-->
-          <!--</li>-->
-        <!--</ul>-->
-      <!--</mt-tab-container-item>-->
-      <!--<mt-tab-container-item id="1">-->
-        <!--<ul class="mui-table-view">-->
-          <!--<li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">-->
-            <!--<mt-cell-->
-              <!--value="带链接">-->
-              <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
-              <!--<span>{{comment.username}}</span>-->
-              <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-              <!--<span>ID: {{comment.uid}}</span>-->
-            <!--</mt-cell>-->
-          <!--</li>-->
-        <!--</ul>-->
-      <!--</mt-tab-container-item>-->
-    <!--</mt-tab-container>-->
+    <mt-tab-container v-model="selected">
+      <mt-tab-container-item id="2">
+        <ul class="mui-table-view">
+          <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
+            <mt-cell
+              to="/finalDelegateList"
+              is-link
+              value="带链接">
+              <img slot="icon" :src="comment.image" width="43" height="43">
+              <span>{{comment.username}}</span>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>ID: {{comment.uid}}</span>
+            </mt-cell>
+          </li>
+        </ul>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="1">
+        <ul class="mui-table-view">
+          <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
+            <mt-cell
+              value="带链接">
+              <img slot="icon" :src="comment.image" width="43" height="43">
+              <span>{{comment.username}}</span>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>ID: {{comment.uid}}</span>
+            </mt-cell>
+          </li>
+        </ul>
+      </mt-tab-container-item>
+    </mt-tab-container>
 
   </div>
 
