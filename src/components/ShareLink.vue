@@ -99,6 +99,7 @@
 
       //去授权
       if (!info) {
+          alert('去授权')
         console.log("授权----------------")
         let state = id
         let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
@@ -117,6 +118,7 @@
         console.log(info)
       }
       if (info) {
+          alert('展示链接')
         let url = window.location.href.split('#')[0]
         jsapiparam(url).then(response => {
           console.log(response)
