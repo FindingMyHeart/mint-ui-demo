@@ -86,7 +86,7 @@
     created() {
       // this.getLevel3List(1)
       let list  = this.$route.params.list
-      Toast(list + "")
+      Toast(list + "ddd")
 
     },
     methods: {
