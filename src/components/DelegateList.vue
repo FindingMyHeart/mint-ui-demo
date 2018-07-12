@@ -116,8 +116,8 @@
         this.$router.push({
           path: '/finalDelegateList',
           name: 'FinalDelegateList',
-          query: {
-            id: comment.uid
+          params: {
+            list: this.agentId
           }
         })
 
