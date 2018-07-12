@@ -62,7 +62,6 @@
     data(){
       return {
         pageIndex:1,//页码
-        agentId: 0,
         comments: [],//商品列表数据
         allLoaded:false, //是否禁止触发上拉函数
         isAutoFill:false,//是否自动触发上拉函数
@@ -85,21 +84,15 @@
     },
 
     created() {
-      Toast("aaaaaaa")
-
-      // this.getLevel3List()
+      this.getLevel3List(1)
     },
     methods: {
-      getLevel3List() {
+      getLevel3List(aid) {
 
-        // let llid  = this.$route.query.id
-        // Toast(llid)
-        // this.agentId = llid
-
-        // fetchLevel3Delegate(0).then(response => {
-        //   console.log(response);
-        //   this.comments = response.result
-        // });
+        fetchLevel3Delegate(100025).then(response => {
+          console.log(response);
+          this.comments = response.result
+        });
       },
     }
   };
