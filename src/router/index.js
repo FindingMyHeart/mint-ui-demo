@@ -119,6 +119,9 @@ const router = new Router({
     {
       path: '/finalDelegateList',
       name: 'finalDelegateList',
+      query: {
+        id: 'id'
+      },
       component: FinalDelegateList
     },
     {

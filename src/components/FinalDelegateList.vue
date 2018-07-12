@@ -62,6 +62,7 @@
     data(){
       return {
         pageIndex:1,//页码
+        agentId: 0,
         comments: [],//商品列表数据
         allLoaded:false, //是否禁止触发上拉函数
         isAutoFill:false,//是否自动触发上拉函数
@@ -84,12 +85,14 @@
     },
 
     created() {
+      let llid  = this.$route.params.id
+      this.agentId = llid
       this.getLevel3List()
     },
     methods: {
-      getLevel3List() {
+      getLevel3List(agentId) {
 
-        fetchLevel3Delegate().then(response => {
+        fetchLevel3Delegate(agentId).then(response => {
           console.log(response);
           this.comments = response.result
         });
