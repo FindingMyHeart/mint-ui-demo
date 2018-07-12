@@ -32,7 +32,7 @@
                 <!--<span>ID: {{comment.uid}}</span>-->
               <!--</mt-cell>-->
 
-              <div @click="gotoNextPage(commnet)">
+              <div @click="gotoNextPage()">
                 <!--<div v-show="this.enable" @click="gotoNextPage">-->
                   <!--<mt-cell style="text-align: left">-->
                     <!--<span>{{this.searchText}}</span>-->
@@ -109,9 +109,9 @@
     },
     methods: {
 
-      gotoNextPage(comment){
+      gotoNextPage(){
 
-        Toast(comment)
+        // Toast(comment)
         this.$router.push({
           path: '/finalDelegateList',
           name: 'FinalDelegateList',
