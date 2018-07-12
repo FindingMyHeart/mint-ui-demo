@@ -22,15 +22,35 @@
         <mt-tab-container-item id="2">
           <ul class="mui-table-view">
             <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
-              <mt-cell
-                to="/finalDelegateList"
-                is-link
-                value="带链接">
-                <img slot="icon" :src="comment.image" width="43" height="43">
-                <span>{{comment.username}}</span>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span>ID: {{comment.uid}}</span>
-              </mt-cell>
+              <!--<mt-cell-->
+                <!--to="/finalDelegateList"-->
+                <!--is-link-->
+                <!--value="带链接">-->
+                <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+                <!--<span>{{comment.username}}</span>-->
+                <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--<span>ID: {{comment.uid}}</span>-->
+              <!--</mt-cell>-->
+
+              <div @click="gotoNextPage(comment)">
+                <!--<div v-show="this.enable" @click="gotoNextPage">-->
+                  <!--<mt-cell style="text-align: left">-->
+                    <!--<span>{{this.searchText}}</span>-->
+                    <!--<img slot="icon" :src="imageUrl" width="40" height="40">-->
+                  <!--</mt-cell>-->
+                  <!--<mt-cell title="身份:" >{{this.delegateStr}}</mt-cell>-->
+                  <!--<mt-cell title="绑定日期">{{this.createTime}}</mt-cell>-->
+                  <!--<mt-cell title="充值金额">{{this.totalMoney}}</mt-cell>-->
+                <!--</div>-->
+                <mt-cell
+                  value="带链接">
+                  <img slot="icon" :src="comment.image" width="43" height="43">
+                  <span>{{comment.username}}</span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span>ID: {{comment.uid}}</span>
+                </mt-cell>
+
+              </div>
             </li>
           </ul>
         </mt-tab-container-item>
@@ -88,6 +108,20 @@
       this.getPlayerList()
     },
     methods: {
+
+      gotoNextPage(comment){
+
+        Toast(comment.uid + "")
+        // Toast(comment)
+        this.$router.push({
+          path: '/finalDelegateList',
+          name: 'FinalDelegateList',
+          query: {
+            id: comment.uid
+          }
+        })
+
+      },
       getLevel2List() {
 
         // axios.get("http://localhost:8085/delegateRel/fetch2Delegate").then((response) => {

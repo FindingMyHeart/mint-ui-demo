@@ -17,10 +17,10 @@ export function fetchLevel2Delegate () {
   })
 }
 
-export function fetchLevel3Delegate () {
+export function fetchLevel3Delegate (val) {
   return fetch({
     url: '/delegateRel/fetch3Delegate',
-    method: 'get'
+    method: 'get',
+    params: {'agentId': val}
   })
 }
-
