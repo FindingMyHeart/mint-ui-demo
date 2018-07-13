@@ -91,7 +91,7 @@
       this.total = this.$route.params.total
       this.timeStr = this.$route.params.timeStr
 
-      Toast(this.comments.length)
+      Toast(this.comments)
 
     },
     methods: {

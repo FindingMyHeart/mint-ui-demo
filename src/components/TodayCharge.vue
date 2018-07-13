@@ -159,8 +159,8 @@
             path:'/chargeDetail',
             name:'ChargeDetail',
             params: {
-              list: this.list2,
-              total: this.level2,
+              list: this.list3,
+              total: this.level3,
               title: "三级代理充值记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
@@ -185,9 +185,9 @@
             path:'/chargeDetail',
             name:'ChargeDetail',
             params: {
-              list: this.list3,
-              total: this.level3,
-              title: "二级代理充值记录",
+              list: this.list1,
+              total: this.level1,
+              title: "直接玩家充值记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })
