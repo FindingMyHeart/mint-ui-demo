@@ -90,6 +90,9 @@
       this.comments = this.$route.params.list
       this.total = this.$route.params.total
       this.timeStr = this.$route.params.timeStr
+
+      Toast(this.comments.length)
+
     },
     methods: {
       getLevel3List() {
