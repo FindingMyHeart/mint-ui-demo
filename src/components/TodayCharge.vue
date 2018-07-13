@@ -199,7 +199,7 @@
             path:'/chargeGoldDetail',
             name:'ChargeGoldDetail',
             params: {
-              list: this.list2,
+              list: this.list3,
               total: this.level2Gold,
               title: "三级代理充币记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
@@ -225,9 +225,9 @@
             path:'/chargeGoldDetail',
             name:'ChargeGoldDetail',
             params: {
-              list: this.list3,
+              list: this.list1,
               total: this.level3Gold,
-              title: "二级代理充币记录",
+              title: " 直接玩家充币记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })
