@@ -54,7 +54,7 @@
     </div>
     <br>
     <div @click="goToNextPlayerGold">
-      <mt-cell title="直接玩家充币">
+      <mt-cell title="直接玩家收益(提成20%)">
         <div>
           ￥{{this.level1Gold}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -65,7 +65,7 @@
 
     <div style="width: 100%; height: 8px"></div>
     <div @click="goToNext2LevelGold">
-      <mt-cell title="二级代理充币">
+      <mt-cell title="二级代理收益(提成10%)">
         <div>
           ￥{{this.level2Gold}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -76,7 +76,7 @@
 
     <div style="width: 100%; height: 8px"></div>
     <div @click="goToNext3LevelGold">
-      <mt-cell title="三级代理充币">
+      <mt-cell title="三级代理收益(提成10%)">
         <div>
           ￥{{this.level3Gold}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
