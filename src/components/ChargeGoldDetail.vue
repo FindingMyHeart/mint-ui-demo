@@ -33,14 +33,24 @@
       <mt-tab-container-item id="1">
         <ul class="mui-table-view">
           <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
-            <mt-cell
-              value="带链接">
-              <img slot="icon" :src="comment.image" width="43" height="43">
-              <span>表情:￥{{comment.gold}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>用户名：{{comment.username}}</span>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span>ID: {{comment.uid}}</span>
-            </mt-cell>
+            <!--<mt-cell-->
+              <!--value="带链接">-->
+              <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+              <!--<span>表情:￥{{comment.gold}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+              <!--<span>用户名：{{comment.username}}</span>-->
+              <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+              <!--<span>ID: {{comment.uid}}</span>-->
+            <!--</mt-cell>-->
+            <div v-show="comment.gold > 0">
+              <mt-cell
+                value="带链接">
+                <img slot="icon" :src="comment.image" width="43" height="43">
+                <span>表情:￥{{comment.gold}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>用户名：{{comment.username}}</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>ID: {{comment.uid}}</span>
+              </mt-cell>
+            </div>
           </li>
         </ul>
       </mt-tab-container-item>
