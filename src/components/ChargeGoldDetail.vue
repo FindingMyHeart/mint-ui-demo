@@ -36,7 +36,7 @@
             <mt-cell
               value="带链接">
               <img slot="icon" :src="comment.image" width="43" height="43">
-              <span>充币:￥{{comment.gold}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>表情:￥{{comment.gold}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span>用户名：{{comment.username}}</span>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <span>ID: {{comment.uid}}</span>
@@ -86,11 +86,13 @@
 
     created() {
 
-      Toast(this.$route.params.list)
       this.title = this.$route.params.title
       this.comments = this.$route.params.list
       this.total = this.$route.params.total
       this.timeStr = this.$route.params.timeStr
+
+      // Toast(this.comments)
+
     },
     methods: {
       getLevel3List() {
