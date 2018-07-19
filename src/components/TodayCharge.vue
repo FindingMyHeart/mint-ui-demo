@@ -202,7 +202,7 @@
             params: {
               list: this.list3,
               total: this.level2Gold,
-              title: "三级代理充币记录",
+              title: "三级代理充值表情记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })
@@ -216,7 +216,7 @@
             params: {
               list: this.list2,
               total: this.level2Gold,
-              title: "二级代理充币记录",
+              title: "二级代理充值表情记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })
@@ -230,7 +230,7 @@
             params: {
               list: this.list1,
               total: this.level3Gold,
-              title: " 直接玩家充币记录",
+              title: " 直接玩家充值表情记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })
