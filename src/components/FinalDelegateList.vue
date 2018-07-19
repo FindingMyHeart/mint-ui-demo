@@ -68,28 +68,31 @@
         selected: '1'
       }
     },
-    watch:{
-      selected:{
-        handler:function(val,oldval){
-          // console.log(val)
-
-          if (val == '1'){
-            this.getPlayerList()
-          } else {
-            this.getLevel2List()
-          }
-        },
-        deep:true//对象内部的属性监听，也叫深度监听
-      },
-    },
+    // watch:{
+    //   selected:{
+    //     handler:function(val,oldval){
+    //       // console.log(val)
+    //
+    //       if (val == '1'){
+    //         this.getPlayerList()
+    //       } else {
+    //         this.getLevel2List()
+    //       }
+    //     },
+    //     deep:true//对象内部的属性监听，也叫深度监听
+    //   },
+    // },
 
     created() {
-      this.getLevel3List(1)
+      // this.getLevel3List(1)
+      let list  = this.$route.params.list
+      // Toast(list + "ddd")
+      this.getLevel3List(list)
+
     },
     methods: {
       getLevel3List(aid) {
-
-        fetchLevel3Delegate(100025).then(response => {
+        fetchLevel3Delegate(aid).then(response => {
           console.log(response);
           this.comments = response.result
         });

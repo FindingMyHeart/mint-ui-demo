@@ -76,7 +76,6 @@
 
       let list  = this.$route.params.list
       this.agentId = list
-      // Toast(list)
       this.findUser();
     },
 
@@ -91,7 +90,7 @@
           console.log(response);
           this.agentId = response.result.userId;
           this.username = response.result.username;
-          Toast(this.username)
+          // Toast(this.username)
           this.imageUrl = response.result.image;
           this.totalMoney = response.result.totalMoney;
           this.referee = response.result.referee;
@@ -104,7 +103,7 @@
           this.createTime = response.result.createTime;
           this.searchText = "id:" + this.agentId +"    " + "name:" + this.username;
 
-          Toast("++", this.username)
+          // Toast("++", this.username)
           if (this.type == 0){
             this.delegateStr = "用户不存在"
             return;

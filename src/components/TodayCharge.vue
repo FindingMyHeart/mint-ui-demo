@@ -54,7 +54,7 @@
     </div>
     <br>
     <div @click="goToNextPlayerGold">
-      <mt-cell title="直接玩家充币">
+      <mt-cell title="直接玩家收益(提成20%)">
         <div>
           ￥{{this.level1Gold}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -65,7 +65,7 @@
 
     <div style="width: 100%; height: 8px"></div>
     <div @click="goToNext2LevelGold">
-      <mt-cell title="二级代理充币">
+      <mt-cell title="二级代理收益(提成10%)">
         <div>
           ￥{{this.level2Gold}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -76,7 +76,7 @@
 
     <div style="width: 100%; height: 8px"></div>
     <div @click="goToNext3LevelGold">
-      <mt-cell title="三级代理充币">
+      <mt-cell title="三级代理收益(提成10%)">
         <div>
           ￥{{this.level3Gold}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -159,8 +159,8 @@
             path:'/chargeDetail',
             name:'ChargeDetail',
             params: {
-              list: this.list2,
-              total: this.level2,
+              list: this.list3,
+              total: this.level3,
               title: "三级代理充值记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
@@ -185,9 +185,9 @@
             path:'/chargeDetail',
             name:'ChargeDetail',
             params: {
-              list: this.list3,
-              total: this.level3,
-              title: "二级代理充值记录",
+              list: this.list1,
+              total: this.level1,
+              title: "直接玩家充值记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })
@@ -195,39 +195,42 @@
 
 
         goToNext3LevelGold(){
+          // Toast("g3")
           this.$router.push({
             path:'/chargeGoldDetail',
             name:'ChargeGoldDetail',
             params: {
-              list: this.list2,
+              list: this.list3,
               total: this.level2Gold,
-              title: "三级代理充币记录",
+              title: "三级代理充值表情记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })
         },
 
         goToNext2LevelGold(){
+          // Toast("g2")
           this.$router.push({
             path:'/chargeGoldDetail',
             name:'ChargeGoldDetail',
             params: {
               list: this.list2,
               total: this.level2Gold,
-              title: "二级代理充币记录",
+              title: "二级代理充值表情记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })
         },
 
         goToNextPlayerGold(){
+          // Toast("g1")
           this.$router.push({
             path:'/chargeGoldDetail',
             name:'ChargeGoldDetail',
             params: {
-              list: this.list3,
+              list: this.list1,
               total: this.level3Gold,
-              title: "二级代理充币记录",
+              title: " 直接玩家充值表情记录",
               timeStr: this.lastStartDate + "至" + this.lastEndDate
             }
           })

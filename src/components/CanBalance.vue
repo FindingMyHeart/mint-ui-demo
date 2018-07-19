@@ -41,7 +41,7 @@
             console.log(response);
 
             this.text = response.result;
-            Toast(this.text + "")
+            // Toast(this.text + "")
 
           });
         },
