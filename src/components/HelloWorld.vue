@@ -124,9 +124,9 @@
           this.agentId = response.result.invitationCode
           this.charge = response.result.rebate
 
-          var a = Number(response.result.totalMoney) + Number( response.result.totalGold)
-          // this.money = response.result.totalMoney
-          this.money = a + '';
+          // var a = Number(response.result.totalMoney) + Number( response.result.totalGold)
+          this.money = response.result.totalMoney
+          // this.money = a + '';
         });
 
         // homePage().then(response => {
