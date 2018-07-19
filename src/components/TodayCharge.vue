@@ -196,8 +196,10 @@
 
         goToNext3LevelGold(){
           this.$router.push({
-            path:'/chargeGoldDetail',
-            name:'ChargeGoldDetail',
+            // path:'/chargeGoldDetail',
+            // name:'ChargeGoldDetail',
+            path:'/chargeDetail',
+            name:'ChargeDetail',
             params: {
               list: this.list3,
               total: this.level2Gold,
@@ -209,8 +211,10 @@
 
         goToNext2LevelGold(){
           this.$router.push({
-            path:'/chargeGoldDetail',
-            name:'ChargeGoldDetail',
+            // path:'/chargeGoldDetail',
+            // name:'ChargeGoldDetail',
+            path:'/chargeDetail',
+            name:'ChargeDetail',
             params: {
               list: this.list2,
               total: this.level2Gold,
@@ -222,8 +226,10 @@
 
         goToNextPlayerGold(){
           this.$router.push({
-            path:'/chargeGoldDetail',
-            name:'ChargeGoldDetail',
+            // path:'/chargeGoldDetail',
+            // name:'ChargeGoldDetail',
+            path:'/chargeDetail',
+            name:'ChargeDetail',
             params: {
               list: this.list1,
               total: this.level3Gold,
