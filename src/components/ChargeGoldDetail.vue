@@ -88,6 +88,7 @@
 
     created() {
 
+      Toast(this.$route.params.list)
       this.title = this.$route.params.title
       this.comments = this.$route.params.list
       this.total = this.$route.params.total
