@@ -3,27 +3,27 @@
 
 
     <div>
-      　 <img src="/static/img/share_bg1.png" width="100%" height="100%">
+      　 <img src="/static/img/bg_2.jpg" width="100%" height="100%" onclick="return false">
     </div>
 
-    <br/>
-    <div align="center">
+
+    <div align="center" style="position:absolute; z-index:10; left:10%; top:10% ">
 
       <span>
 
-        <img :src="icon" :width="96" :height="96">
+        <img :src="icon" :width="96" :height="96" onclick="return false">
       </span>
 
       &nbsp &nbsp
 
       <span>
-        <img src="/static/img/share_pao.png" width="50%" height="50%">
+        <img src="/static/img/share_pao.png" width="50%" height="50%" >
         </span>
 
 
     </div>
 
-    <div align="center">
+    <div align="center" style="position:absolute; z-index:10; left:0%; top:25% ">
       <img src="/static/img/download_button.png" width="50%" height="50%" @click="clickDownload()">
     </div>
 
@@ -92,7 +92,6 @@
 
       let sid = this.$route.query.sid;
       let id = this.$route.query.id;
-//      let inGongzhonghao = this.$route.query.in && this.$route.query.in===1;
       let infoKey = 'info' + sid
       let qrKey = sid + '|qr'
       let info = getCookie(infoKey)

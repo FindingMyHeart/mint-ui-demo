@@ -2,33 +2,35 @@
 
   <div>
 
-    <div style="position:relative;">
-      　 <img src="../../static/img/download2.png" width="100%"/>
+    <div style="position:relative; ">
+      　 <img src="../../static/img/bg_1.jpg" width="100%" onclick="return false"/>
       　　
-      <div style="position:absolute; z-index:10; left:50%; top:40% ">
+      <div style="position:absolute; z-index:10; left:50%; top:30% ">
         　　　　 <img src="../../static/img/download_a.png" width="50%" height="50%" @click="clickDownload_a()">
       </div>
 
-      <div style="position:absolute; z-index:10; left:50%; top:55% ">
+      <div style="position:absolute; z-index:10; left:50%; top:40% ">
         　　　　 <img src="../../static/img/download_i.png" width="50%" height="50%" @click="clickDownload_i()">
       </div>
 
+      <!--<div style="position:absolute; z-index:20; left:0%; top:52% ">-->
+
+        <!--<img src="/static/img/bg2.png" width="100%">-->
+        　
+        <div v-bind:style="fontStyle">
+          <font size="3" color="white">请关注官方公众号</font>
+        </div>
+        　　
+        <div v-bind:style="imagestyle">
+          <img src="../../static/img/qr.jpg" :width="172" :height="172">
+        </div>
+
+      <!--</div>-->
+
     </div>
 
 
-    <div style="position:relative;" align="center">
 
-      <img src="/static/img/bg2.png" width="100%">
-      　
-      <div v-bind:style="fontStyle">
-        <font size="3" color="white">请关注官方公众号</font>
-      </div>
-      　　
-      <div v-bind:style="imagestyle">
-        <img src="../../static/img/qr.jpg" :width="172" :height="172">
-      </div>
-
-    </div>
 
 
     <div id="cover" class="popContainer" v-show="coverShow" @click="closeCover()">
@@ -57,13 +59,13 @@
           position: 'absolute',
           'z-index': 11,
           left: this.imagex,
-          top: '35px'
+          top: '340px'
         },
         fontStyle: {
           position: 'absolute',
-          'z-index': 11,
+          'z-index': 12,
           left: (this.getWidth() / 2 - 60) + 'px',
-          top: '7px'
+          top: '310px'
         }
       }
     },
@@ -164,6 +166,9 @@
       },
       closeCover(){
         this.coverShow = false;
+      },
+      imageClick(){
+          return false;
       }
     }
   }
@@ -183,8 +188,18 @@
     padding: 0;
     outline-width: 0px;
     vertical-align: top;
+    /*-webkit-user-select: none;*/
+    /*-moz-user-select: none;*/
+    /*-ms-user-select: none;*/
+    /*user-select: none;*/
   }
-
+  /*body img*/
+  /*{*/
+    /*-webkit-user-select: none;*/
+    /*-moz-user-select: none;*/
+    /*-ms-user-select: none;*/
+    /*user-select: none;*/
+  /*}*/
 
   div.popContainer {
     position: fixed;
