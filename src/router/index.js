@@ -160,7 +160,7 @@ const router = new Router({
     {
       path: '/chargeGoldDetail',
       name: 'ChargeGoldDetail',
-      component: ChargeDetail
+      component: ChargeGoldDetail
     },
     {
       path: '/userManager',

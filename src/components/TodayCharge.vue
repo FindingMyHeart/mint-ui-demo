@@ -195,6 +195,7 @@
 
 
         goToNext3LevelGold(){
+          // Toast("g3")
           this.$router.push({
             path:'/chargeGoldDetail',
             name:'ChargeGoldDetail',
@@ -208,6 +209,7 @@
         },
 
         goToNext2LevelGold(){
+          // Toast("g2")
           this.$router.push({
             path:'/chargeGoldDetail',
             name:'ChargeGoldDetail',
@@ -221,6 +223,7 @@
         },
 
         goToNextPlayerGold(){
+          // Toast("g1")
           this.$router.push({
             path:'/chargeGoldDetail',
             name:'ChargeGoldDetail',
