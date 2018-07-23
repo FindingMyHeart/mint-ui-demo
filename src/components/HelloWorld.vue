@@ -104,7 +104,10 @@
       },
     },
 
-    created() {
+    // created() {
+    //   // this.getHome()
+    // },
+    mounted() {
       this.getHome()
     },
     methods: {
