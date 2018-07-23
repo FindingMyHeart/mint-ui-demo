@@ -12,7 +12,7 @@
         <img slot="icon" src="../assets/kyqm.png" width="24" height="24">
         <br>
         <div>
-          <span style="margin-right: 20px; padding-right: 10px">{{this.agentId}}</span>
+          <span style="margin-right: 15px; padding-right: 7px">{{this.agentId}}</span>
         </div>
 
 
