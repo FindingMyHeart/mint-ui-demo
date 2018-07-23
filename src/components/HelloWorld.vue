@@ -8,7 +8,7 @@
 
       <mt-cell
         title="看邀请码"
-        is-link>
+      >
         <img slot="icon" src="../assets/kyqm.png" width="24" height="24">
         <br>
         <span>{{this.agentId}}</span>
