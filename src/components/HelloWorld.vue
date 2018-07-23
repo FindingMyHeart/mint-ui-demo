@@ -11,8 +11,10 @@
       >
         <img slot="icon" src="../assets/kyqm.png" width="24" height="24">
         <br>
-        <div style="background-color: red; width: 30px; height: 100%"></div>
-        <span>{{this.agentId}}</span>
+        <div>
+          <span style="margin-right: 20px; padding-right: 10px">{{this.agentId}}</span>
+        </div>
+
 
       </mt-cell>
 
