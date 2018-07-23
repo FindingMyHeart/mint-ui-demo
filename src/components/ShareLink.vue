@@ -3,45 +3,45 @@
 
 
     <div>
-      　 <img src="/static/img/share_bg1.png" width="100%" height="100%">
+      　 <img src="/static/img/bg_2.jpg" width="100%" height="100%" onclick="return false">
     </div>
 
-    <br/>
-    <div align="center">
+
+    <div align="center" style="position:absolute; z-index:10; left:10%; top:15% ">
 
       <span>
 
-        <img :src="icon" :width="96" :height="96">
+        <img :src="icon" :width="96" :height="96" onclick="return false">
       </span>
 
       &nbsp &nbsp
 
       <span>
-        <img src="/static/img/share_pao.png" width="50%" height="50%">
+        <img src="/static/img/share_pao.png" width="50%" height="50%" >
         </span>
 
 
     </div>
 
-    <div align="center">
+    <div align="center" style="position:absolute; z-index:10; left:0%; top:35% ">
       <img src="/static/img/download_button.png" width="50%" height="50%" @click="clickDownload()">
     </div>
 
 
     <br/>
 
-    <div style="position:relative;" align="center">
+    <!--<div style="position:absolute; z-index:10; left:0%; top:25% " align="center">-->
 
-      <img src="/static/img/bg2.png" width="100%">
+      <!--<img src="/static/img/bg2.png" width="100%">-->
       　
-      <div v-bind:style="fontStyle">
+      <div v-bind:style="fontStyle" >
         <font size="3" color="white">专属二维码</font>
       </div>
       　　
-      <div v-bind:style="imagestyle">
+      <div v-bind:style="imagestyle" >
         <img :src="qr" :width="172" :height="172">
       </div>
-    </div>
+    <!--</div>-->
 
     <div id="cover" class="popContainer" v-show="coverShow" @click="closeCover()">
     </div>
@@ -77,13 +77,13 @@
           position: 'absolute',
           'z-index': 11,
           left: this.imagex,
-          top: '35px'
+          top: '350px'
         },
         fontStyle: {
           position: 'absolute',
           'z-index': 11,
           left: (this.getWidth() / 2 - 40) + 'px',
-          top: '7px'
+          top: '310px'
         },
       }
     },
@@ -92,7 +92,6 @@
 
       let sid = this.$route.query.sid;
       let id = this.$route.query.id;
-//      let inGongzhonghao = this.$route.query.in && this.$route.query.in===1;
       let infoKey = 'info' + sid
       let qrKey = sid + '|qr'
       let info = getCookie(infoKey)
