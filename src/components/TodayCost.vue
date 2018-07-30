@@ -14,7 +14,7 @@
     </div>
     <br>
     <div @click="goToNextPlayer">
-      <mt-cell title="直接玩家充值(提成60%)">
+      <mt-cell title="直接玩家充值(提成20%)">
         <div>
           ￥{{this.level1}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -69,7 +69,7 @@
         level1Gold: "0",
         level2Gold: "0",
         level3Gold: "0",
-        total: "0",
+        total: 0.0,
         totalGold: '0',
         pickerVisible:false,
         value: null,
@@ -110,7 +110,7 @@
           path:'/costDetail',
           name:'CostDetail',
           params: {
-            list: this.list3,
+            list: this.list1,
             total: this.level3,
             title: "三级代理充值记录",
             timeStr: this.lastStartDate + "至" + this.lastEndDate
@@ -123,7 +123,7 @@
           path:'/costDetail',
           name:'CostDetail',
           params: {
-            list: this.list2,
+            list: this.list1,
             total: this.level2,
             title: "二级代理充值记录",
             timeStr: this.lastStartDate + "至" + this.lastEndDate
@@ -183,28 +183,24 @@
         Toast("request start!")
         todayCost(this.startDate, this.endDate).then(response => {
 
-          Toast("request end!")
+
           console.log(response);
-          // this.level1 = response.result.onelevel;
-          // this.level2 = response.result.twoLevel;
-          // this.level3 = response.result.threeLevel;
-          //
-          // this.level1Gold = response.result.oneLevelGold;
-          // this.level2Gold = response.result.twoLevelGold;
-          // this.level3Gold = response.result.threeLevelGold;
-          // this.totalGold = response.result.totalGold;
-          //
-          // this.total = response.result.total;
+          this.level1 = response.firstLevel;
+          this.level2 = response.secondLevel;
+          this.level3 = response.thirdLevel;
+          this.total = response.total;
           //
           //
-          // this.lastStartDate =  response.result.start;
-          // this.lastStartEnd =  response.result.end;
-          // this.startDate = response.result.start;
-          // this.endDate = response.result.end;
+          this.lastStartDate =  response.start;
+          this.lastStartEnd =  response.end;
+          this.startDate = response.start;
+          this.endDate = response.end;
+
           //
-          // this.list1 = response.result.list1;
+          this.list1 = response.result.list1;
           // this.list2 = response.result.list2;
           // this.list3 = response.result.list3;
+          Toast("request end!")
 
         });
 
