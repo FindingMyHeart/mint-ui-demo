@@ -194,9 +194,10 @@
         todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
-          this.level1 = response.oneLevel;
-          this.level2 = response.twoLevel;
-          this.level3 = response.threeLevel;
+          Toast("nnaa")
+          // this.level1 = response.oneLevel;
+          // this.level2 = response.twoLevel;
+          // this.level3 = response.threeLevel;
 
           this.first = response.oneLevel;
           this.secondL =response.twoLevel;
