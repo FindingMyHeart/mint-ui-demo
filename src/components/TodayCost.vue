@@ -63,23 +63,22 @@
     name: "",
     data(){
       return {
-        level1: 0,
-        level2: 0,
-        level3: 0,
+        level1: 0.0,
+        level2: 0.0,
+        level3: 0.0,
         level1Gold: "0",
         level2Gold: "0",
         level3Gold: "0",
-        total: "0",
+        total: 0.0,
         totalGold: '0',
         pickerVisible:false,
         value: null,
         value1: null,
-        //show: true,
         startDate: '',
-        // endDate: '2017-06-12',
         endDate: '',
         lastStartDate:'',
         lastEndDate:'',
+        lastStartEnd:'',
         list:[],
         first:0,
         secondL:0,
@@ -91,7 +90,6 @@
     created() {
 
       var timestamp = new Date()
-      // timestamp = timestamp / 1000;
 
       var date = (timestamp.getFullYear()) + "-" +
         (timestamp.getMonth() + 1) + "-" +
@@ -108,10 +106,6 @@
       this.third = this.$route.params.third
       this.allCost = this.$route.params.allCost
 
-      // Toast("this.allCost" + this.allCost);
-      // Toast("this.allFirst" + this.first);
-      // Toast("this.Se" + this.secondL);
-      // Toast("this.third" + this.third);
     },
     methods: {
 
@@ -194,10 +188,7 @@
         todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
-          Toast("nnaa")
-          // this.level1 = response.oneLevel;
-          // this.level2 = response.twoLevel;
-          // this.level3 = response.threeLevel;
+          Toast("success!")
 
           this.first = response.oneLevel;
           this.secondL =response.twoLevel;
@@ -209,39 +200,11 @@
           this.startDate = response.start;
           this.endDate = response.end;
           this.list = response.li;
-          console.log(this.list)
+          // console.log(this.list)
 
 
 
         });
-
-      },
-      waterRecord() {
-
-        todayCharge1().then(response => {
-
-          console.log(response);
-
-          this.level1 = response.result.onelevel;
-          this.level2 = response.result.twoLevel;
-          this.level3 = response.result.threeLevel;
-
-          this.level1Gold = response.result.oneLevelGold;
-          this.level2Gold = response.result.twoLevelGold;
-          this.level3Gold = response.result.threeLevelGold;
-          this.totalGold = response.result.totalGold;
-
-          this.total = response.result.total;
-          this.lastStartDate =  response.result.start;
-          this.lastStartEnd =  response.result.end;
-          this.startDate = response.result.start;
-          this.endDate = response.result.end;
-          this.list1 = response.result.list1;
-          this.list2 = response.result.list2;
-          this.list3 = response.result.list3;
-
-        });
-
       },
     }
   }
