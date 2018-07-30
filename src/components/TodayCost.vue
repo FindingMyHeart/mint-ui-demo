@@ -186,26 +186,26 @@
           return
         }
         Toast("start!!!")
-        todayCost(this.startDate, this.endDate).then(response => {
-
-          console.log(response);
-          Toast("success!")
-
-          this.first = response.oneLevel;
-          this.secondL =response.twoLevel;
-          this.third = response.threeLevel;
-          this.total = response.total;
-
-          this.lastStartDate =  response.start;
-          this.lastStartEnd =  response.end;
-          this.startDate = response.start;
-          this.endDate = response.end;
-          this.list = response.li;
-          // console.log(this.list)
-
-
-
-        });
+        // todayCost(this.startDate, this.endDate).then(response => {
+        //
+        //   console.log(response);
+        //   Toast("success!")
+        //
+        //   this.first = response.oneLevel;
+        //   this.secondL =response.twoLevel;
+        //   this.third = response.threeLevel;
+        //   this.total = response.total;
+        //
+        //   this.lastStartDate =  response.start;
+        //   this.lastStartEnd =  response.end;
+        //   this.startDate = response.start;
+        //   this.endDate = response.end;
+        //   this.list = response.li;
+        //   // console.log(this.list)
+        //
+        //
+        //
+        // });
       },
     }
   }
