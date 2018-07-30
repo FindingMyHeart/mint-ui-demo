@@ -25,7 +25,7 @@ import ChargeGoldDetail from '@/components/ChargeGoldDetail'
 import UserManager from '@/components/UserManager'
 import UserManagerDetail from '@/components/UserManagerDetail'
 import TestMessage from '@/components/TestMessage'
-
+import TodayCost from '@/components/TodayCost'
 // UserManager
 import {getToken, setToken} from '@/utils/util'
 
@@ -180,6 +180,12 @@ const router = new Router({
       name: 'TestMessage',
 
       component: TestMessage
+    },
+    {
+      path: '/todayCost',
+      name: 'TodayCost',
+
+      component: TodayCost
     }
 
   ]
