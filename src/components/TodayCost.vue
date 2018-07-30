@@ -63,9 +63,9 @@
     name: "",
     data(){
       return {
-        level1: "0",
-        level2: "0",
-        level3: "0",
+        level1: 0,
+        level2: 0,
+        level3: 0,
         level1Gold: "0",
         level2Gold: "0",
         level3Gold: "0",
@@ -108,10 +108,10 @@
       this.third = this.$route.params.third
       this.allCost = this.$route.params.allCost
 
-      Toast("this.allCost" + this.allCost);
-      Toast("this.allFirst" + this.first);
-      Toast("this.Se" + this.secondL);
-      Toast("this.third" + this.third);
+      // Toast("this.allCost" + this.allCost);
+      // Toast("this.allFirst" + this.first);
+      // Toast("this.Se" + this.secondL);
+      // Toast("this.third" + this.third);
     },
     methods: {
 
@@ -184,7 +184,6 @@
       },
 
       goToNextPlayerGold(){
-        // Toast("g1")
         this.$router.push({
           path:'/chargeGoldDetail',
           name:'ChargeGoldDetail',
@@ -237,7 +236,7 @@
         todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
-          this.level1 = response.onelevel;
+          this.level1 = response.oneLevel;
           this.level2 = response.twoLevel;
           this.level3 = response.threeLevel;
           this.total = response.total;
@@ -247,6 +246,9 @@
           this.startDate = response.start;
           this.endDate = response.end;
           this.list = response.li;
+          console.log(this.list)
+
+
 
         });
 
