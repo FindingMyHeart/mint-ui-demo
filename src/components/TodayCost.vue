@@ -112,7 +112,7 @@
           params: {
             list: this.list1,
             total: this.level3,
-            title: "三级代理充值记录",
+            title: "三级代理收益记录",
             timeStr: this.lastStartDate + "至" + this.lastEndDate
           }
         })
@@ -125,7 +125,7 @@
           params: {
             list: this.list1,
             total: this.level2,
-            title: "二级代理充值记录",
+            title: "二级代理收益记录",
             timeStr: this.lastStartDate + "至" + this.lastEndDate
           }
         })
@@ -138,7 +138,7 @@
           params: {
             list: this.list1,
             total: this.level1,
-            title: "直接玩家充值记录",
+            title: "直接玩家收益记录",
             timeStr: this.lastStartDate + "至" + this.lastEndDate
           }
         })
