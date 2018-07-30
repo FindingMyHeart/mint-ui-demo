@@ -28,7 +28,7 @@
       <mt-tab-container-item id="1">
         <ul class="mui-table-view">
           <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
-            <div v-show="this.typea==0">
+            <div v-show="this.pageIndex==0">
               <mt-cell
                 value="带链接">
                 <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
@@ -39,7 +39,7 @@
               </mt-cell>
             </div>
 
-            <div v-show="this.typea==1">
+            <div v-show="this.pageIndex==1">
               <mt-cell
                 value="带链接">
                 <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
@@ -50,7 +50,7 @@
               </mt-cell>
             </div>
 
-            <div v-show="this.typea==2">
+            <div v-show="this.pageIndex==2">
               <mt-cell
                 value="带链接">
                 <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
@@ -87,7 +87,6 @@
         title: "",
         total:"",
         timeStr: "",
-        typea:0
       }
     },
     watch:{
@@ -111,7 +110,8 @@
       this.comments = this.$route.params.list
       this.total = this.$route.params.total
       this.timeStr = this.$route.params.timeStr
-      this.typea = this.$route.params.typea
+      this.pageIndex = this.$route.params.pageIndex
+      Toast(this.pageIndex)
     },
     methods: {
       getLevel3List() {
