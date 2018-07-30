@@ -32,7 +32,7 @@
               <div class="abc">
                 <span>日期:{{comment.dateStr}}</span>
                 <br>
-                <span>收益：￥{{comment.firstLevel / 100.0}} × 0.2 = {{comment.firstLevel / 100.0 * 0.2.toFixed(2)}}</span>
+                <span>收益：￥{{(comment.firstLevel / 100.0).toFixed(2)}} × 0.2 = ￥{{(comment.firstLevel / 100.0 * 0.2).toFixed(2)}}</span>
               </div>
             </div>
 
@@ -42,7 +42,7 @@
                 <span>日期:{{comment.dateStr}}</span>
                 <br>
                 <!--<span>收益：￥{{comment.firstLevel}}</span>-->
-                <span>收益：￥{{comment.secondLevel / 100.0}} × 0.1 = {{comment.secondLevel / 100.0 * 0.1.toFixed(2)}}</span>
+                <span>收益：￥{{(comment.secondLevel / 100.0).toFixed(2)}} × 0.1 = ￥{{(comment.secondLevel / 100.0 * 0.1).toFixed(2)}}</span>
                 <!--<span>收益：￥{{comment.thirdLevel}}</span>-->
               </div>
             </div>
@@ -51,7 +51,7 @@
               <div class="abc">
                 <span>日期:{{comment.dateStr}}</span>
                 <br>
-                <span>收益：￥{{comment.thirdLevel / 100.0}} × 0.1 = {{comment.thirdLevel / 100.0 * 0.1.toFixed(2)}}</span>
+                <span>收益：￥{{(comment.thirdLevel / 100.0).toFixed(2)}} × 0.1 = ￥{{(comment.thirdLevel / 100.0 * 0.1).toFixed(2)}}</span>
               </div>
             </div>
             <div style="background-color: darkgrey; height: 1px; margin-top: 7px; margin-bottom: 7px"></div>
@@ -125,7 +125,7 @@
   .abc{
     width: 100%;
     height: 100%;
-    text-align: left;
+    text-align: center;
   }
 
   .inner{
