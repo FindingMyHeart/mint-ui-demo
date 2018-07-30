@@ -195,7 +195,7 @@
           this.startDate = response.start;
           this.endDate = response.end;
 
-          this.list1 = response.list1;
+          this.list1 = response.li;
           Toast("request end!")
 
         });
