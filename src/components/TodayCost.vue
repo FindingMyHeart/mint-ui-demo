@@ -14,7 +14,7 @@
     </div>
     <br>
     <div @click="goToNextPlayer">
-      <mt-cell title="直接玩家充值(提成20%)">
+      <mt-cell title="直接玩家(提成20%)">
         <div>
           ￥{{this.level1}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -25,7 +25,7 @@
 
     <div style="width: 100%; height: 8px"></div>
     <div @click="goToNext2Level">
-      <mt-cell title="二级代理收益记录(提成10%)">
+      <mt-cell title="二级代理(提成10%)">
         <div>
           ￥{{this.level2}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -36,7 +36,7 @@
 
     <div style="width: 100%; height: 8px"></div>
     <div @click="goToNext3Level">
-      <mt-cell title="三级代理收益记录(提成10%)">
+      <mt-cell title="三级代理(提成10%)">
         <div>
           ￥{{this.level3}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -183,7 +183,6 @@
         Toast("request start!")
         todayCost(this.startDate, this.endDate).then(response => {
 
-
           console.log(response);
           this.level1 = response.firstLevel;
           this.level2 = response.secondLevel;
@@ -196,10 +195,7 @@
           this.startDate = response.start;
           this.endDate = response.end;
 
-          //
           this.list1 = response.list1;
-          // this.list2 = response.result.list2;
-          // this.list3 = response.result.list3;
           Toast("request end!")
 
         });
