@@ -35,13 +35,13 @@
               value="带链接">
               <span>日期:￥{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <div v-if="this.type==0">
-                <span>收益：{{comment.firstLevel}} X 20% ={{comment.firstLevel * 0.2}} </span>
+                <span>收益：{{comment.firstLevel}} </span>
               </div>
               <div v-if="this.type==1">
-                <span>收益：{{comment.secondLevel}}  X 10% ={{comment.secondLevel * 0.1}}</span>
+                <span>收益：{{comment.secondLevel}}</span>
               </div>
               <div v-if="this.type==2">
-                <span>收益：{{comment.thirdLevel}} X 10% ={{comment.thirdLevel * 0.1}}</span>
+                <span>收益：{{comment.thirdLevel}}</span>
               </div>
               <!--<span>xxx</span>-->
             </mt-cell>
