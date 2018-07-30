@@ -197,8 +197,8 @@
 
           this.list1 = response.li;
           Toast("l1" + this.level1)
-          Toast("l2" + this.level2)
-          Toast("l3" + this.level3)
+          // Toast("l2" + this.level2)
+          // Toast("l3" + this.level3)
 
         });
 
