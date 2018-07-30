@@ -239,6 +239,10 @@
           this.level1 = response.oneLevel;
           this.level2 = response.twoLevel;
           this.level3 = response.threeLevel;
+
+          this.first = response.oneLevel;
+          this.secondL =response.twoLevel;
+          this.third = response.threeLevel;
           this.total = response.total;
 
           this.lastStartDate =  response.start;
