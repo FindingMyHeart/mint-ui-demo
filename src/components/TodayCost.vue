@@ -14,7 +14,7 @@
     </div>
     <br>
     <div @click="goToNextPlayer">
-      <mt-cell title="直接玩家(提成20%)">
+      <mt-cell title="直接玩家收益(提成20%)">
         <div>
           ￥{{this.level1.toFixed(2)}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -25,7 +25,7 @@
 
     <div style="width: 100%; height: 8px"></div>
     <div @click="goToNext2Level">
-      <mt-cell title="二级代理(提成10%)">
+      <mt-cell title="二级代理收益(提成10%)">
         <div>
           ￥{{this.level2.toFixed(2)}}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
@@ -36,7 +36,7 @@
 
     <div style="width: 100%; height: 8px"></div>
     <div @click="goToNext3Level">
-      <mt-cell title="三级代理(提成10%)">
+      <mt-cell title="三级代理收益(提成10%)">
         <div>
           ￥{{this.level3.toFixed(2) }}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">

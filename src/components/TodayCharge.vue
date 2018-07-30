@@ -53,37 +53,37 @@
       <span style="font-size: 22px"> ￥{{this.totalGold}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>
     </div>
     <br>
-    <div @click="goToNextPlayerGold">
-      <mt-cell title="直接玩家收益(提成20%)">
-        <div>
-          ￥{{this.level1Gold}}
-          &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
-        </div>
-        <img slot="icon" src="../assets/zjwj.png" width="24" height="24">
-      </mt-cell>
-    </div>
+    <!--<div @click="goToNextPlayerGold">-->
+      <!--<mt-cell title="直接玩家收益(提成20%)">-->
+        <!--<div>-->
+          <!--￥{{this.level1Gold}}-->
+          <!--&nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">-->
+        <!--</div>-->
+        <!--<img slot="icon" src="../assets/zjwj.png" width="24" height="24">-->
+      <!--</mt-cell>-->
+    <!--</div>-->
 
-    <div style="width: 100%; height: 8px"></div>
-    <div @click="goToNext2LevelGold">
-      <mt-cell title="二级代理收益(提成10%)">
-        <div>
-          ￥{{this.level2Gold}}
-          &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
-        </div>
-        <img slot="icon" src="../assets/ej.png" width="24" height="24">
-      </mt-cell>
-    </div>
+    <!--<div style="width: 100%; height: 8px"></div>-->
+    <!--<div @click="goToNext2LevelGold">-->
+      <!--<mt-cell title="二级代理收益(提成10%)">-->
+        <!--<div>-->
+          <!--￥{{this.level2Gold}}-->
+          <!--&nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">-->
+        <!--</div>-->
+        <!--<img slot="icon" src="../assets/ej.png" width="24" height="24">-->
+      <!--</mt-cell>-->
+    <!--</div>-->
 
-    <div style="width: 100%; height: 8px"></div>
-    <div @click="goToNext3LevelGold">
-      <mt-cell title="三级代理收益(提成10%)">
-        <div>
-          ￥{{this.level3Gold}}
-          &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
-        </div>
-        <img slot="icon" src="../assets/sj.png" width="24" height="24">
-      </mt-cell>
-    </div>
+    <!--<div style="width: 100%; height: 8px"></div>-->
+    <!--<div @click="goToNext3LevelGold">-->
+      <!--<mt-cell title="三级代理收益(提成10%)">-->
+        <!--<div>-->
+          <!--￥{{this.level3Gold}}-->
+          <!--&nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">-->
+        <!--</div>-->
+        <!--<img slot="icon" src="../assets/sj.png" width="24" height="24">-->
+      <!--</mt-cell>-->
+    <!--</div>-->
 
     <br>
     <mt-field label="开始时间" placeholder="请选择开始时间" type="date" v-model="startDate"></mt-field>
