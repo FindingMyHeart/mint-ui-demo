@@ -31,33 +31,38 @@
             <div v-show="pageIndex==0">
               <mt-cell
                 value="带链接">
-                <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
-                <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span>收益：￥{{comment.firstLevel}}</span>
-                <!--<span>收益：￥{{comment.secondLevel}}</span>-->
-                <!--<span>收益：￥{{comment.thirdLevel}}</span>-->
+                <div class="abc">
+                  <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span>收益：￥{{comment.firstLevel / 100.0}} X 0.2 = {{comment.firstLevel / 100.0 * 0.2}}</span>
+                </div>
               </mt-cell>
             </div>
 
             <div v-show="pageIndex==1">
               <mt-cell
                 value="带链接">
-                <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
-                <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <!--<span>收益：￥{{comment.firstLevel}}</span>-->
-                <span>收益：￥{{comment.secondLevel}}</span>
-                <!--<span>收益：￥{{comment.thirdLevel}}</span>-->
+                <div class="abc">
+                  <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+                  <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <!--<span>收益：￥{{comment.firstLevel}}</span>-->
+                  <span>收益：￥{{comment.secondLevel / 100.0}}</span>
+                  <!--<span>收益：￥{{comment.thirdLevel}}</span>-->
+                </div>
+
               </mt-cell>
             </div>
 
             <div v-show="pageIndex==2">
               <mt-cell
                 value="带链接">
-                <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
-                <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <!--<span>收益：￥{{comment.firstLevel}}</span>-->
-                <!--<span>收益：￥{{comment.secondLevel}}</span>-->
-                <span>收益：￥{{comment.thirdLevel}}</span>
+                <div class="abc">
+                  <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+                  <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <!--<span>收益：￥{{comment.firstLevel}}</span>-->
+                  <!--<span>收益：￥{{comment.secondLevel}}</span>-->
+                  <span>收益：￥{{comment.thirdLevel / 100.0}}</span>
+                </div>
+
               </mt-cell>
             </div>
 
@@ -127,6 +132,11 @@
     width: 29%;
     height:60px;
     float: left;
+  }
+  .abc{
+    width: 100%;
+    height: 100%;
+    text-align: center;
   }
 
   .inner{
