@@ -80,10 +80,10 @@
         lastEndDate:'',
         lastStartEnd:'',
         list:[],
-        first:0,
-        secondL:0,
-        third:0,
-        allCost:0,
+        first:0.0,
+        secondL:0.0,
+        third:0.0,
+        allCost:0.0,
       }
     },
 
@@ -100,11 +100,12 @@
 
       this.lastStartDate = date + "";
       this.lastEndDate = date + "";
-      //
       this.first = this.$route.params.first
       this.secondL = this.$route.params.second
       this.third = this.$route.params.third
       this.allCost = this.$route.params.allCost
+
+      Toast("create")
 
     },
     methods: {
@@ -184,7 +185,7 @@
           Toast("结束时间不能小于开始时间, 请重新选择")
           return
         }
-
+        Toast("start!!!")
         todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
