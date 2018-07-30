@@ -30,6 +30,7 @@
           <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
             <div v-show="pageIndex==0">
               <div class="abc">
+                <span>{{index}}</span>
                 <span>日期:{{comment.dateStr}}</span>
                 <br>
                 <span>收益：￥{{(comment.firstLevel / 100.0).toFixed(2)}} × 0.2 = ￥{{(comment.firstLevel / 100.0 * 0.2).toFixed(2)}}</span>
@@ -38,6 +39,7 @@
 
             <div v-show="pageIndex==1">
               <div class="abc">
+                <span>{{index}}</span>
                 <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
                 <span>日期:{{comment.dateStr}}</span>
                 <br>
@@ -49,6 +51,7 @@
 
             <div v-show="pageIndex==2">
               <div class="abc">
+                <span>{{index}}</span>
                 <span>日期:{{comment.dateStr}}</span>
                 <br>
                 <span>收益：￥{{(comment.thirdLevel / 100.0).toFixed(2)}} × 0.1 = ￥{{(comment.thirdLevel / 100.0 * 0.1).toFixed(2)}}</span>
@@ -105,7 +108,7 @@
       this.total = this.$route.params.total
       this.timeStr = this.$route.params.timeStr
       this.pageIndex = this.$route.params.pageIndex
-      Toast(this.pageIndex)
+      // Toast(this.pageIndex)
     },
     methods: {
       getLevel3List() {

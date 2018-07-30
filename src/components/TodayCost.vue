@@ -100,6 +100,11 @@
       this.lastStartDate = date + "";
       this.lastEndDate = date + "";
 
+      this.level1 = this.$route.params.first
+      this.level2 = this.$route.params.second
+      this.level3 = this.$route.params.third
+      this.total = this.$route.params.allCost
+
       this.onchekTime()
 
     },
