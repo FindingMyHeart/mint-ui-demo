@@ -10,7 +10,7 @@
     </mt-header>
     <br>
     <div style="text-align: center">
-      <span style="font-size: 22px"> ￥{{this.totalGold}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>
+      <span style="font-size: 22px"> ￥{{this.total}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>
     </div>
     <br>
     <div @click="goToNextPlayerGold">
@@ -57,7 +57,7 @@
 <script>
   import axios from 'axios';
   import { DatetimePicker } from 'mint-ui';
-  import {todayCharge, todayCharge1} from "../api/home";
+  import {todayCost, todayCharge1} from "../api/home";
   import { Toast } from 'mint-ui';
   export default {
     name: "",
@@ -80,9 +80,7 @@
         endDate: '',
         lastStartDate:'',
         lastEndDate:'',
-        list1:[],
-        list2:[],
-        list3:[],
+        list:[],
         first:0,
         secondL:0,
         third:0,
@@ -109,6 +107,11 @@
       this.secondL = this.$route.params.second
       this.third = this.$route.params.third
       this.allCost = this.$route.params.allCost
+
+      Toast("this.allCost" + this.allCost);
+      Toast("this.allFirst" + this.first);
+      Toast("this.Se" + this.secondL);
+      Toast("this.third" + this.third);
     },
     methods: {
 
@@ -231,29 +234,19 @@
           return
         }
 
-        todayCharge(this.startDate, this.endDate).then(response => {
+        todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
-          this.level1 = response.result.onelevel;
-          this.level2 = response.result.twoLevel;
-          this.level3 = response.result.threeLevel;
+          this.level1 = response.onelevel;
+          this.level2 = response.twoLevel;
+          this.level3 = response.threeLevel;
+          this.total = response.total;
 
-          this.level1Gold = response.result.oneLevelGold;
-          this.level2Gold = response.result.twoLevelGold;
-          this.level3Gold = response.result.threeLevelGold;
-          this.totalGold = response.result.totalGold;
-
-          this.total = response.result.total;
-
-
-          this.lastStartDate =  response.result.start;
-          this.lastStartEnd =  response.result.end;
-          this.startDate = response.result.start;
-          this.endDate = response.result.end;
-
-          this.list1 = response.result.list1;
-          this.list2 = response.result.list2;
-          this.list3 = response.result.list3;
+          this.lastStartDate =  response.start;
+          this.lastStartEnd =  response.end;
+          this.startDate = response.start;
+          this.endDate = response.end;
+          this.list = response.li;
 
         });
 

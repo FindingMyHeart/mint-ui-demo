@@ -45,6 +45,14 @@ export function todayCharge (start, end) {
   })
 }
 
+export function todayCost (start, end) {
+  return fetch({
+    url: '/todayCharge/dCost',
+    method: 'get',
+    params: {'start': start, 'end': end}
+  })
+}
+
 export function todayCharge1 () {
   return fetch({
     url: '/todayCharge/homeCharge',
