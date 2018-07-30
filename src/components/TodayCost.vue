@@ -184,9 +184,9 @@
         todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
-          this.level1 = response.firstLevel;
-          this.level2 = response.secondLevel;
-          this.level3 = response.thirdLevel;
+          this.level1 = response.oneLevel;
+          this.level2 = response.twoLevel;
+          this.level3 = response.threeLevel;
           this.total = response.total;
           //
           //
@@ -196,7 +196,7 @@
           this.endDate = response.end;
 
           this.list1 = response.li;
-          Toast(this.level1)
+          // Toast(this.level1)
           // Toast("l2" + this.level2)
           // Toast("l3" + this.level3)
 
