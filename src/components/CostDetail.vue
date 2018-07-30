@@ -35,10 +35,15 @@
               value="带链接">
               <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
               <span>日期:￥{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>收益：{{comment.firstLevel}}</span>
-              <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
-              <!--<span>ID: {{comment.uid}}</span>-->
-              <span>xxx</span>
+              <div v-if="this.type==0">
+                <span>收益：{{comment.firstLevel}} X 20% ={{comment.firstLevel * 0.2}} </span>
+              </div>
+              <div v-if="this.type==1">
+                <span>收益：{{comment.secondLevel}}  X 10% ={{comment.secondLevel * 0.1}}</span>
+              </div>
+              <div v-if="this.type==2">
+                <span>收益：{{comment.thirdLevel}} X 10% ={{comment.thirdLevel * 0.1}}</span>
+              </div>
             </mt-cell>
           </li>
         </ul>
@@ -65,7 +70,8 @@
         selected: '1',
         title: "",
         total:"",
-        timeStr: ""
+        timeStr: "",
+        type: 0
       }
     },
     watch:{
@@ -89,6 +95,7 @@
       this.comments = this.$route.params.list
       this.total = this.$route.params.total
       this.timeStr = this.$route.params.timeStr
+      this.type = this.$route.params.type
     },
     methods: {
       getLevel3List() {
