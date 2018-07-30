@@ -107,6 +107,8 @@
 
       this.onchekTime()
 
+      todayCost(this.lastStartDate, this.lastEndDate)
+
     },
     methods: {
 
@@ -188,7 +190,7 @@
           return
         }
 
-        Toast("request start!")
+        // Toast("request start!")
         todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
