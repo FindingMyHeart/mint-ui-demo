@@ -28,27 +28,39 @@
       <mt-tab-container-item id="1">
         <ul class="mui-table-view">
           <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
-            <!--<div v-show="comment.money > 0">-->
-              <!---->
-            <!--</div>-->
-            <mt-cell
-              value="带链接">
-              <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
-              <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>收益：￥{{comment.firstLevel}}</span>
-              <span>收益：￥{{comment.secondLevel}}</span>
-              <span>收益：￥{{comment.thirdLevel}}</span>
+            <div v-show="this.typea==0">
+              <mt-cell
+                value="带链接">
+                <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+                <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>收益：￥{{comment.firstLevel}}</span>
+                <!--<span>收益：￥{{comment.secondLevel}}</span>-->
+                <!--<span>收益：￥{{comment.thirdLevel}}</span>-->
+              </mt-cell>
+            </div>
 
-              <!--<div v-if="this.type==0">-->
-                <!--<span>收益：{{comment.firstLevel}} X 20% ={{comment.firstLevel * 0.2}} </span>-->
-              <!--</div>-->
-              <!--<div v-if="this.type==1">-->
-                <!--<span>收益：{{comment.secondLevel}}  X 10% ={{comment.secondLevel * 0.1}}</span>-->
-              <!--</div>-->
-              <!--<div v-if="this.type==2">-->
-                <!--<span>收益：{{comment.thirdLevel}} X 10% ={{comment.thirdLevel * 0.1}}</span>-->
-              <!--</div>-->
-            </mt-cell>
+            <div v-show="this.typea==1">
+              <mt-cell
+                value="带链接">
+                <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+                <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!--<span>收益：￥{{comment.firstLevel}}</span>-->
+                <span>收益：￥{{comment.secondLevel}}</span>
+                <!--<span>收益：￥{{comment.thirdLevel}}</span>-->
+              </mt-cell>
+            </div>
+
+            <div v-show="this.typea==2">
+              <mt-cell
+                value="带链接">
+                <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+                <span>日期:{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!--<span>收益：￥{{comment.firstLevel}}</span>-->
+                <!--<span>收益：￥{{comment.secondLevel}}</span>-->
+                <span>收益：￥{{comment.thirdLevel}}</span>
+              </mt-cell>
+            </div>
+
           </li>
         </ul>
       </mt-tab-container-item>
@@ -75,7 +87,7 @@
         title: "",
         total:"",
         timeStr: "",
-        type:0
+        typea:0
       }
     },
     watch:{
@@ -99,7 +111,7 @@
       this.comments = this.$route.params.list
       this.total = this.$route.params.total
       this.timeStr = this.$route.params.timeStr
-      this.type = this.$route.params.type
+      this.typea = this.$route.params.typea
     },
     methods: {
       getLevel3List() {

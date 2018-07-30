@@ -114,7 +114,7 @@
             total: this.level3,
             title: "三级代理收益记录",
             timeStr: this.lastStartDate + "至" + this.lastEndDate,
-            type:2
+            typea:2
           }
         })
       },
@@ -128,7 +128,7 @@
             total: this.level2,
             title: "二级代理收益记录",
             timeStr: this.lastStartDate + "至" + this.lastEndDate,
-            type:1
+            typea:1
           }
         })
       },
@@ -142,7 +142,7 @@
             total: this.level1,
             title: "直接玩家收益记录",
             timeStr: this.lastStartDate + "至" + this.lastEndDate,
-            type:0
+            typea:0
           }
         })
       },
