@@ -29,43 +29,35 @@
         <ul class="mui-table-view">
           <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
             <div v-show="pageIndex==0">
-              <mt-cell
-                value="带链接">
-                <div class="abc">
-                  <span>日期:{{comment.dateStr}}</span>
-                  <br>
-                  <span>收益：￥{{comment.firstLevel / 100.0}} × 0.2 = {{comment.firstLevel / 100.0 * 0.2}}</span>
-                </div>
-              </mt-cell>
+              <div class="abc">
+                <span>日期:{{comment.dateStr}}</span>
+                <br>
+                <br>
+                <span>收益：￥{{comment.firstLevel / 100.0}} × 0.2 = {{comment.firstLevel / 100.0 * 0.2}}</span>
+              </div>
             </div>
 
             <div v-show="pageIndex==1">
-              <mt-cell
-                value="带链接">
-                <div class="abc">
-                  <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
-                  <span>日期:{{comment.dateStr}}</span>
-                  <br>
-                  <!--<span>收益：￥{{comment.firstLevel}}</span>-->
-                  <span>收益：￥{{comment.secondLevel / 100.0}} × 0.1 = {{comment.secondLevel / 100.0 * 0.1}}</span>
-                  <!--<span>收益：￥{{comment.thirdLevel}}</span>-->
-                </div>
-
-              </mt-cell>
+              <div class="abc">
+                <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+                <span>日期:{{comment.dateStr}}</span>
+                <br>
+                <br>
+                <!--<span>收益：￥{{comment.firstLevel}}</span>-->
+                <span>收益：￥{{comment.secondLevel / 100.0}} × 0.1 = {{comment.secondLevel / 100.0 * 0.1}}</span>
+                <!--<span>收益：￥{{comment.thirdLevel}}</span>-->
+              </div>
             </div>
 
             <div v-show="pageIndex==2">
-              <mt-cell
-                value="带链接">
-                <div class="abc">
-                  <span>日期:{{comment.dateStr}}</span>
-                  <br>
-                  <span>收益：￥{{comment.thirdLevel / 100.0}} × 0.1 = {{comment.thirdLevel / 100.0 * 0.1}}</span>
-                </div>
-
-              </mt-cell>
+              <div class="abc">
+                <span>日期:{{comment.dateStr}}</span>
+                <br>
+                <br>
+                <span>收益：￥{{comment.thirdLevel / 100.0}} × 0.1 = {{comment.thirdLevel / 100.0 * 0.1}}</span>
+              </div>
             </div>
-
+            <div style="background-color: darkgrey; height: 1px"></div>
           </li>
         </ul>
       </mt-tab-container-item>
