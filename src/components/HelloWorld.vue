@@ -29,7 +29,7 @@
         <mt-cell
           title="今日收益"
           is-link>
-          <span>¥ {{this.allCost}}</span>
+          <span>¥ {{this.allCost.toFixed(2)}}</span>
           <img slot="icon" src="../assets/cz.png" width="24" height="24">
         </mt-cell>
       </div>
