@@ -28,17 +28,18 @@
       <mt-tab-container-item id="1">
         <ul class="mui-table-view">
           <li class="mui-table-view-cell" v-for="(comment,index) in comments" :key="index">
-            <div v-show="comment.money > 0">
-              <mt-cell
-                value="带链接">
-                <img slot="icon" :src="comment.image" width="43" height="43">
-                <!--<span>充值:￥{{comment.money}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-                <!--<span>用户名：{{comment.username}}</span>-->
-                <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
-                <!--<span>ID: {{comment.uid}}</span>-->
-                <span>xxx</span>
-              </mt-cell>
-            </div>
+            <!--<div v-show="comment.money > 0">-->
+              <!---->
+            <!--</div>-->
+            <mt-cell
+              value="带链接">
+              <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
+              <span>日期:￥{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>收益：{{comment.firstLevel}}</span>
+              <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+              <!--<span>ID: {{comment.uid}}</span>-->
+              <span>xxx</span>
+            </mt-cell>
           </li>
         </ul>
       </mt-tab-container-item>
