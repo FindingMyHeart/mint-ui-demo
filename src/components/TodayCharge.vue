@@ -49,10 +49,10 @@
 
     <br>
 
-    <div style="text-align: center">
-      <span style="font-size: 22px"> ￥{{this.totalGold}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>
-    </div>
-    <br>
+    <!--<div style="text-align: center">-->
+      <!--<span style="font-size: 22px"> ￥{{this.totalGold}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>-->
+    <!--</div>-->
+    <!--<br>-->
     <!--<div @click="goToNextPlayerGold">-->
       <!--<mt-cell title="直接玩家收益(提成20%)">-->
         <!--<div>-->
