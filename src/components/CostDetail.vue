@@ -33,18 +33,17 @@
             <!--</div>-->
             <mt-cell
               value="带链接">
-              <!--<img slot="icon" :src="comment.image" width="43" height="43">-->
-              <!--<span>日期:￥{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-              <!--<div v-if="this.type==0">-->
-                <!--<span>收益：{{comment.firstLevel}} X 20% ={{comment.firstLevel * 0.2}} </span>-->
-              <!--</div>-->
-              <!--<div v-if="this.type==1">-->
-                <!--<span>收益：{{comment.secondLevel}}  X 10% ={{comment.secondLevel * 0.1}}</span>-->
-              <!--</div>-->
-              <!--<div v-if="this.type==2">-->
-                <!--<span>收益：{{comment.thirdLevel}} X 10% ={{comment.thirdLevel * 0.1}}</span>-->
-              <!--</div>-->
-              <span>xxx</span>
+              <span>日期:￥{{comment.dateStr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div v-if="this.type==0">
+                <span>收益：{{comment.firstLevel}} X 20% ={{comment.firstLevel * 0.2}} </span>
+              </div>
+              <div v-if="this.type==1">
+                <span>收益：{{comment.secondLevel}}  X 10% ={{comment.secondLevel * 0.1}}</span>
+              </div>
+              <div v-if="this.type==2">
+                <span>收益：{{comment.thirdLevel}} X 10% ={{comment.thirdLevel * 0.1}}</span>
+              </div>
+              <!--<span>xxx</span>-->
             </mt-cell>
           </li>
         </ul>
