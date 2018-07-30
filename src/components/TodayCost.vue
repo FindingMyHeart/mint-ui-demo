@@ -38,7 +38,7 @@
     <div @click="goToNext3Level">
       <mt-cell title="三级代理(提成10%)">
         <div>
-          ￥{{this.level3}}
+          ￥{{this.level3 }}
           &nbsp;<img slot="icon" src="../assets/jtyb.png" width="9" height="11">
         </div>
         <img slot="icon" src="../assets/sj.png" width="24" height="24">
@@ -196,7 +196,9 @@
           this.endDate = response.end;
 
           this.list1 = response.li;
-          Toast("request end!")
+          Toast("l1" + this.level1)
+          Toast("l2" + this.level2)
+          Toast("l3" + this.level3)
 
         });
 
