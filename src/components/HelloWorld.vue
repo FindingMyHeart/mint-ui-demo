@@ -30,11 +30,12 @@
           title="今日收益"
           is-link>
           <span>¥ {{this.allCost.toFixed(2)}}</span>
-          <img slot="icon" src="../assets/cz.png" width="24" height="24">
+          <img slot="icon" src="../assets/syz.png" width="24" height="24">
         </mt-cell>
       </div>
 
 
+      
       <mt-cell
         title="可结算额"
         to="/canBalance"
