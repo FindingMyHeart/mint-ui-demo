@@ -89,6 +89,7 @@
     created() {
 
       var timestamp = new Date()
+      // timestamp = timestamp / 1000;
 
       var date = (timestamp.getFullYear()) + "-" +
         (timestamp.getMonth() + 1) + "-" +
@@ -104,10 +105,9 @@
       // this.level2 = this.$route.params.second
       // this.level3 = this.$route.params.third
       // this.total = this.$route.params.allCost
-
+      // todayCost(this.lastStartDate, this.lastEndDate)
+      this.request()
       this.onchekTime()
-      todayCost(this.lastStartDate, this.lastEndDate)
-
 
     },
     methods: {
@@ -197,8 +197,6 @@
           this.level2 = response.twoLevel;
           this.level3 = response.threeLevel;
           this.total = response.total;
-          //
-          //
           this.lastStartDate =  response.start;
           this.lastStartEnd =  response.end;
           this.startDate = response.start;
