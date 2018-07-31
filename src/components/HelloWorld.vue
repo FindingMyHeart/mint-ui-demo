@@ -93,8 +93,8 @@
         isAutoFill:false,//是否自动触发上拉函数
         selected: '1',
         agentId: '0',
-        money: '0',
-        charge: '0',
+        money: 0,
+        charge: 0,
         allCost: 0,
         firstLevel: 0,
         secondLevel: 0,
