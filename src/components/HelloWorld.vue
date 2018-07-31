@@ -21,7 +21,7 @@
         title="今日充值"
         to="/todayCharge"
         is-link>
-        <span>¥ {{this.money}}</span>
+        <span>¥ {{this.money.toFixed(2)}}</span>
         <img slot="icon" src="../assets/cz.png" width="24" height="24">
       </mt-cell>
 
@@ -39,7 +39,7 @@
         title="可结算额"
         to="/canBalance"
         is-link>
-        <span>¥ {{this.charge}}</span>
+        <span>¥ {{this.charge.toFixed(2)}}</span>
         <!--<span style="color: gray;font-size:20px;text-align:center;margin-right:150px">¥ {{this.money}}</span>-->
         <img slot="icon" src="../assets/js.png" width="24" height="24">
       </mt-cell>
@@ -124,7 +124,7 @@
     },
     methods: {
       gotoCostPage(){
-        Toast("g1")
+        // Toast("g1")
         this.$router.push({
           path:'/todayCost',
           name:'TodayCost',

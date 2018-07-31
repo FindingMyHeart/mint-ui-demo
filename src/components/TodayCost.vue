@@ -106,8 +106,8 @@
       // this.total = this.$route.params.allCost
 
       this.onchekTime()
-
       todayCost(this.lastStartDate, this.lastEndDate)
+
 
     },
     methods: {
@@ -190,7 +190,6 @@
           return
         }
 
-        // Toast("request start!")
         todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
@@ -206,10 +205,6 @@
           this.endDate = response.end;
 
           this.list1 = response.li;
-          // Toast(this.level1)
-          // Toast("l2" + this.level2)
-          // Toast("l3" + this.level3)
-
         });
 
       },
