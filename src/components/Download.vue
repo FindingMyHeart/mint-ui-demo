@@ -45,7 +45,7 @@
 
 
 <script>
-  import {getAgentInfo} from '@/api/api'
+  import {getAgentInfo,getDownloadUrl} from '@/api/api'
   import {Toast} from 'mint-ui';
 
   export default {
@@ -66,7 +66,9 @@
           'z-index': 12,
           left: (this.getWidth() / 2 - 60) + 'px',
           top: '310px'
-        }
+        },
+        download_android:'',
+        download_ios:''
       }
     },
 
@@ -122,11 +124,11 @@
 //      })
 //    },
     created(){
-      let sid = this.$route.query.sid;
-      let id = this.$route.query.id;
-      let infoKey = 'info' + sid
-      let qrKey = sid + '|qr'
-      let info = getCookie(infoKey)
+//      let sid = this.$route.query.sid;
+//      let id = this.$route.query.id;
+//      let infoKey = 'info' + sid
+//      let qrKey = sid + '|qr'
+//      let info = getCookie(infoKey)
 
       //去授权
 //      if (!info) {
@@ -146,6 +148,15 @@
 //        this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + d.qr;
 //        console.log(info)
 //      }
+
+
+      getDownloadUrl().then(response=>{
+          console.log(response)
+        this.download_android = response.android
+        this.download_ios = response.ios
+      })
+
+
     },
     methods: {
       clickDownload(){
@@ -159,10 +170,11 @@
         return w
       },
       clickDownload_a(){
-
+          console.log(this.download_android)
+        window.location.href = this.download_android
       },
       clickDownload_i(){
-
+        window.location.href = this.download_ios
       },
       closeCover(){
         this.coverShow = false;

@@ -25,6 +25,7 @@ import ChargeGoldDetail from '@/components/ChargeGoldDetail'
 import UserManager from '@/components/UserManager'
 import UserManagerDetail from '@/components/UserManagerDetail'
 import TestMessage from '@/components/TestMessage'
+import GetShareLink from '@/components/GetShareLink'
 
 // UserManager
 import {getToken, setToken} from '@/utils/util'
@@ -180,7 +181,12 @@ const router = new Router({
       name: 'TestMessage',
 
       component: TestMessage
-    }
+    },
+    {
+      path: '/getShareLink',
+      name: 'GetShareLink',
+      component: GetShareLink
+    },
 
   ]
 })

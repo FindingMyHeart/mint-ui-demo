@@ -32,7 +32,6 @@
         <img slot="icon" src="../assets/js.png" width="24" height="24">
       </mt-cell>
 
-
       <mt-cell
         title="推荐代理"
         to="/recommendDelegate"
