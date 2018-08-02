@@ -8,26 +8,39 @@
 
       <mt-cell
         title="看邀请码"
-        is-link>
+      >
         <img slot="icon" src="../assets/kyqm.png" width="24" height="24">
         <br>
-        <span>{{this.agentId}}</span>
-
+        <div>
+          <span style="margin-right: 15px; padding-right: 7px">{{this.agentId}}</span>
+        </div>
       </mt-cell>
+
 
       <mt-cell
         title="今日充值"
         to="/todayCharge"
         is-link>
-        <span>¥ {{this.money}}</span>
+        <span>¥ {{this.money.toFixed(2)}}</span>
         <img slot="icon" src="../assets/cz.png" width="24" height="24">
       </mt-cell>
 
+      <div @click="gotoCostPage">
+        <mt-cell
+          title="今日收益"
+          is-link>
+          <span>¥ {{this.allCost.toFixed(2)}}</span>
+          <img slot="icon" src="../assets/syz.png" width="24" height="24">
+        </mt-cell>
+      </div>
+
+
+      
       <mt-cell
         title="可结算额"
         to="/canBalance"
         is-link>
-        <span>¥ {{this.charge}}</span>
+        <span>¥ {{this.charge.toFixed(2)}}</span>
         <!--<span style="color: gray;font-size:20px;text-align:center;margin-right:150px">¥ {{this.money}}</span>-->
         <img slot="icon" src="../assets/js.png" width="24" height="24">
       </mt-cell>
@@ -80,9 +93,12 @@
         isAutoFill:false,//是否自动触发上拉函数
         selected: '1',
         agentId: '0',
-        money: '0',
-        charge: '0'
-
+        money: 0,
+        charge: 0,
+        allCost: 0,
+        firstLevel: 0,
+        secondLevel: 0,
+        thirdLevel: 0
       }
     },
     watch:{
@@ -100,39 +116,41 @@
       },
     },
 
-    created() {
+    // created() {
+    //   // this.getHome()
+    // },
+    mounted() {
       this.getHome()
     },
     methods: {
+      gotoCostPage(){
+        // Toast("g1")
+        this.$router.push({
+          path:'/todayCost',
+          name:'TodayCost',
+          params: {
+            allCost: this.allCost,
+            first: this.firstLevel,
+            second: this.secondLevel,
+            third: this.thirdLevel
+          }
+        })
+      },
+
       getHome() {
-        // axios.get("http://localhost:8085/home/show").then((response) => {
-        //     console.log(response);
-        //     this.agentId = response['data']['data']['result']['invitationCode']
-        //     this.charge = response['data']['data']['result']['rebate']
-        //     this.money = response['data']['data']['result']['totalMoney']
-        //   }
-        // ).catch((err) => {
-        //     console.log(err);
-        //   }
-        // );
 
         homePage().then(response => {
-
           console.log(response);
 
           this.agentId = response.result.invitationCode
           this.charge = response.result.rebate
-
-          // var a = Number(response.result.totalMoney) + Number( response.result.totalGold)
           this.money = response.result.totalMoney
-          // this.money = a + '';
-        });
+          this.allCost = response.result.allCost
+          this.firstLevel = response.result.firstLevel
+          this.secondLevel = response.result.secondLevel
+          this.thirdLevel = response.result.thirdLevel
 
-        // homePage().then(response => {
-        //   console.log(response);
-        //   Toast("aa")
-        //   // this.comments = response.result
-        // });
+        });
 
       },
     }
