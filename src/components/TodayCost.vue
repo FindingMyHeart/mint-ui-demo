@@ -190,7 +190,7 @@
           return
         }
 
-        Toast("...")
+        // Toast("...")
 
         todayCost(this.startDate, this.endDate).then(response => {
 
