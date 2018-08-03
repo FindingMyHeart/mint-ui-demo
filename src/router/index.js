@@ -181,10 +181,18 @@ const router = new Router({
     {
       path: '/testMessage',
       name: 'TestMessage',
-
       component: TestMessage
+    },
+    {
+      path: '/todayCost',
+      name: 'TodayCost',
+      component: TodayCost
+    },
+    {
+      path: '/costDetail',
+      name: 'CostDetail',
+      component: CostDetail
     }
-
   ]
 })
 
