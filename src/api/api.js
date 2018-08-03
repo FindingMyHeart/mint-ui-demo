@@ -46,7 +46,6 @@ export function jsapiparam(url) {
 
 export function auth() {
   return fetch({
-    // url: '/wechat/authorize_base?returnUrl=base',
     url: '/wechat/authorize?returnUrl=base',
     method: 'get',
     params: {}
@@ -55,7 +54,6 @@ export function auth() {
 
 export function chargeReq(money, chargeType) {
   return fetch({
-    // url: '/wechat/authorize_base?returnUrl=base',
     url: '/wechat/pay/preOrder',
     method: 'get',
     params: {
@@ -67,7 +65,6 @@ export function chargeReq(money, chargeType) {
 
 export function getUserInfo() {
   return fetch({
-    // url: '/wechat/authorize_base?returnUrl=base',
     url: '/wechat/getUserInfo',
     method: 'get',
     params: {}
@@ -76,11 +73,20 @@ export function getUserInfo() {
 
 export function getAgentQr(agnetId) {
   return fetch({
-    // url: '/wechat/authorize_base?returnUrl=base',
     url: '/wechat/getAgentQr',
     method: 'get',
     params: {
       agnetId
+    }
+  })
+}
+
+
+export function getDownloadUrl() {
+  return fetch({
+    url: '/wechat/getDownloadUrl',
+    method: 'get',
+    params: {
     }
   })
 }
