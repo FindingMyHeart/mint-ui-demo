@@ -14,7 +14,7 @@
     <div style="text-align: center">
       <span style="font-size: 22px"> ￥{{this.total}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}
         <br>
-        收益￥{{this.income}}
+        收益￥{{this.income.toFixed(2)}}
       </span>
     </div>
     <br>
