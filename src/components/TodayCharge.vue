@@ -12,7 +12,10 @@
     </mt-header>
     <br>
     <div style="text-align: center">
-      <span style="font-size: 22px"> ￥{{this.total}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>
+      <span style="font-size: 22px"> ￥{{this.total}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}
+        <br>
+        收益￥{{this.income}}
+      </span>
     </div>
     <br>
     <div @click="goToNextPlayer">
@@ -103,6 +106,7 @@
         name: "",
       data(){
         return {
+          income: 0.0,
           level1: "0",
           level2: "0",
           level3: "0",
@@ -323,6 +327,7 @@
               this.list1 = response.result.list1;
               this.list2 = response.result.list2;
               this.list3 = response.result.list3;
+              this.income = response.result.income
 
             });
 
