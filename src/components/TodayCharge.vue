@@ -361,6 +361,7 @@
               this.list1 = response.result.list1;
               this.list2 = response.result.list2;
               this.list3 = response.result.list3;
+              this.income = response.result.income;
 
             });
 
