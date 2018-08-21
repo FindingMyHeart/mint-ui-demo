@@ -12,7 +12,7 @@
     </mt-header>
     <br>
     <div style="text-align: center">
-      <span style="font-size: 22px"> ￥{{this.total}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}
+      <span style="font-size: 22px"> ￥{{this.total.toFixed(2)}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}
         <br>
         收益￥{{this.income.toFixed(2)}}
       </span>
@@ -327,7 +327,7 @@
               this.list1 = response.result.list1;
               this.list2 = response.result.list2;
               this.list3 = response.result.list3;
-              this.income = response.result.income
+              this.income = response.result.income;
 
             });
 
