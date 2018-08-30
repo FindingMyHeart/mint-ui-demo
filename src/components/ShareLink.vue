@@ -107,6 +107,8 @@
         //跳转
         window.top.location.href = url
       } else {
+          alert("加载icon",info)
+
         //加载
         info = decodeURIComponent(info);
         var d = JSON.parse(info);
