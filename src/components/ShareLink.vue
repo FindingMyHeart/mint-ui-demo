@@ -98,10 +98,10 @@
 
 //      this.setQr()
 
-      alert("info",info)
+//      alert("info",info)
       //去授权
       if (!info) {
-          alert('去授权')
+//          alert('去授权')
         console.log("授权----------------")
         let state = id
         qrd = getAgentQr(id).then(response=>{
@@ -113,7 +113,7 @@
         //跳转
         window.top.location.href = url
       } else {
-          alert("加载icon",info)
+//          alert("加载icon",info)
 
         //加载
         info = decodeURIComponent(info);
@@ -127,7 +127,7 @@
         console.log(info)
       }
       if (info) {
-          alert('展示链接')
+//          alert('展示链接')
         let url = window.location.href.split('#')[0]
         jsapiparam(url).then(response => {
           console.log(response)
