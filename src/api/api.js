@@ -71,12 +71,12 @@ export function getUserInfo() {
   })
 }
 
-export function getAgentQr(agnetId) {
+export function getAgentQr(agentId) {
   return fetch({
     url: '/wechat/getAgentQr',
     method: 'get',
     params: {
-      agnetId
+      agentId
     }
   })
 }
