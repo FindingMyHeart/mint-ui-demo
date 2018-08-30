@@ -69,7 +69,7 @@
       return {
         icon: "",
         qr: "",
-        isShow: false,
+        isShow: true,
         coverShow: true,
         isInGongzhonghao:false,//是否在公众号内
         imagex: this.computeIndex(),
