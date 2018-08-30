@@ -104,6 +104,11 @@
           alert('去授权')
         console.log("授权----------------")
         let state = id
+        qrd = getAgentQr(id).then(response=>{
+          this.icon = response.icon;
+
+          this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + response.qr;
+        })
         let url = 'http://dongxiaojieqipai.com/game/wechat/authorize_base?returnUrl=' + id
         //跳转
         window.top.location.href = url
