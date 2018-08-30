@@ -126,7 +126,7 @@
         this.qr = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + d.qr;
         console.log(info)
       }
-      if (info) {
+//      if (info) {
 //          alert('展示链接')
         let url = window.location.href.split('#')[0]
         jsapiparam(url).then(response => {
@@ -178,7 +178,7 @@
           })
 
         })
-      }
+//      }
 
     },
     created(){
