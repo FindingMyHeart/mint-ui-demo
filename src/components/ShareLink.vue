@@ -98,6 +98,7 @@
 
 //      this.setQr()
 
+      alert("info",info)
       //去授权
       if (!info) {
           alert('去授权')
