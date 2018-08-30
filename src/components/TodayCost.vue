@@ -10,7 +10,12 @@
     </mt-header>
     <br>
     <div style="text-align: center">
-      <span style="font-size: 22px"> ￥{{this.total.toFixed(2)}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}</span>
+      <span style="font-size: 22px"> ￥{{this.total.toFixed(2)}} <br>{{this.lastStartDate}} 至 {{this.lastEndDate}}
+        <br>
+        <span style="color: dodgerblue">
+            收益￥{{this.income.toFixed(2)}}
+        </span>
+      </span>
     </div>
     <br>
     <div @click="goToNextPlayer">
@@ -69,6 +74,7 @@
         level1Gold: "0",
         level2Gold: "0",
         level3Gold: "0",
+        income: 0.0,
         total: 0.0,
         totalGold: '0',
         pickerVisible:false,
@@ -190,6 +196,8 @@
           return
         }
 
+        // Toast("...")
+
         todayCost(this.startDate, this.endDate).then(response => {
 
           console.log(response);
@@ -201,7 +209,7 @@
           this.lastStartEnd =  response.end;
           this.startDate = response.start;
           this.endDate = response.end;
-
+          this.income = response.income
           this.list1 = response.li;
         });
 

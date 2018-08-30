@@ -9,6 +9,16 @@
       </router-link>
     </mt-header>
     <!--<mt-cell title="董小姐棋牌室" is-link to="/recommendDelegateDetail"></mt-cell>-->
+
+    <div style="text-align: center">
+      <h4>开通代理须知</h4>
+      <span>1、开通代理时该玩家元宝余额不低于2000元宝。</span>
+      <br>
+      <span>2、开通代理一周内绑定玩家不少于15人。</span>
+      <br>
+      <span>3、若违反上述两条规定，取消代理资格，代理收益不予结算！</span>
+    </div>
+
     <mt-cell
       title="董小姐棋牌室"
       to="/recommendDelegateDetail"

@@ -16,7 +16,6 @@
         </div>
       </mt-cell>
 
-
       <mt-cell
         title="今日充值"
         to="/todayCharge"
@@ -27,15 +26,13 @@
 
       <div @click="gotoCostPage">
         <mt-cell
-          title="今日收益"
+          title="今日业绩"
           is-link>
           <span>¥ {{this.allCost.toFixed(2)}}</span>
-          <img slot="icon" src="../assets/syz.png" width="24" height="24">
+          <img slot="icon" src="../assets/yj.png" width="24" height="24">
         </mt-cell>
       </div>
 
-
-      
       <mt-cell
         title="可结算额"
         to="/canBalance"
