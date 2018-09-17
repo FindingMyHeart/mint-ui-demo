@@ -70,7 +70,7 @@
         icon: "",
         qr: "",
         isShow: true,
-        coverShow: true,
+        coverShow: false,//遮罩是否显示
         isInGongzhonghao:false,//是否在公众号内
         imagex: this.computeIndex(),
         imagestyle: {
