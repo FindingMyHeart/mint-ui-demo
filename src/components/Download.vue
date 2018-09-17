@@ -54,7 +54,7 @@
       return {
 
         imagex: this.computeIndex(),
-        coverShow : true,
+        coverShow : false,
         imagestyle: {
           position: 'absolute',
           'z-index': 11,
