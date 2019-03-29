@@ -6,8 +6,8 @@ import {getToken, setToken, removeToken} from '@/utils/util'
 export default function fetch(options) {
   return new Promise((resolve, reject) => {
     const instance = axios.create({
-      // baseURL: 'http://192.168.1.132:8085/',
-      baseURL: 'http://dongxiaojieqipai.com/game/',
+      baseURL: 'http://192.168.1.132:8085/',
+      // baseURL: 'http://dongxiaojieqipai.com/game/',
       withCredentials: true,//跨域
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -44,12 +44,12 @@ export default function fetch(options) {
       response => {
         let res = response.data
         console.log('响应结果', res)
-        if (res.code === 1000) {
-          removeToken()
-          router.replace({
-            name: 'Login'
-          })
-        }
+        // if (res.code === 1000) {
+        //   removeToken()
+        //   router.replace({
+        //     name: 'Login'
+        //   })
+        // }
         return res
       },
       error => {
@@ -62,18 +62,18 @@ export default function fetch(options) {
       .then((res) => {
       console.log(res)
         //没有登录
-        if (res.code === 1000) {
-          // Cookies.remove('__userInfo')
-          removeToken()
-          router.replace({
-            name: 'Login'
-          })
-        }
-        else {
+        // if (res.code === 1000) {
+        //   // Cookies.remove('__userInfo')
+        //   removeToken()
+        //   router.replace({
+        //     name: 'Login'
+        //   })
+        // }
+        // else {
         //   if (res.status === 200) {
             resolve(res.data)
         //   }
-        }
+        // }
         return false
       })
       .catch((error) => {
